@@ -17,6 +17,7 @@ My overarching research goal is to advance the resiliency of critical infrastruc
 <li> improve the characterization of these events both historically and under future climate scenarios </li>
 <li> quantify  impacts to critical infrastructure from hazards via integrated assessments </li> 
 </ol>
+
 To do so, my work blends data science, climate science, econometrics, and risk management to develop new analytical and systems-based approaches to increase resiliency and lessen vulnerability of critical infrastructure from natural hazards.  
 
 
