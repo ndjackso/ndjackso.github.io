@@ -1,12 +1,25 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Hello!"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+
+Greetings!
+
+I am currently a staff researcher in the Energy-Water Systems Integration department at [Sandia National Laboratories](https://www.sandia.gov/); I also completed my postdoc here. My current work focuses on hazard impacts to the grid and renewable energy production. Previously, I completed my Ph.D. in civil engineering under [Megan Konar](http://mkonar.cee.illinois.edu/) at the University of Illinois at Urbana-Champaign. There, my work focused on understanding the interaction and response of agricultural trade to extreme climate events such as temperature extrema, heavy rain, and drought
+
+My overarching research goal is to advance the resiliency of critical infrastructure to extreme weather events and natural hazards. In particular, my research seeks to:
+
+<ol>
+<li> **understand** the context under which extreme weather and natural hazards occur </li>
+<li> **improve** the characterization of these events both historically and under future climate scenarios </li>
+<li> conduct integrated assessments to **quantify** the impacts of these events to critical infrastructure </li> 
+</ol>
+To do so, my work blends data science, climate science, econometrics, and risk management to develop new analytical and systems-based approaches to increase resiliency and lessen vulnerability to critical infrastructure systems. . 
 
 This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
 
