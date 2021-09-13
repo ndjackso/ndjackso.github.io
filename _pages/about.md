@@ -13,10 +13,10 @@ I am currently a staff researcher in the Energy-Water Systems Integration depart
 My overarching research goal is to advance the resiliency of critical infrastructure to extreme weather events and natural hazards. In particular, my research seeks to:
 
 <ol>
-<li> <strong> understand <\strong> the context under which extreme weather and natural hazards occur </li>
+<li> ** understand ** the context under which extreme weather and natural hazards occur </li>
 <li> **improve** the characterization of these events both historically and under future climate scenarios </li>
-<li> conduct integrated assessments to **quantify** the impacts of these events to critical infrastructure </li> 
+<li> ** quantify **  impacts to critical infrastructure from hazards via integrated assessments </li> 
 </ol>
-To do so, my work blends data science, climate science, econometrics, and risk management to develop new analytical and systems-based approaches to increase resiliency and lessen vulnerability to critical infrastructure systems. . 
+To do so, my work blends data science, climate science, econometrics, and risk management to develop new analytical and systems-based approaches to increase resiliency and lessen vulnerability  xxxxxx critical infrastructure systems. . 
 
 
