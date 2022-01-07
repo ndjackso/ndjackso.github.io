@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 <ol reversed>
-  <li> <b> N.D. Jackson <\b> and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, <em> Applied Energy <\em>, Vol 302, pp 117508 </li>
+  <li> <b> N.D. Jackson </b> and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, <em> Applied Energy </em>, Vol 302, pp 117508 </li>
   <li>Tea</li>
   <li>Milk</li>
 </ol>
