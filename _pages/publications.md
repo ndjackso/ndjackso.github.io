@@ -9,11 +9,13 @@ author_profile: true
 	
 	<li> <b>N.D. Jackson</b> and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, <em> Applied Energy</em>, Vol 302, pp 117508 <a href="https://doi.org/10.1016/j.apenergy.2021.117508">(paper)</a> <a href="http://data.openei.org/submissions/4055">(data)</a> </li>
 
-	<li> <b>N.D. Jackson</b> M. Konar, P. Debaere, and J. Sheffield. (2021) Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century, <em>Environmental Research Letters</em>, Vol 16, Issue 6, pp 064006 <a href="https://doi.org/10.1088/1748-9326/abf8e0">(paper)</a> <a href="https://doi.org/10.13012/B2IDB-5457902_V1">(data)</a> </li>
+	<li> <b>N.D. Jackson</b>, M. Konar, P. Debaere, and J. Sheffield. (2021) Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century, <em>Environmental Research Letters</em>, Vol 16, Issue 6, pp 064006 <a href="https://doi.org/10.1088/1748-9326/abf8e0">(paper)</a> <a href="https://doi.org/10.13012/B2IDB-5457902_V1">(data)</a> </li>
 
 	<li> R. von Gnechten, J. Wang, M. Konar, K. Baylis, P. Anderson, S. Giroux, <b>N.D. Jackson</b>, and T. Evans. (2020) A Gravity Model and Network Analysis of Household Food Sharing in Zambia, <em>Environmental Research Letters</em>, Vol 15, Issue 11, pp 115010 <a href="https://doi.org/10.1088/1748-9326/abbe44">(paper)</a>  </li>
 	
 	<li> <b>N.D. Jackson</b>, M. Konar, P. Debaere, and L. Estes. (2019) Probabilistic Global Maps of Crop-Specific Areas from 1961 to 2014, <em>Environmental Research Letters</em>, Vol 14, Issue 9, pp 094023 <a href="https://iopscience.iop.org/article/10.1088/1748-9326/ab3b93">(paper)</a> <a href="https://doi.org/10.13012/B2IDB-7439710_V1">(data)</a></li>
+	
+	<li> M. Niazi, C. Nietch, M. Maghrebi, <b>N.D. Jackson</b>, B.R. Bennett, M. Tryby, and A. Massoudieh. (2017) Storm Water Management Model: Performance Review and Gap Analysis, <em>Journal of Sustainable Water in the Built Environment</em>, Vol 3, Issue 2, pp 04017002 <a href="http://dx.doi.org/10.1061/JSWBAY.0000817#sthash.RYvwX1S8.dpuf">(paper)</a></li>
 	
 </ol>
 
@@ -24,8 +26,7 @@ author_profile: true
 
 
 	%
-	\item \textbf{N.D. Jackson}, M. Konar, P. Debaere, and L. Estes. (2019) Probabilistic Global Maps of Crop-Specific Areas from 1961 to 2014, \textit{Environmental Research Letters}, Vol 14, Issue 9, pp 094023  \href{https://iopscience.iop.org/article/10.1088/1748-9326/ab3b93}{(\textcolor{blue}{paper})}
-	\href{https://doi.org/10.13012/B2IDB-7439710_V1}{(\textcolor{blue}{data})} 
+
 	%
 	\item M. Niazi, C. Nietch, M. Maghrebi, \textbf{N.D. Jackson}, B.R. Bennett, M. Tryby, and A. Massoudieh. (2017) Storm Water Management Model: Performance Review and Gap Analysis, \textit{Journal of Sustainable Water in the Built Environment}, Vol 3, Issue 2, pp 04017002  \href{http://dx.doi.org/10.1061/JSWBAY.0000817#sthash.RYvwX1S8.dpuf}{(\textcolor{blue}{paper})}
 	%
