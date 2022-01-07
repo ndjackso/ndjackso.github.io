@@ -19,6 +19,6 @@ author_profile: true
 	
 	<li> <b>N.D. Jackson</b>, M. Konar, and A.Y. Hoekstra. (2015) <a href = "http://www.mdpi.com/2071-1050/7/6/6435" style = "color: black">The Water Footprint of Food Aid</a>, <em>Sustainability</em>, Vol 7, Issue 6, pp 6435-6456 <a href="https://github.com/ndjackso/ndjackso.github.io/blob/a0d022667df1a8f94ce338b2a3043a9e33dfa0db/files/2_Jackson_Sustainability_2015.pdf">PDF</a></li>
 
-	<li> J.S. Popovics, G.P. Cetrangolo, and <b>N.D. Jackson</b>. (2006) Experimental Investigation of Impact-Echo Method for Concrete Slab Thickness Measurement, <em>Journal of the Korean Society for Nondestructive Testing</em>, Vol 26, Issue 6, pp 427-439 <a href="https://www.koreascience.or.kr/article/JAKO200606141817475.pdf"> PDF </a>   </li>
+	<li> J.S. Popovics, G.P. Cetrangolo, and <b>N.D. Jackson</b>. (2006) Experimental Investigation of Impact-Echo Method for Concrete Slab Thickness Measurement, <em>Journal of the Korean Society for Nondestructive Testing</em>, Vol 26, Issue 6, pp 427-439 <a href="https://github.com/ndjackso/ndjackso.github.io/blob/a0d022667df1a8f94ce338b2a3043a9e33dfa0db/files/1_Popovics_JKSNDT_2006.pdf">PDF</a>   </li>
 </ol>
 
