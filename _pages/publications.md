@@ -7,10 +7,12 @@ author_profile: true
 
 <ol reversed>
 	
-  <li> <b> N.D. Jackson </b> and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, <em> Applied Energy </em>, Vol 302, pp 117508 <a href="https://doi.org/10.1016/j.apenergy.2021.117508">(paper)</a> <a href="http://data.openei.org/submissions/4055">(data)</a> </li>
+	<li> <b> N.D. Jackson </b> and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, <em> Applied Energy </em>, Vol 302, pp 117508 <a href="https://doi.org/10.1016/j.apenergy.2021.117508">(paper)</a> <a href="http://data.openei.org/submissions/4055">(data)</a> </li>
 
-  <li> <b> N.D. Jackson </b> M. Konar, P. Debaere, and J. Sheffield. (2021) Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century, <em> Environmental Research Letters </em>, Vol 16, Issue 6, pp 064006 <a href="https://doi.org/10.1088/1748-9326/abf8e0">(paper)</a> <a href="https://doi.org/10.13012/B2IDB-5457902_V1">(data)</a> </li>
+	<li> <b> N.D. Jackson </b> M. Konar, P. Debaere, and J. Sheffield. (2021) Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century, <em> Environmental Research Letters </em>, Vol 16, Issue 6, pp 064006 <a href="https://doi.org/10.1088/1748-9326/abf8e0">(paper)</a> <a href="https://doi.org/10.13012/B2IDB-5457902_V1">(data)</a> </li>
 
+	<li> R. von Gnechten, J. Wang, M. Konar, K. Baylis, P. Anderson, S. Giroux, <b> N.D. Jackson </b>, and T. Evans. (2020) A Gravity Model and Network Analysis of Household Food Sharing in Zambia, <em> Environmental Research Letters </em>, Vol 15, Issue 11, pp 115010 <a href="https://doi.org/10.1088/1748-9326/abbe44">(paper)</a>  </li>
+	
 	
 </ol>
 
@@ -18,8 +20,7 @@ author_profile: true
 
 <!--
 
-	\item \textbf{N.D. Jackson}, M. Konar, P. Debaere, and J. Sheffield. (2021) Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century, \textit{Environmental Research Letters}, Vol 16, Issue 6, pp 064006 \href{https://doi.org/10.1088/1748-9326/abf8e0}{(\textcolor{blue}{paper})} 
-	\href{https://doi.org/10.13012/B2IDB-5457902_V1}{(\textcolor{blue}{data})} 
+
 	%
 	\item R. von Gnechten, J. Wang, M. Konar, K. Baylis, P. Anderson, S. Giroux, \textbf{N.D. Jackson}, and T. Evans. (2020) A Gravity Model and Network Analysis of Household Food Sharing in Zambia, \textit{Environmental Research Letters}, Vol 15, Issue 11, pp 115010 \href{https://doi.org/10.1088/1748-9326/abbe44}{(\textcolor{blue}{paper})}
 	%
