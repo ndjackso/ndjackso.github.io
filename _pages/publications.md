@@ -15,7 +15,7 @@ author_profile: true
 	
 	<li> <b>N.D. Jackson</b>, M. Konar, P. Debaere, and L. Estes. (2019) <a href = "https://iopscience.iop.org/article/10.1088/1748-9326/ab3b93" style = "color: black">Probabilistic Global Maps of Crop-Specific Areas from 1961 to 2014</a>, <em>Environmental Research Letters</em>, Vol 14, Issue 9, pp 094023 <a href="https://github.com/ndjackso/ndjackso.github.io/blob/a0d022667df1a8f94ce338b2a3043a9e33dfa0db/files/4_Jackson_ERL_2019.pdf">PDF</a> <a href="https://doi.org/10.13012/B2IDB-7439710_V1">data</a></li>
 	
-	<li> M. Niazi, C. Nietch, M. Maghrebi, <b>N.D. Jackson</b>, B.R. Bennett, M. Tryby, and A. Massoudieh. (2017) Storm Water Management Model: Performance Review and Gap Analysis, <em>Journal of Sustainable Water in the Built Environment</em>, Vol 3, Issue 2, pp 04017002 <a href="http://dx.doi.org/10.1061/JSWBAY.0000817#sthash.RYvwX1S8.dpuf"> PDF </a></li>
+	<li> M. Niazi, C. Nietch, M. Maghrebi, <b>N.D. Jackson</b>, B.R. Bennett, M. Tryby, and A. Massoudieh. (2017) <a href = "http://dx.doi.org/10.1061/JSWBAY.0000817#sthash.RYvwX1S8.dpuf" style = "color: black">Storm Water Management Model: Performance Review and Gap Analysis</a>, <em>Journal of Sustainable Water in the Built Environment</em>, Vol 3, Issue 2, pp 04017002 <a href="https://github.com/ndjackso/ndjackso.github.io/blob/a0d022667df1a8f94ce338b2a3043a9e33dfa0db/files/3_Niazi_JSWBE_2017.pdf">PDF</a></li>
 	
 	<li> <b>N.D. Jackson</b>, M. Konar, and A.Y. Hoekstra. (2015) The Water Footprint of Food Aid, <em>Sustainability</em>, Vol 7, Issue 6, pp 6435-6456 <a href="http://www.mdpi.com/2071-1050/7/6/6435"> PDF </a></li>
 
