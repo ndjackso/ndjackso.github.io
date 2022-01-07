@@ -5,18 +5,30 @@ permalink: /publications/
 author_profile: true
 ---
 
-Google scholar page is noted on the left
-
-Insert list of publications
-
-A paragraph of Markdown text
-
 <ol reversed>
-  <li>Coffee</li>
+  <li> **N.D. Jackson** and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, _Applied Energy_, Vol 302, pp 117508 </li>
   <li>Tea</li>
   <li>Milk</li>
 </ol>
 
-More Markdown text.
 
 
+<!--
+
+	\item\label{numPaper} \textbf{N.D. Jackson} and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, \textit{Applied Energy}, Vol 302, pp 117508 \href{https://doi.org/10.1016/j.apenergy.2021.117508}{(\textcolor{blue}{paper})} \href{http://data.openei.org/submissions/4055}{(\textcolor{blue}{data})} 
+	
+	\item \textbf{N.D. Jackson}, M. Konar, P. Debaere, and J. Sheffield. (2021) Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century, \textit{Environmental Research Letters}, Vol 16, Issue 6, pp 064006 \href{https://doi.org/10.1088/1748-9326/abf8e0}{(\textcolor{blue}{paper})} 
+	\href{https://doi.org/10.13012/B2IDB-5457902_V1}{(\textcolor{blue}{data})} 
+	%
+	\item R. von Gnechten, J. Wang, M. Konar, K. Baylis, P. Anderson, S. Giroux, \textbf{N.D. Jackson}, and T. Evans. (2020) A Gravity Model and Network Analysis of Household Food Sharing in Zambia, \textit{Environmental Research Letters}, Vol 15, Issue 11, pp 115010 \href{https://doi.org/10.1088/1748-9326/abbe44}{(\textcolor{blue}{paper})}
+	%
+	\item \textbf{N.D. Jackson}, M. Konar, P. Debaere, and L. Estes. (2019) Probabilistic Global Maps of Crop-Specific Areas from 1961 to 2014, \textit{Environmental Research Letters}, Vol 14, Issue 9, pp 094023  \href{https://iopscience.iop.org/article/10.1088/1748-9326/ab3b93}{(\textcolor{blue}{paper})}
+	\href{https://doi.org/10.13012/B2IDB-7439710_V1}{(\textcolor{blue}{data})} 
+	%
+	\item M. Niazi, C. Nietch, M. Maghrebi, \textbf{N.D. Jackson}, B.R. Bennett, M. Tryby, and A. Massoudieh. (2017) Storm Water Management Model: Performance Review and Gap Analysis, \textit{Journal of Sustainable Water in the Built Environment}, Vol 3, Issue 2, pp 04017002  \href{http://dx.doi.org/10.1061/JSWBAY.0000817#sthash.RYvwX1S8.dpuf}{(\textcolor{blue}{paper})}
+	%
+	\item  \textbf{N.D. Jackson}, M. Konar, and A.Y. Hoekstra. (2015) The Water Footprint of Food Aid, \textit{Sustainability}, Vol 7, Issue 6, pp 6435-6456 \href{http://www.mdpi.com/2071-1050/7/6/6435}{(\textcolor{blue}{paper})}
+	%
+	\item J.S. Popovics, G.P. Cetrangolo, and \textbf{N.D. Jackson}. (2006) Experimental Investigation of Impact-Echo Method for Concrete Slab Thickness Measurement, \textit{Journal of the Korean Society for Nondestructive Testing}, Vol 26, Issue 6, pp 427-439  \href{https://www.koreascience.or.kr/article/JAKO200606141817475.pdf}{(\textcolor{blue}{paper})}
+
+-->
