@@ -7,11 +7,16 @@ redirect_from:
   - /resume
 ---
 
-[//]: # embed the PDF of the CV
+{% comment %} 
+    Embed the PDF of the CV
+{% endcomment %}
+
 
 <embed src="https://github.com/ndjackso/ndjackso.github.io/blob/ba374a2042595628616e3ba7a21cc4e02151afc1/files/nicole_jackson_cv.pdf" type="application/pdf" />
 
-[//]: # Suppress old content
+{% comment %} 
+
+Suppress old content
 
 {% include base_path %}
 
@@ -64,4 +69,4 @@ Service and leadership
 ======
 * Currently signed in to 43 different slack teams
 
-<! --- 
+{% endcomment %}
