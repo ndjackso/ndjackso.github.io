@@ -16,7 +16,9 @@ author_profile: true
 </script>
 
 <ol reversed>
-	
+
+	<li> S.D. Gilletly, <b>N.D. Jackson</b> and A. Staid. (2021) <a href = "https://doi.org/10.1016/j.apenergy.2023.121303" style="color: black">Evaluating the impact of wildfire smoke on solar photovoltaic production</a>, <em> Applied Energy</em>, Vol 348, pp 121303  <a href="https://dx.doi.org/10.25984/1988650">data</a> </li>
+ 
 	<li> <b>N.D. Jackson</b> and T. Gunda. (2021) <a href = "https://doi.org/10.1016/j.apenergy.2021.117508" style="color: black">Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States</a>, <em> Applied Energy</em>, Vol 302, pp 117508 <a href="https://github.com/ndjackso/ndjackso.github.io/blob/fdf31830cb21c726a7a6f78347ef2156c6228370/files/7_Jackson_AppliedEnergy_2021.pdf">PDF</a> <a href="http://data.openei.org/submissions/4055">data</a> </li>
 
 	<li> <b>N.D. Jackson</b>, M. Konar, P. Debaere, and J. Sheffield. (2021) <a href = "https://doi.org/10.1088/1748-9326/abf8e0" style = "color: black">Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century</a>, <em>Environmental Research Letters</em>, Vol 16, Issue 6, pp 064006 <a href="https://github.com/ndjackso/ndjackso.github.io/blob/a0d022667df1a8f94ce338b2a3043a9e33dfa0db/files/6_Jackson_ERL_2021.pdf">PDF</a> <a href="https://doi.org/10.13012/B2IDB-5457902_V1">data</a> </li>
