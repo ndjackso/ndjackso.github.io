@@ -84,7 +84,7 @@ author:
   name             : "Nicole D. Jackson, Ph.D."
   avatar           : "Jackson_Nicole_2021_crop_v2.png" # image needs to be located in _image folder # "profile.png"
   bio              : ""
-  location         : "Albuquerque, New Mexico"
+  location         : 
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=dOzcnYUAAAAJ&hl=en"
