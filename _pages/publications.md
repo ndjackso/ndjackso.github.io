@@ -17,6 +17,8 @@ author_profile: true
 
 <ol reversed>
 
+	<li> P.M. Johnson, <b>N.D. Jackson</b>, H. Baroud, and A. Staid. (2024) <a href = "https://iopscience.iop.org/article/10.1088/1748-9326/ad3568" style = "color: black">CCan socio-economic indicators of vulnerability help predict spatial variations in the duration and severity of power outages due to tropical cyclones?</a>, <em>Environmental Research Letters</em>, Vol 19, pp 044048 </li>
+
 	<li> K.L. Bonney, T. Gunda, M.W. Hopwood, H. Mendoza, and <b>N.D. Jackson</b>. (2023) <a href = "https://joss.theoj.org/papers/10.21105/joss.05755" style="color: black">pvOps: a Python package for empirical analysis of photovoltaic field data</a>, <em> Journal of Open Source Software</em>, Vol 8, Issue 91 pp 5755 </li>
 
 	<li> S.D. Gilletly, <b>N.D. Jackson</b> and A. Staid. (2023) <a href = "https://doi.org/10.1016/j.apenergy.2023.121303" style="color: black">Evaluating the impact of wildfire smoke on solar photovoltaic production</a>, <em> Applied Energy</em>, Vol 348, pp 121303  <a href="https://dx.doi.org/10.25984/1988650">data</a> </li>
