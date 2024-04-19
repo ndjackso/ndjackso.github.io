@@ -17,7 +17,7 @@ author_profile: true
 
 <ol reversed>
 
-	<li> P.M. Johnson, <b>N.D. Jackson</b>, H. Baroud, and A. Staid. (2024) <a href = "https://iopscience.iop.org/article/10.1088/1748-9326/ad3568" style = "color: black">CCan socio-economic indicators of vulnerability help predict spatial variations in the duration and severity of power outages due to tropical cyclones?</a>, <em>Environmental Research Letters</em>, Vol 19, pp 044048 </li>
+	<li> P.M. Johnson, <b>N.D. Jackson</b>, H. Baroud, and A. Staid. (2024) <a href = "https://iopscience.iop.org/article/10.1088/1748-9326/ad3568" style = "color: black">CCan socio-economic indicators of vulnerability help predict spatial variations in the duration and severity of power outages due to tropical cyclones?</a>, <em>Environmental Research Letters</em>, Vol 19, Issue 4 pp 044048 <a href="https://doi.org/10.17605/OSF.IO/AK5J6">data</a> <a href="https://osf.io/ak5j6/?view_only=0a795a15856741dab2628c73efd52fc5">code</a> </li>
 
 	<li> K.L. Bonney, T. Gunda, M.W. Hopwood, H. Mendoza, and <b>N.D. Jackson</b>. (2023) <a href = "https://joss.theoj.org/papers/10.21105/joss.05755" style="color: black">pvOps: a Python package for empirical analysis of photovoltaic field data</a>, <em> Journal of Open Source Software</em>, Vol 8, Issue 91 pp 5755 </li>
 
