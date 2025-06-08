@@ -30,7 +30,7 @@ I develop analytical frameworks that help organizations and decision makers unde
 
 ### Research Impact & Recognition:
 - $3.9M in direct research funding management as Principal Investigator
-- Co-investigator on $12.8M+ in collaborative federal research programs
+- Co-investigator on $12.8M+ in multi-institution research projects
 - 29 publications with 500+ citations establishing methodological foundations
 - Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
 
