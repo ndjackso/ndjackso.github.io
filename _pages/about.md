@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Infrastructure Risk & Energy Systems Expert"
+title: "nfrastructure Risk & Resilience Expert"
 excerpt: "Advancing understanding of climate impacts on critical infrastructure"
 author_profile: true
 redirect_from: 
