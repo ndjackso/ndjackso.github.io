@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', updatePublicationCount);
 ## <a id="conference-proceedings"></a>Conference Proceedings
 
 <ol id="conference-proceedings-list">
-	<li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J. Kyle Skolfield. (<em>in press</em>) <a href="#" style="color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em> </li>
+	<li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J. Kyle Skolfield. (<em>in press</em>) Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards, <em>2025 IEEE Kiel PowerTech Conference</em> </li>
 
 	<li> G. Zhao, X. Luo, S. Yoo, and <b>N.D. Jackson</b>. (2024) <a href="https://doi.org/10.1109/SmartGridComm60555.2024.10738070" style="color: black">GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems</a>, <em>IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)</em> </li>
 
@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', updatePublicationCount);
 
 	<li> T. Gunda, A. Neal, P. Carlson, C. Richardson, J.A. Perez, M. Aamir, B. Anderson, and <b>N.D. Jackson</b> (2020) TAOS: A Tool for Assisting Organization Selections for Security Integrated Assessments, Sandia National Laboratories, SAND2020-10751 </li>
 </ol>
+
 <!-- OLD CODE
 
 <ol reversed>
