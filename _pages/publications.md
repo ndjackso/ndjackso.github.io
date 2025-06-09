@@ -24,13 +24,13 @@ author_profile: true
 #journal-articles-list li {
     counter-increment: journal-counter -1;
     position: relative;
-    padding-left: 30px;
+    padding-left: 40px;
+    margin-bottom: 10px;
 }
 #journal-articles-list li::before {
-    content: "J" counter(journal-counter) ".";
+    content: "J" counter(journal-counter) ". ";
     position: absolute;
     left: 0;
-    font-weight: bold;
 }
 
 /* Conference Proceedings - C prefix, reverse numbering */
@@ -41,13 +41,13 @@ author_profile: true
 #conference-proceedings-list li {
     counter-increment: conference-counter -1;
     position: relative;
-    padding-left: 30px;
+    padding-left: 40px;
+    margin-bottom: 10px;
 }
 #conference-proceedings-list li::before {
-    content: "C" counter(conference-counter) ".";
+    content: "C" counter(conference-counter) ". ";
     position: absolute;
     left: 0;
-    font-weight: bold;
 }
 
 /* Technical Reports - R prefix, reverse numbering */
@@ -58,13 +58,13 @@ author_profile: true
 #technical-reports-list li {
     counter-increment: reports-counter -1;
     position: relative;
-    padding-left: 30px;
+    padding-left: 40px;
+    margin-bottom: 10px;
 }
 #technical-reports-list li::before {
-    content: "R" counter(reports-counter) ".";
+    content: "R" counter(reports-counter) ". ";
     position: absolute;
     left: 0;
-    font-weight: bold;
 }
 </style>
 
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', updatePublicationCount);
 
 ## <a id="technical-reports"></a>National Laboratory Reports and White Papers
 
-<em>Note</em>: These are reports published by national laboratories and have undergone at least one round of internal peer review prior to publication. Reports without links are not publicly available and are for official use only.
+<em>Note: These are reports published by national laboratories and have undergone at least one round of internal peer review prior to publication. Reports without links are not publicly available and are for official use only.</em>
 
 <ol id="technical-reports-list">
 	<li> J.K. Skolfield, T. Gunda, and <b>N.D. Jackson</b>. (2025) Flexible and MOdule Superstructure Optimization for Rapid Computational Advancements in Power Systems Expansion Planning, Sandia National Laboratories </li>
@@ -167,9 +167,6 @@ document.addEventListener('DOMContentLoaded', updatePublicationCount);
 
 	<li> T. Gunda, A. Neal, P. Carlson, C. Richardson, J.A. Perez, M. Aamir, B. Anderson, and <b>N.D. Jackson</b> (2020) TAOS: A Tool for Assisting Organization Selections for Security Integrated Assessments, Sandia National Laboratories, SAND2020-10751 </li>
 </ol>
-
-
-
 <!-- OLD CODE
 
 <ol reversed>
