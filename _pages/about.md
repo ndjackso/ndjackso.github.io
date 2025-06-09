@@ -31,11 +31,42 @@ I develop analytical frameworks that help organizations and decision makers unde
 ### Research Impact & Recognition:
 - $3.9M in direct research funding management as Principal Investigator
 - Co-investigator on $12.8M+ in multi-institution research projects
-- 29 publications with 500+ citations establishing methodological foundations
+- <span id="homepage-pub-count">29</span> publications with 500+ citations establishing methodological foundations
 - Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
 
 ### Research Applications:
 *Climate Risk Assessment* | *Renewable Energy Analysis* | *Infrastructure Planning* | *Industry Data Analytics* 
+
+<script>
+async function updateHomepagePublicationCount() {
+    try {
+        // Fetch the publications page
+        const response = await fetch('/publications/');
+        const html = await response.text();
+        
+        // Create a temporary DOM to parse the content
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        
+        // Count publications in each section
+        const journalCount = doc.querySelectorAll('#journal-articles-list li').length;
+        const conferenceCount = doc.querySelectorAll('#conference-proceedings-list li').length;
+        const reportsCount = doc.querySelectorAll('#technical-reports-list li').length;
+        const totalCount = journalCount + conferenceCount + reportsCount;
+        
+        // Update the homepage display
+        const pubElement = document.querySelector('#homepage-pub-count');
+        if (pubElement && totalCount > 0) {
+            pubElement.textContent = totalCount;
+        }
+    } catch (error) {
+        console.log('Could not fetch publication count, keeping default of 29');
+    }
+}
+
+// Run when page loads
+document.addEventListener('DOMContentLoaded', updateHomepagePublicationCount);
+</script>
 
 <!-- COMMENTED OUT ORIGINAL CONTENT - REMOVE THESE COMMENTS AFTER CONFIRMING NEW VERSION WORKS
 
