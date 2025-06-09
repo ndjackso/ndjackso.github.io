@@ -68,27 +68,7 @@ author_profile: true
 }
 </style>
 
-<span id="publication-count">XX</span> publications with 500+ citations establishing methodological foundations (<a href="https://scholar.google.com/citations?user=dOzcnYUAAAAJ&hl=en&oi=ao" style="color: blue">Google Scholar Page</a>)
-
-<script>
-function updatePublicationCount() {
-    const journalCount = document.querySelectorAll('#journal-articles-list li').length;
-    const conferenceCount = document.querySelectorAll('#conference-proceedings-list li').length;
-    const reportsCount = document.querySelectorAll('#technical-reports-list li').length;
-    const totalCount = journalCount + conferenceCount + reportsCount;
-    
-    // Update total count display
-    document.getElementById('publication-count').textContent = totalCount;
-    
-    // Set CSS custom properties for reverse numbering
-    document.documentElement.style.setProperty('--journal-total', journalCount + 1);
-    document.documentElement.style.setProperty('--conference-total', conferenceCount + 1);
-    document.documentElement.style.setProperty('--reports-total', reportsCount + 1);
-}
-
-// Run when page loads
-document.addEventListener('DOMContentLoaded', updatePublicationCount);
-</script>
+<span id="publication-count">29</span> publications with 500+ citations establishing methodological foundations (<a href="https://scholar.google.com/citations?user=dOzcnYUAAAAJ&hl=en&oi=ao" style="color: blue">Google Scholar Page</a>)
 
 <div style="text-align: center; margin: 20px 0; padding: 15px; background-color: #f5f5f5; border-radius: 5px;">
 <a href="#journal-articles" style="color: #0066cc; text-decoration: none; font-weight: bold; margin: 0 15px;">Journal Articles</a> | 
@@ -167,6 +147,39 @@ document.addEventListener('DOMContentLoaded', updatePublicationCount);
 
 	<li> T. Gunda, A. Neal, P. Carlson, C. Richardson, J.A. Perez, M. Aamir, B. Anderson, and <b>N.D. Jackson</b> (2020) TAOS: A Tool for Assisting Organization Selections for Security Integrated Assessments, Sandia National Laboratories, SAND2020-10751 </li>
 </ol>
+
+<script>
+function updatePublicationCount() {
+    const journalCount = document.querySelectorAll('#journal-articles-list li').length;
+    const conferenceCount = document.querySelectorAll('#conference-proceedings-list li').length;
+    const reportsCount = document.querySelectorAll('#technical-reports-list li').length;
+    const totalCount = journalCount + conferenceCount + reportsCount;
+    
+    console.log('Journal count:', journalCount);
+    console.log('Conference count:', conferenceCount);
+    console.log('Reports count:', reportsCount);
+    console.log('Total count:', totalCount);
+    
+    // Update total count display
+    if (document.getElementById('publication-count')) {
+        document.getElementById('publication-count').textContent = totalCount;
+    }
+    
+    // Set CSS custom properties for reverse numbering
+    document.documentElement.style.setProperty('--journal-total', journalCount + 1);
+    document.documentElement.style.setProperty('--conference-total', conferenceCount + 1);
+    document.documentElement.style.setProperty('--reports-total', reportsCount + 1);
+}
+
+// Run when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, running updatePublicationCount');
+    updatePublicationCount();
+});
+
+// Also run immediately in case DOMContentLoaded already fired
+updatePublicationCount();
+</script>
 
 <!-- OLD CODE
 
