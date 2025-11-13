@@ -18,7 +18,7 @@ author_profile: true
 <style>
 /* Journal Articles - J prefix, reverse numbering */
 #journal-articles-list {
-    counter-reset: journal-counter var(--journal-total, 12);
+    counter-reset: journal-counter var(--journal-total, 13);
     list-style: none;
 }
 #journal-articles-list li {
@@ -35,7 +35,7 @@ author_profile: true
 
 /* Conference Proceedings - C prefix, reverse numbering */
 #conference-proceedings-list {
-    counter-reset: conference-counter var(--conference-total, 8);
+    counter-reset: conference-counter var(--conference-total, 13);
     list-style: none;
 }
 #conference-proceedings-list li {
@@ -52,7 +52,7 @@ author_profile: true
 
 /* Technical Reports - R prefix, reverse numbering */
 #technical-reports-list {
-    counter-reset: reports-counter var(--reports-total, 12);
+    counter-reset: reports-counter var(--reports-total, 17);
     list-style: none;
 }
 #technical-reports-list li {
