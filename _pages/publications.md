@@ -73,7 +73,7 @@ author_profile: true
 <div style="text-align: center; margin: 20px 0; padding: 15px; background-color: #f5f5f5; border-radius: 5px;">
 <a href="#journal-articles" style="color: #0066cc; text-decoration: none; font-weight: bold; margin: 0 15px;">Journal Articles</a> | 
 <a href="#conference-proceedings" style="color: #0066cc; text-decoration: none; font-weight: bold; margin: 0 15px;">Conference Proceedings</a> | 
-<a href="#technical-reports" style="color: #0066cc; text-decoration: none; font-weight: bold; margin: 0 15px;">Technical Reports</a>
+<a href="#technical-reports" style="color: #0066cc; text-decoration: none; font-weight: bold; margin: 0 15px;">Technical Reports & White Papers</a>
 </div>
 
 ## <a id="journal-articles"></a>Journal Articles
