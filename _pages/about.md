@@ -31,7 +31,7 @@ I develop analytical frameworks that help organizations and decision makers unde
 ### Research Impact & Recognition:
 - $3.9M in direct research funding management as Principal Investigator
 - Co-investigator on $15.7M+ in multi-institution research projects
-- <span id="homepage-pub-count">29</span> publications establishing methodological foundations and quantifying hazards-related risk across the energy, water, and food sectors
+- <span id="homepage-pub-count">40</span> publications establishing methodological foundations and quantifying hazards-related risk across the energy, water, and food sectors
 - Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
 - Member of the National Academies committee on [Attribution of Extreme Weather and Climate Events and their Impacts](https://www.nationalacademies.org/our-work/attribution-of-extreme-weather-and-climate-events-and-their-impacts)
 
