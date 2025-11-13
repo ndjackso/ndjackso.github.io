@@ -82,6 +82,8 @@ author_profile: true
 
 	<li> H.H. Bokhari, F. Corsi, A. Miara, B.M. Fekete, S. Gangrade, S. Kao, <b>N.D. Jackson</b>, C.J. V{\"o}r{\"o}smarty. (2025) <a href = "https://doi.org/10.1029/2025EF006203" style = "color: black"> An Integrated Hydroclimatic Assessment of Future Reservoir and Hydropower Operations in the U.S.</a>, <em>Earth's Future</em>, Vol 13, Issue 9 pp e2025EF006203 <a href="https://doi.org/10.5281/zenodo.14272679">code and data</a>  </li>
 
+	Note: Paper is part of the Special Issue <a = "https://agupubs.onlinelibrary.wiley.com/doi/toc/10.1002/(ISSN)2328-4277.MLTISCTDYN">''Multi-Sector Dynamics: Advancing Complex Adaptive Human-Earth Systems Science in a World of Interconnected Risks''</a>
+
 	<li> T. Gunda, A. Moore, <b>N.D. Jackson</b>, S. Dhulipala, and S. Awara. (2025) <a href = "https://doi.org/10.1088/2753-3751/add465" style = "color: black"> A resource adequacy assessment of correlated wide-area outages in the power grid</a>, <em>Environmental Research: Energy</em>, Vol 2, Issue 2 pp 025009 <a href="https://doi.org/10.7799/2566792">data</a>  </li>
  
 	<li> P.M. Johnson, <b>N.D. Jackson</b>, H. Baroud, and A. Staid. (2024) <a href = "https://iopscience.iop.org/article/10.1088/1748-9326/ad3568" style = "color: black">Can socio-economic indicators of vulnerability help predict spatial variations in the duration and severity of power outages due to tropical cyclones?</a>, <em>Environmental Research Letters</em>, Vol 19, Issue 4 pp 044048 <a href="https://doi.org/10.17605/OSF.IO/AK5J6">data</a> <a href="https://osf.io/ak5j6/?view_only=0a795a15856741dab2628c73efd52fc5">code</a> </li>
@@ -108,7 +110,18 @@ author_profile: true
 ## <a id="conference-proceedings"></a>Conference Proceedings
 
 <ol id="conference-proceedings-list">
-	<li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J. Kyle Skolfield. (<em>in press</em>) Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards, <em>2025 IEEE Kiel PowerTech Conference</em> </li>
+
+	<li> <b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield  (<em>in press</em>) Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields, <em>2025 IEEE Resilience Week</em> </li}
+
+	<li> R.M. Alfant, J.K. Skolfield, <b>N.D. Jackson</b>, and T.R. Edwards (<em>in press</em>) Generation and Transmission Expansion Planning for Resilience to Compound Hazards, <em>2025 IEEE Resilience Week </em> </li>
+
+	<li> R.L. Valdez, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b> (<em>in press</em>) Integrated Metrics for System Performance, Attributes, and Critical Threats for Resilience Analysis, <em>2025 IEEE Resilience Week <\em> <\li>
+
+	<li> R.L. Valdez, A.G. Moore, <b>N.D. Jackson<\b>, and T. Gunda (<em>in press</em>) Evaluating Correlations between Risk Indices and Power Outages during Extreme Events, <em>2025 IEEE Resilience Week <\em> <\li>
+
+	<li> A.G. Moore, T. Gunda, and <b> N.D. Jackson <\b> (<em>in press</em>) A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems, <em> 2025 IEEE Resilience Week <\em> <\li>
+
+	<li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J. Kyle Skolfield. (2025) <a href = "https://doi.org/10.48550/arXiv.2506.06575" style = "color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em> </li>
 
 	<li> G. Zhao, X. Luo, S. Yoo, and <b>N.D. Jackson</b>. (2024) <a href="https://doi.org/10.1109/SmartGridComm60555.2024.10738070" style="color: black">GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems</a>, <em>IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)</em> </li>
 
@@ -125,9 +138,20 @@ author_profile: true
 
 ## <a id="technical-reports"></a>National Laboratory Reports and White Papers
 
-<em>Note: These are reports published by national laboratories and have undergone at least one round of internal peer review prior to publication. Reports without links are not publicly available and are for official use only.</em>
+<em>Note: National laboratory documents are subject to internal peer review before publication. Entries without links remain distribution-limited and are available only for official use.</em>
 
 <ol id="technical-reports-list">
+	
+	<li> <b> N.D. Jackson <\b>, M. Brown, and N.S. Rao (2025) Reinforcement Learning for Water-Energy Infrastructure Resilience and Evolution, SAND2025-13783O <\li>
+	
+	<li> <b> N.D. Jackson <\b>, S. Conrad, and N.S. Rao (2025) Operational Flexibility for Integrated Energy-Water Resilience, SAND2025-13749O <\li>
+	
+	<li> P. Bhowmik, K. Cafferty, K. Klise, J.K. Skolfield, and <b> N.D. Jackson <\b> (2025) Water Energy Planning Strategies to Meet Emerging Load from Data Centers, SAND2025-13692O <\li>	
+	
+	<li> R.L. Valdez, <b> N.D. Jackson <\b> , S. Ferencz, and A. Wachtel (2025) Resilience by Design: Advanced Metrics and Comprehensive Methods for Energy-Water Systems Analysis, SAND2025-13704O 
+
+	<li> T. Gunda, <b> N.D. Jackson}, Z. Kilwein <\b>, K. Klise, and J.K. Skolfield (2025) Opportunities to Address Gaps in Atmospheric Phenomena for Energy Operations and Planning, SAND2025-13655O
+
 	<li> J.K. Skolfield, T. Gunda, and <b>N.D. Jackson</b>. (2025) Flexible and MOdule Superstructure Optimization for Rapid Computational Advancements in Power Systems Expansion Planning, Sandia National Laboratories </li>
 
 	<li> T. Gunda, R. Valdez, <b>N. Jackson</b>, R. Cooper, A. Sorensen, and E. Sproul. (2024) Historical and Future Extreme Weather Conditions: A Case Study of Southeast China Provinces, Sandia National Laboratories, SAND2024-15880 </li>
