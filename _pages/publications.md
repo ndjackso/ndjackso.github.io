@@ -108,29 +108,30 @@ author_profile: true
 
 <ol id="conference-proceedings-list">
 
-	<li> <b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield  (<em>in press</em>) Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields, <em>2025 IEEE Resilience Week</em> </li}
+    <li> <b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield (<em>in press</em>) Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields, <em>2025 IEEE Resilience Week</em> </li>
 
-	<li> R.M. Alfant, J.K. Skolfield, <b>N.D. Jackson</b>, and T.R. Edwards (<em>in press</em>) Generation and Transmission Expansion Planning for Resilience to Compound Hazards, <em>2025 IEEE Resilience Week </em> </li>
+    <li> R.M. Alfant, J.K. Skolfield, <b>N.D. Jackson</b>, and T.R. Edwards (<em>in press</em>) Generation and Transmission Expansion Planning for Resilience to Compound Hazards, <em>2025 IEEE Resilience Week</em> </li>
 
-	<li> R.L. Valdez, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b> (<em>in press</em>) Integrated Metrics for System Performance, Attributes, and Critical Threats for Resilience Analysis, <em>2025 IEEE Resilience Week <\em> <\li>
+    <li> R.L. Valdez, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b> (<em>in press</em>) Integrated Metrics for System Performance, Attributes, and Critical Threats for Resilience Analysis, <em>2025 IEEE Resilience Week</em> </li>
 
-	<li> R.L. Valdez, A.G. Moore, <b>N.D. Jackson<\b>, and T. Gunda (<em>in press</em>) Evaluating Correlations between Risk Indices and Power Outages during Extreme Events, <em>2025 IEEE Resilience Week <\em> <\li>
+    <li> R.L. Valdez, A.G. Moore, <b>N.D. Jackson</b>, and T. Gunda (<em>in press</em>) Evaluating Correlations between Risk Indices and Power Outages during Extreme Events, <em>2025 IEEE Resilience Week</em> </li>
 
-	<li> A.G. Moore, T. Gunda, and <b> N.D. Jackson <\b> (<em>in press</em>) A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems, <em> 2025 IEEE Resilience Week <\em> <\li>
+    <li> A.G. Moore, T. Gunda, and <b>N.D. Jackson</b> (<em>in press</em>) A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems, <em>2025 IEEE Resilience Week</em> </li>
 
-	<li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J. Kyle Skolfield. (2025) <a href = "https://doi.org/10.48550/arXiv.2506.06575" style = "color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em> </li>
+    <li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J.K. Skolfield. (2025) <a href="https://doi.org/10.48550/arXiv.2506.06575" style="color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em> </li>
 
-	<li> G. Zhao, X. Luo, S. Yoo, and <b>N.D. Jackson</b>. (2024) <a href="https://doi.org/10.1109/SmartGridComm60555.2024.10738070" style="color: black">GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems</a>, <em>IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)</em> </li>
+    <li> G. Zhao, X. Luo, S. Yoo, and <b>N.D. Jackson</b>. (2024) <a href="https://doi.org/10.1109/SmartGridComm60555.2024.10738070" style="color: black">GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems</a>, <em>IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)</em> </li>
 
-	<li> R.M. Reck, Y. Li, S. Thompson, <b>N.D. Jackson</b>, and S. Debetwar. (2023) <a href="https://peer.asee.org/preparing-women-in-stem-for-faculty-careers-through-a-job-search-workshop-series.pdf" style="color: black">Preparing Women in STEM for Faculty Careers through a Job Search Workshop Series</a>, <em>ASEE Annual Conference & Exposition, Conference Proceedings</em>, Baltimore, Maryland </li>
+    <li> R.M. Reck, Y. Li, S. Thompson, <b>N.D. Jackson</b>, and S. Debetwar. (2023) <a href="https://peer.asee.org/preparing-women-in-stem-for-faculty-careers-through-a-job-search-workshop-series.pdf" style="color: black">Preparing Women in STEM for Faculty Careers through a Job Search Workshop Series</a>, <em>ASEE Annual Conference & Exposition, Conference Proceedings</em>, Baltimore, Maryland </li>
 
-	<li> S. Gilletly, <b>N.D. Jackson</b>, and A. Staid. (2021) <a href="https://doi.org/10.1109/PVSC43889.2021.9518514" style="color: black">Quantifying Wildfire-Induced Impacts to Photovoltaic Energy Production in the Western United States</a>, <em>48th IEEE Photovoltaic Specialists (PVSC)</em>, virtual </li>
+    <li> S. Gilletly, <b>N.D. Jackson</b>, and A. Staid. (2021) <a href="https://doi.org/10.1109/PVSC43889.2021.9518514" style="color: black">Quantifying Wildfire-Induced Impacts to Photovoltaic Energy Production in the Western United States</a>, <em>48th IEEE Photovoltaic Specialists (PVSC)</em>, virtual </li>
 
-	<li> <b>N.D. Jackson</b>, K.I. Tyler, Y. Li, W. Chen, C. Liu and R. Bhargava. (2017) <a href="https://peer.asee.org/28598" style="color: black">Keeping Current: An Update on the Structure and Evaluation of a Program for Graduate Women Interested in Engineering Academia</a>, <em>ASEE Annual Conference & Exposition, Conference Proceedings</em>, Dayton, Ohio </li>
+    <li> <b>N.D. Jackson</b>, K.I. Tyler, Y. Li, W. Chen, C. Liu and R. Bhargava. (2017) <a href="https://peer.asee.org/28598" style="color: black">Keeping Current: An Update on the Structure and Evaluation of a Program for Graduate Women Interested in Engineering Academia</a>, <em>ASEE Annual Conference & Exposition, Conference Proceedings</em>, Dayton, Ohio </li>
 
-	<li> K.I. Tyler, Y. Li, <b>N.D. Jackson</b>, W. Chen, C. Liu and R. Bhargava. (2017) <a href="https://peer.asee.org/28727" style="color: black">Overcoming Difficulties in Research Statement Preparation for the Academic Job Search: Expansion of a Peer-Focused Professional Development Program</a>, <em>ASEE Annual Conference & Exposition, Conference Proceedings</em>, Dayton, Ohio </li>
+    <li> K.I. Tyler, Y. Li, <b>N.D. Jackson</b>, W. Chen, C. Liu and R. Bhargava. (2017) <a href="https://peer.asee.org/28727" style="color: black">Overcoming Difficulties in Research Statement Preparation for the Academic Job Search: Expansion of a Peer-Focused Professional Development Program</a>, <em>ASEE Annual Conference & Exposition, Conference Proceedings</em>, Dayton, Ohio </li>
 
-	<li> <b>N. Jackson</b>, Y. Malave, C.L. Roberts-Wollmann, S. Case, and J. Lesko (2005) Reliability-based Uniform Flexural Resistance Factors for GFRP Reinforced Concrete Members, <em>Third International Conference for Composites in Construction</em>, Lyon, France </li>
+    <li> <b>N. Jackson</b>, Y. Malave, C.L. Roberts-Wollmann, S. Case, and J. Lesko. (2005) Reliability-based Uniform Flexural Resistance Factors for GFRP Reinforced Concrete Members, <em>Third International Conference for Composites in Construction</em>, Lyon, France </li>
+
 </ol>
 
 ## <a id="technical-reports"></a>National Laboratory Reports and White Papers
@@ -138,38 +139,39 @@ author_profile: true
 <em>Note: National laboratory documents are subject to internal peer review before publication. Entries without links remain distribution-limited and are available only for official use.</em>
 
 <ol id="technical-reports-list">
-	
-	<li> <b> N.D. Jackson <\b>, M. Brown, and N.S. Rao (2025) Reinforcement Learning for Water-Energy Infrastructure Resilience and Evolution, SAND2025-13783O <\li>
-	
-	<li> <b> N.D. Jackson <\b>, S. Conrad, and N.S. Rao (2025) Operational Flexibility for Integrated Energy-Water Resilience, SAND2025-13749O <\li>
-	
-	<li> P. Bhowmik, K. Cafferty, K. Klise, J.K. Skolfield, and <b> N.D. Jackson <\b> (2025) Water Energy Planning Strategies to Meet Emerging Load from Data Centers, SAND2025-13692O <\li>	
-	
-	<li> R.L. Valdez, <b> N.D. Jackson <\b> , S. Ferencz, and A. Wachtel (2025) Resilience by Design: Advanced Metrics and Comprehensive Methods for Energy-Water Systems Analysis, SAND2025-13704O 
 
-	<li> T. Gunda, <b> N.D. Jackson}, Z. Kilwein <\b>, K. Klise, and J.K. Skolfield (2025) Opportunities to Address Gaps in Atmospheric Phenomena for Energy Operations and Planning, SAND2025-13655O
+    <li> <b>N.D. Jackson</b>, M. Brown, and N.S. Rao. (2025) Reinforcement Learning for Water-Energy Infrastructure Resilience and Evolution, SAND2025-13783O </li>
 
-	<li> J.K. Skolfield, T. Gunda, and <b>N.D. Jackson</b>. (2025) Flexible and MOdule Superstructure Optimization for Rapid Computational Advancements in Power Systems Expansion Planning, Sandia National Laboratories </li>
+    <li> <b>N.D. Jackson</b>, S. Conrad, and N.S. Rao. (2025) Operational Flexibility for Integrated Energy-Water Resilience, SAND2025-13749O </li>
 
-	<li> T. Gunda, R. Valdez, <b>N. Jackson</b>, R. Cooper, A. Sorensen, and E. Sproul. (2024) Historical and Future Extreme Weather Conditions: A Case Study of Southeast China Provinces, Sandia National Laboratories, SAND2024-15880 </li>
+    <li> P. Bhowmik, K. Cafferty, K. Klise, J.K. Skolfield, and <b>N.D. Jackson</b>. (2025) Water Energy Planning Strategies to Meet Emerging Load from Data Centers, SAND2025-13692O </li>
 
-	<li> T. Gunda, R. Valdez, <b>N. Jackson</b>, S. Price, and S. Goodnight. (2024) Potential Climate Change Impacts to Crop Production: Case Study of Rice and Winter Wheat in China, Sandia National Laboratories </li>
+    <li> R.L. Valdez, <b>N.D. Jackson</b>, S. Ferencz, and A. Wachtel. (2025) Resilience by Design: Advanced Metrics and Comprehensive Methods for Energy-Water Systems Analysis, SAND2025-13704O </li>
 
-	<li> A. Walker, J. Desai, T. Gunda, and <b>N. Jackson</b>. (2023) <a href="https://www.nrel.gov/docs/fy24osti/85819.pdf" style="color: black">Operation and Maintenance of PV Systems: Data Science, Analysis, and Standards</a>, National Renewable Energy Laboratory, NREL/TP-5C00-85819 </li>
+    <li> T. Gunda, <b>N.D. Jackson</b>, Z. Kilwein, K. Klise, and J.K. Skolfield. (2025) Opportunities to Address Gaps in Atmospheric Phenomena for Energy Operations and Planning, SAND2025-13655O </li>
 
-	<li> T. Lowry, R. Garrett, T. Gunda, <b>N. Jackson</b>, K. Klise, C. Smallwood, K. Stamber, R. Taylor, S. Kuzio, and J. Zimmerman (2023) Climate Impacts on National Critical Infrastructure Strategic Initiative: A White Paper, Sandia National Laboratories </li>
+    <li> J.K. Skolfield, T. Gunda, and <b>N.D. Jackson</b>. (2025) Flexible and Module Superstructure Optimization for Rapid Computational Advancements in Power Systems Expansion Planning, Sandia National Laboratories </li>
 
-	<li> <b>N. Jackson</b>, T. Gunda, N. Gayoso, J. Desai, and A. Walker (2022) <a href="https://www.osti.gov/servlets/purl/1899420" style="color: black">Operations, maintenance, and cost considerations for PV+ Storage in the United States</a>, Sandia National Laboratories, SAND2022-16312 </li>
+    <li> T. Gunda, R. Valdez, <b>N. Jackson</b>, R. Cooper, A. Sorensen, and E. Sproul. (2024) Historical and Future Extreme Weather Conditions: A Case Study of Southeast China Provinces, Sandia National Laboratories, SAND2024-15880 </li>
 
-	<li> A. Nelson, <b>N. Jackson</b>, J. Wingard, S. Paik, and T. Gunda (2022) Resilience of Global Chemical Facilities to Climate Change, Sandia National Laboratories, SAND2022-14347R </li>
+    <li> T. Gunda, R. Valdez, <b>N. Jackson</b>, S. Price, and S. Goodnight. (2024) Potential Climate Change Impacts to Crop Production: Case Study of Rice and Winter Wheat in China, Sandia National Laboratories </li>
 
-	<li> <b>N. Jackson</b> and H. Mendoza (2022) Predictive Modeling of Weather Impacts on Utility-scale Photovoltaic Systems, Sandia National Laboratories, SAND2022-14215R </li>
+    <li> A. Walker, J. Desai, T. Gunda, and <b>N. Jackson</b>. (2023) <a href="https://www.nrel.gov/docs/fy24osti/85819.pdf" style="color: black">Operation and Maintenance of PV Systems: Data Science, Analysis, and Standards</a>, National Renewable Energy Laboratory, NREL/TP-5C00-85819 </li>
 
-	<li> A. Staid, E.S. Fleming, T. Gunda, and <b>N.D. Jackson</b> (2021) <a href="https://www.osti.gov/servlets/purl/1820518" style="color: black">Critical Infrastructure Decision-Making Under Long-Term Climate Hazard Uncertainty: The Need for an Integrated, Multidisciplinary Approach</a>, Sandia National Laboratories, SAND2021-11394 R </li>
+    <li> T. Lowry, R. Garrett, T. Gunda, <b>N. Jackson</b>, K. Klise, C. Smallwood, K. Stamber, R. Taylor, S. Kuzio, and J. Zimmerman. (2023) Climate Impacts on National Critical Infrastructure Strategic Initiative: A White Paper, Sandia National Laboratories </li>
 
-	<li> T. Gunda, <b>N.D. Jackson</b>, D. Sanchez, K. Klise, K. Ruehl, and S.Kuzio (2021) Advanced Data Analytics in Renewable Energy: Review of Capabilities, Needs, and Opportunities, Sandia National Laboratories, SAND2021-6297 R </li>
+    <li> <b>N. Jackson</b>, T. Gunda, N. Gayoso, J. Desai, and A. Walker. (2022) <a href="https://www.osti.gov/servlets/purl/1899420" style="color: black">Operations, maintenance, and cost considerations for PV+ Storage in the United States</a>, Sandia National Laboratories, SAND2022-16312 </li>
 
-	<li> T. Gunda, A. Neal, P. Carlson, C. Richardson, J.A. Perez, M. Aamir, B. Anderson, and <b>N.D. Jackson</b> (2020) TAOS: A Tool for Assisting Organization Selections for Security Integrated Assessments, Sandia National Laboratories, SAND2020-10751 </li>
+    <li> A. Nelson, <b>N. Jackson</b>, J. Wingard, S. Paik, and T. Gunda. (2022) Resilience of Global Chemical Facilities to Climate Change, Sandia National Laboratories, SAND2022-14347R </li>
+
+    <li> <b>N. Jackson</b> and H. Mendoza. (2022) Predictive Modeling of Weather Impacts on Utility-scale Photovoltaic Systems, Sandia National Laboratories, SAND2022-14215R </li>
+
+    <li> A. Staid, E.S. Fleming, T. Gunda, and <b>N.D. Jackson</b>. (2021) <a href="https://www.osti.gov/servlets/purl/1820518" style="color: black">Critical Infrastructure Decision-Making Under Long-Term Climate Hazard Uncertainty: The Need for an Integrated, Multidisciplinary Approach</a>, Sandia National Laboratories, SAND2021-11394R </li>
+
+    <li> T. Gunda, <b>N.D. Jackson</b>, D. Sanchez, K. Klise, K. Ruehl, and S. Kuzio. (2021) Advanced Data Analytics in Renewable Energy: Review of Capabilities, Needs, and Opportunities, Sandia National Laboratories, SAND2021-6297R </li>
+
+    <li> T. Gunda, A. Neal, P. Carlson, C. Richardson, J.A. Perez, M. Aamir, B. Anderson, and <b>N.D. Jackson</b>. (2020) TAOS: A Tool for Assisting Organization Selections for Security Integrated Assessments, Sandia National Laboratories, SAND2020-10751 </li>
+
 </ol>
 
 <script>
