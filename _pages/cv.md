@@ -22,7 +22,7 @@ redirect_from:
     Embed the PDF of the CV
 {% endcomment %}
 
- <a href="https://github.com/ndjackso/ndjackso.github.io/blob/5c7ad125101f63980e35a631120790970e071299/files/nicole_jackson_cv.pdf" target="_blank">Click here</a> if file does not properly load. 
+ <a href="https://github.com/ndjackso/ndjackso.github.io/blob/7a38d618d1c77b1d11790a5948aeab165152d78e/files/nicole_jackson_cv.pdf" target="_blank">Click here</a> if file does not properly load. 
 
 <object data="{{ site.url }}{{ site.baseurl }}/files/nicole_jackson_cv.pdf" width="800" height="600" type="application/pdf"></object>
 
