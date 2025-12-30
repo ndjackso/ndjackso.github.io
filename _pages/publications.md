@@ -35,7 +35,7 @@ author_profile: true
 
 /* Conference Proceedings - C prefix, reverse numbering */
 #conference-proceedings-list {
-  counter-reset: conference-counter var(--conference-total, 12);
+  counter-reset: conference-counter var(--conference-total, 13);
   list-style: none;
   padding-left: 0;
 }
@@ -122,7 +122,7 @@ author_profile: true
 
   <li>A.G. Moore, T. Gunda, and <b>N.D. Jackson</b> (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304488" style="color: black">A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems</a>, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland</li>
 
-  <li>R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J.K. Skolfield. (2025) <a href="https://doi.org/10.48550/arXiv.2506.06575" style="color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em>Kiel, Germany</li>
+  <li>R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J.K. Skolfield. (2025) <a href="https://doi.org/10.48550/arXiv.2506.06575" style="color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em>, Kiel, Germany</li>
 
   <li>G. Zhao, X. Luo, S. Yoo, and <b>N.D. Jackson</b>. (2024) <a href="https://doi.org/10.1109/SmartGridComm60555.2024.10738070" style="color: black">GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems</a>, <em>IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)</em>, Oslo, Norway</li>
 
