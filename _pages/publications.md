@@ -108,19 +108,19 @@ author_profile: true
 
 <ol id="conference-proceedings-list">
 
-    <li> <b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield (<em>in press</em>) Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields, <em>2025 IEEE Resilience Week</em> </li>
+    <li> <b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304397" style="color: black">Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields, <em>2025 IEEE Resilience Week (RWS) </em>, National Harbor, Maryland </li>
 
-    <li> R.M. Alfant, J.K. Skolfield, <b>N.D. Jackson</b>, and T.R. Edwards (<em>in press</em>) Generation and Transmission Expansion Planning for Resilience to Compound Hazards, <em>2025 IEEE Resilience Week</em> </li>
+    <li> R.M. Alfant, J.K. Skolfield, <b>N.D. Jackson</b>, and T.R. Edwards (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304451" style="color: black">Generation and Transmission Expansion Planning for Resilience to Compound Hazards, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland </li>
 
-    <li> R.L. Valdez, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b> (<em>in press</em>) Integrated Metrics for System Performance, Attributes, and Critical Threats for Resilience Analysis, <em>2025 IEEE Resilience Week</em> </li>
+    <li> R.L. Valdez, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b> (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304373" style="color: black">Integrated Metrics for System Performance, Attributes, and Critical Threats for Resilience Analysis, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland </li>
 
-    <li> R.L. Valdez, A.G. Moore, <b>N.D. Jackson</b>, and T. Gunda (<em>in press</em>) Evaluating Correlations between Risk Indices and Power Outages during Extreme Events, <em>2025 IEEE Resilience Week</em> </li>
+    <li> R.L. Valdez, A.G. Moore, <b>N.D. Jackson</b>, and T. Gunda (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304380" style="color: black">Evaluating Correlations between Risk Indices and Power Outages during Extreme Events, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland </li>
 
-    <li> A.G. Moore, T. Gunda, and <b>N.D. Jackson</b> (<em>in press</em>) A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems, <em>2025 IEEE Resilience Week</em> </li>
+    <li> A.G. Moore, T. Gunda, and <b>N.D. Jackson</b> (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304488" style="color: black">A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland </li>
 
-    <li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J.K. Skolfield. (2025) <a href="https://doi.org/10.48550/arXiv.2506.06575" style="color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em> </li>
+    <li> R. Piansky, D.K. Molzahn, <b>N.D. Jackson</b>, and J.K. Skolfield. (2025) <a href="https://doi.org/10.48550/arXiv.2506.06575" style="color: black">Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards</a>, <em>2025 IEEE Kiel PowerTech Conference</em>, Kiel, Germany </li>
 
-    <li> G. Zhao, X. Luo, S. Yoo, and <b>N.D. Jackson</b>. (2024) <a href="https://doi.org/10.1109/SmartGridComm60555.2024.10738070" style="color: black">GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems</a>, <em>IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)</em> </li>
+    <li> G. Zhao, X. Luo, S. Yoo, and <b>N.D. Jackson</b>. (2024) <a href="https://doi.org/10.1109/SmartGridComm60555.2024.10738070" style="color: black">GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems</a>, <em>IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)</em>, Oslo, Norway </li>
 
     <li> R.M. Reck, Y. Li, S. Thompson, <b>N.D. Jackson</b>, and S. Debetwar. (2023) <a href="https://peer.asee.org/preparing-women-in-stem-for-faculty-careers-through-a-job-search-workshop-series.pdf" style="color: black">Preparing Women in STEM for Faculty Careers through a Job Search Workshop Series</a>, <em>ASEE Annual Conference & Exposition, Conference Proceedings</em>, Baltimore, Maryland </li>
 
