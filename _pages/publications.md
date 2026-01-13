@@ -53,7 +53,7 @@ author_profile: true
 
 /* Technical Reports - R prefix, reverse numbering */
 #technical-reports-list {
-  counter-reset: reports-counter var(--reports-total, 16);
+  counter-reset: reports-counter var(--reports-total, 17);
   list-style: none;
   padding-left: 0;
 }
