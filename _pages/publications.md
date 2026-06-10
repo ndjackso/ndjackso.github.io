@@ -70,7 +70,7 @@ author_profile: true
 }
 </style>
 
-Over<span id="publication-count">40</span> publications establishing methodological foundations and quantifying hazards-related risk across the energy, water, and food sectors. (<a href="https://scholar.google.com/citations?user=dOzcnYUAAAAJ&hl=en&oi=ao" style="color: blue">Google Scholar Page</a>)
+Over <span id="publication-count">40</span> publications establishing methodological foundations and quantifying hazards-related risk across the energy, water, and food sectors. (<a href="https://scholar.google.com/citations?user=dOzcnYUAAAAJ&hl=en&oi=ao" style="color: blue">Google Scholar Page</a>)
 
 <div style="text-align: center; margin: 20px 0; padding: 15px; background-color: #f5f5f5; border-radius: 5px;">
   <a href="#journal-articles" style="color: #0066cc; text-decoration: none; font-weight: bold; margin: 0 15px;">Journal Articles</a> | 
