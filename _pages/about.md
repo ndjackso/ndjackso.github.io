@@ -31,7 +31,7 @@ I am a Principal Member of the Technical Staff at [Sandia National Laboratories]
 ### Research Impact & Recognition:
 - 43 peer reviewed publications across the energy, water, and food sectors
 - $3.9M in directly managed research funding
-- Co-investigator on $15.7M+ in multi-institution projects
+- Co-investigator or task lead on $15.7M+ in multi-institution projects
 - Best Paper Award, 2025 IEEE Resilience Week
 - Member of the National Academies committee on [Attribution of Extreme Weather and Climate Events and their Impacts](https://www.nationalacademies.org/our-work/attribution-of-extreme-weather-and-climate-events-and-their-impacts)
 - Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
