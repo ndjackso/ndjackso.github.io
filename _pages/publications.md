@@ -114,7 +114,7 @@ author_profile: true
 
 <ol id="conference-proceedings-list">
 
-  <li>W.G. Chapman, J.D. Smith, C. Teeter, and <b>N.D. Jackson</b> (2026) Graph Reservoir Networks for Prediction of Spatiotemporal Systems, <em>Proceedings of the 2026 Neuro Inspired Computational Elements Conferenc</em> </li>
+  <li>W.G. Chapman, J.D. Smith, C. Teeter, and <b>N.D. Jackson</b> (2026) Graph Reservoir Networks for Prediction of Spatiotemporal Systems, <em>Proceedings of the 2026 Neuro Inspired Computational Elements Conference</em> </li>
   
   <li><b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304397" style="color: black">Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields</a>, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland</li>
 
