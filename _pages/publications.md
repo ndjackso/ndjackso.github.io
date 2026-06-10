@@ -148,13 +148,13 @@ author_profile: true
 
 <ol id="technical-reports-list">
 
-  <li><b>N.D. Jackson</b>, M. Brown, and N.S. Rao. (2025) Reinforcement Learning for Water-Energy Infrastructure Resilience and Evolution, SAND2025-13783O</li>
+  <li><b>N.D. Jackson</b>, M. Brown, and N.S. Rao. (2025) <a href="https://ewr.openei.org/submissions/55" style="color:black">Reinforcement Learning for Water-Energy Infrastructure Resilience and Evolution</a>, SAND2025-13783O</li>
 
-  <li><b>N.D. Jackson</b>, S. Conrad, and N.S. Rao. (2025) Operational Flexibility for Integrated Energy-Water Resilience, SAND2025-13749O</li>
+  <li><b>N.D. Jackson</b>, S. Conrad, and N.S. Rao. (2025) <a href="https://ewr.openei.org/submissions/54" style="color: black"> Operational Flexibility for Integrated Energy-Water Resilience</a>, SAND2025-13749O</li>
 
-  <li>P. Bhowmik, K. Cafferty, K. Klise, J.K. Skolfield, and <b>N.D. Jackson</b>. (2025) Water Energy Planning Strategies to Meet Emerging Load from Data Centers, SAND2025-13692O</li>
+  <li>P. Bhowmik, K. Cafferty, K. Klise, J.K. Skolfield, and <b>N.D. Jackson</b>. (2025) <a href="https://ewr.openei.org/submissions/42" style="color: black">Water Energy Planning Strategies to Meet Emerging Load from Data Centers</a>, SAND2025-13692O</li>
 
-  <li>R.L. Valdez, <b>N.D. Jackson</b>, S. Ferencz, and A. Wachtel. (2025) Resilience by Design: Advanced Metrics and Comprehensive Methods for Energy-Water Systems Analysis, SAND2025-13704O</li>
+  <li>R.L. Valdez, <b>N.D. Jackson</b>, S. Ferencz, and A. Wachtel. (2025) <a href="https://ewr.openei.org/submissions/68" style="color: black">Resilience by Design: Advanced Metrics and Comprehensive Methods for Energy-Water Systems Analysis</a>, SAND2025-13704O</li>
 
   <li>T. Gunda, <b>N.D. Jackson</b>, Z. Kilwein, K. Klise, and J.K. Skolfield. (2025) Opportunities to Address Gaps in Atmospheric Phenomena for Energy Operations and Planning, SAND2025-13655O</li>
 
