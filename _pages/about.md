@@ -1,7 +1,7 @@
 ---
 permalink: /
-title: "Infrastructure Risk & Resilience Expert"
-excerpt: "Advancing understanding of climate impacts on critical infrastructure"
+title: "Extreme Weather · Infrastructure Resilience · Machine Learning"
+excerpt: "Quantifying how extreme weather disrupts the systems we depend on and building the models to predict it."
 author_profile: true
 redirect_from: 
   - /about/
@@ -18,25 +18,25 @@ redirect_from:
   gtag('config', 'G-VN4W0JXPV0');
 </script>
 
-*Advancing understanding of climate impacts on critical infrastructure through rigorous research and industry partnerships*
+*Quantifying how extreme weather disrupts the systems we depend on, and building the models to predict it.*
 
-I develop analytical frameworks that help organizations and decision makers understand infrastructure risks in our changing climate. As Principal Member of Technical Staff at [Sandia National Laboratories](https://www.sandia.gov), I manage $3.9M in direct research funding to create methodologies that bridge academic research with real-world applications across energy, water, and food sectors.
+I am a Principal Member of the Technical Staff at [Sandia National Laboratories](https://www.sandia.gov). My research sits at the intersection of extreme weather and critical infrastructure. I quantify how extreme events (e.g., hurricanes, wildfires, droughts, and compound hazards) disrupt energy, water, and agricultural systems. I build the models that help planners and operators prepare for them.
 
 ### What I Do:
-- **Risk Assessment Research**: Develop probabilistic models that advance understanding of how extreme weather affects critical infrastructure
-- **Industry Partnerships**: Work with energy companies under confidentiality agreements to validate research against operational realities
-- **Methodological Innovation**: Create analytical frameworks that establish new quantitative approaches for conducting climate risk assessments
-- **Research Leadership**: Principal Investigator managing research projects that connect government, industry, and academic stakeholders
+- Quantify extreme weather impacts on infrastructure using gridded climate data, station observations, and large operational datasets
+- Develop machine learning and statistical methods for hazard and impact modeling, including reservoir computing for sub-seasonal drought forecasting
+- Lead multi-institution research projects connecting government, industry, and academic partners
+- Mentor postdocs, graduate students, and undergraduates in hazard modeling and data-driven risk analysis
 
 ### Research Impact & Recognition:
-- $3.9M in direct research funding management as Principal Investigator
-- Co-investigator on $15.7M+ in multi-institution research projects
-- <span id="homepage-pub-count">40</span> publications establishing methodological foundations and quantifying hazards-related risk across the energy, water, and food sectors
-- Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
+- 43 peer reviewed publications across the energy, water, and food sectors
+- $3.9M in directly managed research funding; co-investigator on $15.7M+ in multi-institution projects
+- Best Paper Award, 2025 IEEE Resilience Week
 - Member of the National Academies committee on [Attribution of Extreme Weather and Climate Events and their Impacts](https://www.nationalacademies.org/our-work/attribution-of-extreme-weather-and-climate-events-and-their-impacts)
+- Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
 
 ### Research Applications:
-*Climate Risk Assessment* | *Renewable Energy Analysis* | *Infrastructure Planning* | *Industry Data Analytics* 
+*Extreme weather impacts* | *Sub-seasonal prediction* | *Renewable energy and grid resilience* | *Water management* | *Agricultural climate exposure* 
 
 <script>
 async function updateHomepagePublicationCount() {
@@ -61,27 +61,10 @@ async function updateHomepagePublicationCount() {
             pubElement.textContent = totalCount;
         }
     } catch (error) {
-        console.log('Could not fetch publication count, keeping default of 29');
+        console.log('Could not fetch publication count, keeping default of 40');
     }
 }
 
 // Run when page loads
 document.addEventListener('DOMContentLoaded', updateHomepagePublicationCount);
 </script>
-
-<!-- COMMENTED OUT ORIGINAL CONTENT - REMOVE THESE COMMENTS AFTER CONFIRMING NEW VERSION WORKS
-
-I am currently a staff researcher in the [Energy-Water Systems Integration](https://energy.sandia.gov/programs/energy-water/) department at within the Climate Security Center at [Sandia National Laboratories](https://www.sandia.gov/); I also completed my postdoc here. My current work focuses on hazard impacts to energy, water, and food systems. Previously, I completed my Ph.D. in civil engineering under the mentorship of [Megan Konar](http://mkonar.cee.illinois.edu/) at the University of Illinois at Urbana-Champaign. There, my work focused on understanding the interaction and response of agricultural trade to extreme weather events such as temperature extrema, heavy rain, and drought.
-
-My overarching research goal is to advance the security, reliability, and resilience of critical infrastructure to extreme events, spanning both physical- (i.e., weather and natural hazards) and cyber-related threats. In particular, my research seeks to:
-
-<ol>
-<li> understand the context under which event events occur </li>
-<li> improve the characterization of these events both historically and under future scenarios </li>
-<li> quantify  impacts to critical infrastructure from hazards via integrated assessments </li> 
-</ol>
-
-To do so, my work blends data science, climate science, econometrics, and risk management to develop new analytical and systems-based approaches.
-
--->
-
