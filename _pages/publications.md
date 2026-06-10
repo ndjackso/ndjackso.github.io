@@ -17,7 +17,7 @@ author_profile: true
 <style>
 /* Journal Articles - J prefix, reverse numbering */
 #journal-articles-list {
-  counter-reset: journal-counter var(--journal-total, 13);
+  counter-reset: journal-counter var(--journal-total, 14);
   list-style: none;
   padding-left: 0;
 }
@@ -35,7 +35,7 @@ author_profile: true
 
 /* Conference Proceedings - C prefix, reverse numbering */
 #conference-proceedings-list {
-  counter-reset: conference-counter var(--conference-total, 13);
+  counter-reset: conference-counter var(--conference-total, 14);
   list-style: none;
   padding-left: 0;
 }
@@ -82,6 +82,8 @@ author_profile: true
 
 <ol id="journal-articles-list">
 
+  <li> K.L. Bonney, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b>. (2026) <a href="https://doi.org/10.1088/2515-7620/ae4cf9" style="color: black">Emulation of Monthly Water Allocations Using LSTM Models: A Case Study of the Colorado River Basin in Texas</a>, <em>Environmental Research Communications</em>, Vol 8, Issue 5 pp 055040 <a href="https://doi.org/10.5281/zenodo.13870503"> code </a> and <a href="https://doi.org/10.57931/2441443"> data </a></li>
+
   <li>H.H. Bokhari, F. Corsi, A. Miara, B.M. Fekete, S. Gangrade, S. Kao, <b>N.D. Jackson</b>, and C.J. V&ouml;r&ouml;smarty. (2025) <a href="https://doi.org/10.1029/2025EF006203" style="color: black">An Integrated Hydroclimatic Assessment of Future Reservoir and Hydropower Operations in the U.S.</a>, <em>Earth's Future</em>, Vol 13, Issue 9 pp e2025EF006203 <a href="https://doi.org/10.5281/zenodo.14272679">code and data</a></li>
 
   <li>T. Gunda, A. Moore, <b>N.D. Jackson</b>, S. Dhulipala, and S. Awara. (2025) <a href="https://doi.org/10.1088/2753-3751/add465" style="color: black">A resource adequacy assessment of correlated wide-area outages in the power grid</a>, <em>Environmental Research: Energy</em>, Vol 2, Issue 2 pp 025009 <a href="https://doi.org/10.7799/2566792">data</a></li>
@@ -112,6 +114,8 @@ author_profile: true
 
 <ol id="conference-proceedings-list">
 
+  <li>W.G. Chapman, J.D. Smith, C. Teeter, and <b>N.D. Jackson</b> (2026) Graph Reservoir Networks for Prediction of Spatiotemporal Systems, <em>Proceedings of the 2026 Neuro Inspired Computational Elements Conferenc</em> </li>
+  
   <li><b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304397" style="color: black">Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields</a>, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland</li>
 
   <li>R.M. Alfant, J.K. Skolfield, <b>N.D. Jackson</b>, and T.R. Edwards (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304451" style="color: black">Generation and Transmission Expansion Planning for Resilience to Compound Hazards</a>, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland</li>
