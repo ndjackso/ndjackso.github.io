@@ -1,0 +1,1633 @@
+%% PREAMBLE
+
+\documentclass{article}[12pt]
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[cm]{fullpage}
+
+% set the documents geometry
+\usepackage[margin=1in, paperwidth=8.5in, paperheight=11in]{geometry}
+
+% reverse enumeration
+%\usepackage[itemsep = 0pt, leftmargin = 1.53em]{etaremune}
+\usepackage[]{etaremune}
+% \renewcommand{\labelenumi}{\theenumi.} % global set up ...moving to the section level
+% [itemsep = 0pt, parsep = 0pt, align = left, wide = 0pt, leftmargin = 0pt]
+
+% additional itemization
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+% set the format for dates
+\usepackage{datetime}
+
+%  create a new date format for the footers
+
+\newdateformat{monthyeardate}{%
+	\THEDAY ~\monthname[\THEMONTH]~\THEYEAR}
+
+% colors
+\usepackage{xcolor}
+
+% create some new colors
+% note: HTML is the same as using HEX without the leading #
+\definecolor{sandiaBlue}{HTML}{0F2E54}
+\definecolor{sandiaRed}{HTML}{800700}
+
+% format section titles 
+\usepackage[explicit]{titlesec}
+
+% create a new horizontal line for use after section header
+% note: taken from https://tex.stackexchange.com/questions/246501/horizontal-line-next-to-section-heading
+% Raised Rule Command:
+% Arg 1 (Optional) - How high to raise the rule
+% Arg 2 - Thickness of the rule
+\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\textcolor{sandiaBlue}{\rule[#1]{1pt}{#2}}}\hfill}
+
+% adjust the format of the section header
+\titleformat{\section}{\Large\bfseries\color{sandiaRed}}{\thesection. }{0em}{#1\,\raisedrulefill[0.4ex]{2pt}}
+
+% headers and footers!
+\usepackage{fancyhdr} % conflict with titleps so suppress
+\usepackage{lastpage}
+%\usepackage[outermarks]{titleps} % needed to access marks
+\usepackage{xparse}
+
+%% fix the marks for the eventual inclusion in the header
+%% note: taken from https://tex.stackexchange.com/questions/168378/unnumbered-sections-and-section-marks
+%\usepackage{xparse}
+\let\CLASSsection\section
+
+\RenewDocumentCommand{\section}{som}{%
+	\IfBooleanTF{#1}
+	{% there's a *
+		\CLASSsection*{#3}\markboth{#3}{}%
+	}
+	{% no *
+		\IfNoValueTF{#2}
+		{% no opt arg
+			\CLASSsection{#3}%
+		}
+		{% opt arg
+			\CLASSsection[#2]{#3}%
+		}%
+	}%
+}
+
+% headers and footers for when section runs onto the next page
+\pagestyle{fancy}
+\setlength\voffset{-0.3in}
+\setlength\headheight{0.25in}
+\setlength\headsep{0.05in}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%
+\futurelet\TMPheadrule\def\headrule{{\color{sandiaBlue}\TMPheadrule}}
+\futurelet\TMPfootrule\def\footrule{{\color{sandiaBlue}\TMPfootrule}}
+%
+\lhead{\textsc{Nicole D. Jackson, Ph.D.}}
+\rhead{Page \thepage\ of \pageref{LastPage}}
+\lfoot{}
+\rfoot{}
+\cfoot{Last updated: \monthyeardate\today}
+
+% headers and footers for the very first page of the document...only has footers stylized
+\fancypagestyle{firstPage}{
+	\fancyhf{}
+	\setlength\voffset{-0.3in}
+	\setlength\headheight{0.25in}
+	\setlength\headsep{0.05in}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	%
+	\lfoot{Last updated: \monthyeardate\today}
+	\rfoot{Page \thepage\ of \pageref{LastPage}}
+	\cfoot{}
+}
+
+
+% make a wider line in the table
+\usepackage{array}
+\newcolumntype{?}{!{\vrule width 1.5pt}}
+
+% additional packages
+\usepackage[hidelinks]{hyperref} % allows text to be hyperlinked 
+
+% create dummy text while debugging
+\usepackage{lipsum}  
+
+% enable icons
+% note: see list of fonts here https://ctan.math.utah.edu/ctan/tex-archive/fonts/fontawesome/doc/fontawesome.pdf
+\usepackage{fontawesome}
+
+% put a frame around content
+% note: link to manual with working examples  https://ctan.math.illinois.edu/macros/latex/contrib/tcolorbox/tcolorbox.pdf
+\usepackage{tcolorbox}
+
+% use a sans serif font
+\usepackage{cmbright}
+
+% fixing tables
+\usepackage{tabularx} % increase customization of tables
+\usepackage{ltablex}  % helps tables automatically roll to next page
+\usepackage{booktabs} % needed for midrule, toprule, bottomrule in tables
+\usepackage{ragged2e} % helps with column spacing and alignment
+\usepackage{tabu} % helps coerce page width tables)
+
+% use labels to store item counts
+% noted here: https://tex.stackexchange.com/questions/97171/how-to-refer-to-number-of-items-in-a-list-before-the-list-appears-in-the-tex-fi
+\usepackage{etoolbox}
+
+% tabulating numbers for grants
+% https://tex.stackexchange.com/questions/640246/siunitx-adding-commas-when-printing-a-variable
+\usepackage{totcount}
+\usepackage[group-separator={,}]{siunitx}
+
+% --> GRANT COUNTERS
+% set the overall variable for counting
+\newtotcounter{total_funding} % total value from listed proposals
+\newtotcounter{ndj_funding} % total value of research dollars i manage
+%
+% set project specific counters
+\newtotcounter{storms}
+\newtotcounter{cyphoon}
+\newtotcounter{3m}
+\newtotcounter{epic_plann}
+\newtotcounter{im3}
+\newtotcounter{pvcost}
+\newtotcounter{pvgrid}
+\newtotcounter{oe_ascr_pilot}
+\newtotcounter{nsrd_rain_wind}
+\newtotcounter{kwh}
+\newtotcounter{chem_facilities}
+\newtotcounter{pv_pred_weather}
+\newtotcounter{cinci}
+\newtotcounter{ralph}
+\newtotcounter{hov}
+\newtotcounter{redeems}
+\newtotcounter{mcee}
+
+% --> PUBLICATION COUNTERS
+
+% overall counters
+\newtotcounter{total_pubs} % overall counter across all pubs
+\newtotcounter{total_first_author} % overall counter for number of first author publications
+
+% pub type-specific counters
+\newtotcounter{manuscripts}
+\newtotcounter{articles}
+\newtotcounter{conf_papers}
+\newtotcounter{tech_reports}
+\newtotcounter{books}
+\newtotcounter{white_papers}
+
+% create the command for the journal articles
+\newcommand{\articleitem}[2]{
+	% #1 = 1 if first author, 0 otherwise
+	% #2 = the publication text
+	\item #2
+	\stepcounter{articles}%
+	\stepcounter{total_pubs}%  % This counts toward total peer-reviewed
+	\ifnum#1=1
+	\stepcounter{total_first_author}%
+	\fi
+}
+
+% create the command for conference papers
+\newcommand{\confitem}[2]{
+	% #1 = 1 if first author, 0 otherwise
+	% #2 = the publication text
+	\item #2
+	\stepcounter{conf_papers}%
+	\stepcounter{total_pubs}%  % This counts toward total peer-reviewed
+	\ifnum#1=1
+	\stepcounter{total_first_author}%
+	\fi
+}
+
+% create the command for tech reports
+\newcommand{\techitem}[2]{
+	% #1 = 1 if first author, 0 otherwise
+	% #2 = the publication text
+	\item #2
+	\stepcounter{tech_reports}%
+	\stepcounter{total_pubs}%  % This counts toward total peer-reviewed
+	\ifnum#1=1
+	\stepcounter{total_first_author}%
+	\fi
+}
+
+% create the command for the book chapter
+\newcommand{\bookitem}[2]{
+	% #1 = 1 if first author, 0 otherwise
+	% #2 = the publication text
+	\item #2
+	\stepcounter{books}%
+	\stepcounter{total_pubs}%  % This counts toward total peer-reviewed
+	\ifnum#1=1
+	\stepcounter{total_first_author}%
+	\fi
+}
+
+% create the command for the white paper
+\newcommand{\whitepaperitem}[2]{
+	% #1 = 1 if first author, 0 otherwise
+	% #2 = the publication text
+	\item #2
+	\stepcounter{white_papers}%
+	\stepcounter{total_pubs}%  % This counts toward total peer-reviewed
+	\ifnum#1=1
+	\stepcounter{total_first_author}%
+	\fi
+}
+
+
+
+% set funding counters -- works better in the preamble than setting before the relevant setion
+%\newtotcounter{total_awards} % total value of awarded proposals
+%\newtotcounter{ndj_funding} % total value of funds managed only by NDJ
+%\newtotcounter{storms_seto)
+	
+	
+	\begin{document}
+		
+		% use the first page header style
+		\thispagestyle{firstPage}
+		
+		% create the box once and then suppress 
+		%\begin{tcolorbox}[saveto=\jobname_contact.tex]
+		%	{\Large{\textsc{\textbf{Nicole D. Jackson, Ph.D.}}}} \\
+		%	Senior Member of the Technical Staff \\
+		%	Sandia National Laboratories
+		%	\tcblower
+		%	\faEnvelopeSquare \quad \href{mailto:jackson.nicole.d@gmail.com}{jackson.nicole.d@gmail.com} \\
+		%	\faMobile \quad  +1 (312) 852.9734                    \\
+		%	\faGlobe \quad \href{https://ndjackso.github.io}{\textcolor{blue}{https://ndjackso.github.io}}
+		%\end{tcolorbox}
+		
+		% Now, we load the saved text:
+		\begin{tcolorbox}[colframe = sandiaBlue, colback=gray!10, sidebyside, lower separated = false, halign lower = left, halign upper = left]
+			
+			% import the previously created file
+			\input{\jobname_contact.tex}
+			%
+		\end{tcolorbox}
+		
+		%----------------------------------------------------------------------------------
+		%     RESEARCH INTERESTS
+		%----------------------------------------------------------------------------------
+		
+		\section*{Research Interests}
+		% make space between section header and table smaller
+		%\vspace{-1.5em}
+		
+		% note: borrowed from Jesse Jenkins
+		%\textcolor{blue}{I improve and apply optimization-based macro-energy systems models to evaluate and optimize low-carbon energy technologies, guide energy innovation and resource allocation decisions, and provide decision support to accelerate transitions to net-zero emissions energy systems}
+		
+		% note: borrowed format from Arvind Ravikumar
+		%My overarching research goal is to advance the resiliency of critical infrastructure to extreme weather events and natural hazards. Data science, climate science, econometrics, and risk management techniques are used to develop new analytical and systems-based approaches. Current focal areas include:
+		%
+		%\begin{itemize}
+		%	\item Risk assessment to the electric grid due to extreme weather 
+		%	\item Role of storage in the solar energy industry
+		%	\item Flood and water risk to hydropower 
+		%\end{itemize}
+		
+		%I develop data-driven frameworks to understand and predict how extreme weather and climate change impact critical infrastructure systems, with emphasis on the energy-water-food nexus. By integrating machine learning, climate science, and systems analysis across multiple scales, I create actionable insights that enhance infrastructure resilience and inform adaptation strategies. My research bridges the gap between future climate projections and operational decision-making to help reveal vulnerabilities and quantify risks traditional approaches miss. Current focal areas include:
+		I develop data-driven frameworks to understand how extreme weather and climate change impact critical infrastructure systems. By integrating machine learning, climate science, and systems analysis, I create actionable insights that advance infrastructure resilience and bridge the gap between climate projections and operational decision-making. Current research areas include:
+		\\
+		\begin{itemize}[leftmargin=*]
+			\item Cascading impacts on energy, water, and food systems from individual and compound threats
+			\item Machine learning applications for predicting infrastructure performance under threat induced stress  
+			\item Resource constraints and interdependencies in infrastructure systems
+		\end{itemize}
+		
+		%----------------------------------------------------------------------------------
+		%     EDUCATION
+		%----------------------------------------------------------------------------------
+		
+		\section*{Education}
+		
+		% make space between section header and table smaller
+		\vspace{-1.5em}
+		
+		\begin{tabularx}{\textwidth}{Xr}
+			\textbf{Ph.D. Civil Engineering}, University of Illinois at Urbana-Champaign & 2020 \\
+			%University of Illinois at Urbana-Champaign, Urbana, IL & \\
+			Advisor: Megan Konar; Committee: Kathy Baylis, Ximing Cai, and Peter Debaere (Univ. of Virginia) \\
+			\multicolumn{2}{l}{Dissertation:  \textit{From Global to Local: Understanding Linkages Between Climate Shocks and Food Security}} \\ 
+			\\
+			%
+			\textbf{M.S. Materials Science \& Engineering}, University of Illinois at Urbana-Champaign & 2014 \\
+			%	University of Illinois at Urbana-Champaign, Urbana, IL & \\ 
+			\\
+			%
+			\textbf{M.S. Engineering Mechanics}, Virginia Tech & 2008 \\
+			%	Virginia Tech, Blacksburg, VA & \\
+			Advisor: Scott Case; Committee: Jack Lesko and Carin Roberts-Wollmann & \\
+			Thesis: \textit{Reliability-based Durability Assessment of GFRP Bars for Reinforced Concrete} \\
+			\\
+			%
+			\textbf{B.S. Civil Engineering}, University of Illinois at Urbana-Champaign & 2005 \\
+			%	University of Illinois at Urbana-Champaign, Urbana, IL & \\
+			Minor in International Engineering -- Germanic Studies
+		\end{tabularx}
+		
+		%----------------------------------------------------------------------------------
+		%     PROFESSIONAL AND RESEARCH APPOINTMENTS
+		%----------------------------------------------------------------------------------
+		
+		\section*{Professional and Research Appointments}
+		
+		% make space between section header and table smaller
+		\vspace{-1.5em}
+		
+		\begin{tabularx}{\textwidth}{Xr}
+			\multicolumn{2}{l}{\textbf{Sandia National Laboratories}, Albuquerque, NM} \\
+			Earth, Water, \& Energy Systems Department & \\
+			Principal Member of the Technical Staff & 04/2025 -- Present \\
+			Senior Member of the Technical Staff & 07/2021 -- 04/2025 \\
+			Postdoctoral Appointee (Mentors: Thushara Gunda, Andrea Staid, Vince Tidwell) & 11/2019 -- 07/2021 \\
+			% Postdoctoral Mentors: Vincent Tidwell, Thushara Gunda, and Andrea Staid & \\
+			
+			%	Climate Change Security Center & \\
+			%	\\
+			%
+			%	Postdoctoral Appointee & 11/2019 -- 07/2021 \\
+			%	Energy Water Systems Integration Department & \\
+			%	Climate Change Security Center & \\
+			%	Mentors: Vincent Tidwell, Thushara Gunda, and Andrea Staid & \\
+			%	\textbf{Sandia National Laboratories}, Albuquerque, NM \\
+			\\
+			\textbf{University of Illinois at Urbana-Champaign}, Urbana, IL & \\
+			Graduate Research Assistant & 01/2019 -- 08/2019 \\
+			Department of Bioengineering, Karin Jensen Research Group & \\
+			\\
+			%
+			% force insert empty lines for formatting
+			%	& \\
+			%	& \\
+			% 
+			\textbf{University of Illinois at Urbana-Champaign} \\%, Urbana, IL & \\
+			Graduate Research Assistant & 08/2014 -- 11/2019 \\
+			Department of Civil \& Environmental Engineering, Megan Konar Research Group & \\
+			\\
+			% 
+			\textbf{U.S. Environmental Protection Agency}, Cincinnati, OH \\
+			Physical Sciences Trainee & 06/2014 -- 02/2016 \\
+			Land Remediation and Pollution Control Division  & \\
+			\\
+			%	\\
+			%	\\
+			\textbf{University of Illinois at Urbana-Champaign} \\ %, Urbana, IL & \\
+			Project Manager & 08/2013 -- 08/2013 \\
+			Learning-in-Community: Haiti Infrastructure and Development  & \\
+			\\
+			%\\ % added to correct space
+			%\\% added to correct space
+			\textbf{University of Illinois at Urbana-Champaign} \\ %, Urbana, IL & \\
+			Graduate Research Assistant & 08/2008 -- 04/2010 \\
+			Department of Civil \& Environmental Engineering, John S. Popovics Research Group & \\
+			\\
+			%
+			\textbf{Virginia Tech} \\ %, Blacksburg, VA & \\
+			Graduate Research Assistant & 01/2007 -- 08/2007 \\
+			Department of Engineering Science \& Mechanics, Materials Research Group & 08/2004 - 12/2005\\
+			\\
+			\textbf{University of Illinois at Urbana-Champaign} \\ %, Urbana, IL & \\
+			Undergraduate Research Assistant & 05/2003 -- 08/2003 \\
+			Department of Civil \& Environmental Engineering, John S. Popovics Research Group & \\
+			\\
+			%
+			\textbf{Arizona State University}\\ %, Tempe, AZ& \\
+			Undergraduate Research Assistant & 06/2002 -- 08/2002 \\
+			Del E. Webb School of Construction, Christine Fiori Research Group & \\
+			
+		\end{tabularx}
+		
+		
+		%----------------------------------------------------------------------------------
+		%     HONORS & AWARDS
+		%----------------------------------------------------------------------------------
+		
+		% reduce spacing
+		%\vspace{-2em}
+		
+		\section*{Honors and Awards}
+		
+		% make space between section header and table smaller
+		%\vspace{-1.5em}
+		
+		\subsection*{External and National Awards}
+		\vspace{-1em}
+		
+		\begin{tabularx}{\textwidth}{Xr}
+			\textbf{IEEE Resilience Week Best Paper Award} & 2025 \\
+			Recognition for receiving the highest reviewer score among all accepted papers at the 2025 IEEE Resilience Week Conference for the paper ``Spatio-Temporal Modeling of Weather-related Compound Threats to Power Systems Using Markov Random Fields'' \\
+			\\
+			\textbf{Most Promising Engineer in Industry Award}  & 2024 \\
+			Nationally competitive recognition of demonstrated tremendous potential for future technical contributions. Sponsored by the Black Engineer of the Year Awards. %Career Communications Group, Inc. % who demonstrate tremendous potential for future technical contributions
+			\\
+			\\
+			\textbf{MGB-SIAM Early Career (MSEC) Fellow} & 2022-2024 \\
+			1 of 10 early career professionals selected for inaugural class of fellows. Jointly sponsored by the Society for Industrial and Applied Mathematics and Mathematically Gifted \& Black	
+			\\
+			\\
+			\textbf{Bay Area Research Slam Finalist} & 2021 \\
+			1 of 3 Sandia postdocs in a research competition sponsored by Lawrence Berkeley National Laboratory, Lawrence Livermore National Laboratory, Sandia National Laboratories, and SLAC National Accelerator Laboratory 
+			\\
+			\\
+			\textbf{Rising Stars in Civil \& Environmental Engineering Participant} & 2019 \\
+			1 of 20 early career women competitively chosen for a workshop on careers in academia at the Massachusetts Institute of Technology
+			\\
+			\\ % extra space manually added to help with page break
+			\textbf{Congressional Visit Days Participant} & 2017 \\
+			1 of 2 members sponsored by the American Geophysical Union to engage with Illinois congressional staff members to advocate for federal funding of scientific research 
+		\end{tabularx}
+		
+		\newpage
+		\subsection*{Sandia National Laboratories Awards and Professional Recognition}
+		
+		\vspace{-1em}
+		
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			\textbf{Spot Award for exception performance in proposal writing} & 2026\\
+			Recognition for outstanding proposal writing demonstrated by successful submission of multiple complex proposals over a demanding four-month period and showcased exceptional dedication, expertise, and resilience
+			\\
+			\\
+			\textbf{Spot Award for supporting hiring and mentorship in the Discrete Math \& Optimization department} & 2026 \\
+			Recognition for excellent work reviewing candidate applications as well as mentorship of interns and postdocs
+			\\
+			\\
+			\textbf{Spot Award for technical leadership in supporting DOE's energy-water resilience white paper call} & 2025 \\
+			Recognition for her expertise in the field and going above and beyond  to ensure Sandia's submissions were of high technical quality
+			\\
+			\\
+			\textbf{Thunderbird Kudos for supporting UIUC Spring 2025 weSTEM Conference} & 2025 \\
+			Recognition for supporting Sandia's sponsorship and engagement with the University of Illinois' GradSWE chapter event
+			\\
+			\\	
+			\textbf{Thunderbird Kudos for START HBCU Intern Mentoring} & 2024 \\
+			Recognition for dedication and mentoring of Security top Academic Research \& Talent at Historically Black Colleges and Universities Program (START HBCU) institute interns
+			\\
+			\\	
+			\textbf{Spot Award for Strong Teaming in Hydropower} & 2022 \\
+			Recognition for strong teaming with the Water Power Program and developing a valuable hydropower proposal with Idaho National Laboratory 
+			\\
+			\\	
+			\textbf{Thunderbird Kudos for presentation to the EGCoP} & 2025 \\
+			Recognition for giving a technical presentation to Sandia's Electric Grid Communication of Practice
+			\\
+			\\
+			\textbf{Postdoctoral Technical Showcase Third Place} & 2020 \\
+			Recognition from the Sandia Postdoctoral Association
+		\end{tabularx}
+		
+		\subsection*{Graduate and University Awards}
+		
+		\vspace{-1em}
+		
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			\textbf{Academic Leadership for Women in Engineering Travel Grant Recipient} (\$\num{2000}) & 2018 \\
+			Sponsored by the Society of Women Engineers \\
+			\\
+			%
+			\textbf{List of Teachers Ranked as Excellent with Outstanding Ranking} (x2) & 2018 \\
+			Recognition at University of Illinois at Urbana-Champaign based on student course evaluations with instruction rated in the top 10\% \\
+			\\
+			% 
+			\textbf{Diversifying Faculty in Higher Education in Illinois Fellowship} (\$\num{30000}) & 2017 -- 2019 \\
+			Tuition and stipend provided by the State of Illinois & \\ 
+			\\
+			%\\ % extra space manually added to help with page break
+			%
+			\textbf{Mavis  Future Faculty Fellowship} (\$\num{2000}) & 2017 -- 2018 \\
+			Fellowship from the University of Illinois at Urbana-Champaign College of Engineering 
+			\\
+			\\ % extra space manually added to help with page break
+			\textbf{Congressional Visit Days Participant} & 2017 \\
+			1 of 2 members sponsored by the American Geophysical Union to engage with Illinois congressional staff members to advocate for federal funding of scientific research \\
+			% 1 of 2 members of the Illinois delegation sponsored by the American Geophysical Union \\ 
+			\\
+			%	\\
+			%	\\
+			%
+			\textbf{Fall Conference Travel Grant Recipient} (\$\num{425}) & 2016 \\
+			Sponsored by University of Illinois at Urbana-Champaign Graduate College and Department of Civil \& Environmental Engineering\\
+			\\
+			%
+			\textbf{Fall Conference Travel Grant Recipient} (\$\num{425}) & 2015 \\
+			Sponsored by University of Illinois at Urbana-Champaign Graduate College and Department of Civil \& Environmental Engineering\\
+			\\
+			%\\
+			\textbf{List of Teachers Ranked as Excellent} & 2014 \\
+			Recognition at University of Illinois at Urbana-Champaign based on student course evaluations \\
+			\\
+			%
+			\textbf{Support for Under-represented Groups in Engineering (SURGE) Fellowship} (\$\num{22000})  & 2008 -- 2009 \\
+			Tuition and stipend from the University of Illinois at Urbana-Champaign College of Engineering  \\
+			\\
+			%
+			% force insert empty lines for formatting
+			%	& \\
+			%	& \\
+			\textbf{Summer Pre-doctoral Institute Fellow} (\$\num{2500}) & 2008 \\
+			Summer stipend and housing allowance from the University of Illinois at Urbana-Champaign Graduate College \\
+			%
+			\\
+			\textbf{Integrative Graduate Education and Research Trainee in Macromolecules} (\$\num{30000}) & 2004 -- 2005 \\
+			Tuition and stipend provided by the National Science Foundation and Virginia Tech 
+			
+		\end{tabularx}
+		
+		
+		%----------------------------------------------------------------------------------
+		%     RESEARCH GRANTS
+		%----------------------------------------------------------------------------------
+		
+		%\newpage
+		\vspace{-1.5em}
+		\section*{Funding}
+		
+		% make space between section header and table smaller
+		%\vspace{-1.5em}
+		
+		$\Rightarrow$ \textbf{Total grant funding}: \$\num{\the\totvalue{total_funding}} (Funds managed by N.D. Jackson: \$\num{\the\totvalue{ndj_funding}})	
+		
+		
+		% initialize all of the funding
+		\addtocounter{mcee}{1681000}
+		\addtocounter{total_funding}{\value{mcee}}
+		
+		\addtocounter{redeems}{1200000}
+		\addtocounter{total_funding}{\value{redeems}}
+		
+		
+		\addtocounter{hov}{167000}
+		\addtocounter{total_funding}{\value{hov}}
+		
+		\addtocounter{ralph}{1500000}
+		\addtocounter{total_funding}{\value{ralph}}
+		\addtocounter{ndj_funding}{200000}
+		
+		\addtocounter{storms}{2641263}
+		\addtocounter{total_funding}{\value{storms}}
+		
+		% note: andrea has $50k subcontract but still managed by ndj 
+		\addtocounter{cyphoon}{500000}
+		\addtocounter{total_funding}{\value{cyphoon}}
+		\addtocounter{ndj_funding}{\value{cyphoon}}
+		
+		\addtocounter{3m}{1850000}
+		\addtocounter{total_funding}{\value{3m}}
+		
+		\addtocounter{epic_plann}{440000} % year 1
+		\addtocounter{epic_plann}{497000} % year 2, based on FY25 renewal request
+		\addtocounter{epic_plann}{502000} % year 3, based on FY25 renewal request
+		\addtocounter{total_funding}{\the\totvalue{epic_plann}}
+		\addtocounter{ndj_funding}{\the\totvalue{epic_plann}}
+		% note: lou has a subcontract for 107 + 109 + 113 = 329 but still managed by ndj
+		
+		\addtocounter{ndj_funding}{153289} % starting balance for management, add to NDJ only
+		\addtocounter{im3}{100000} % additional FY23 funds
+		\addtocounter{im3}{200000} % FY24 funds
+		\addtocounter{im3}{200000} % FY25 funds
+		\addtocounter{total_funding}{\the\totvalue{im3}}
+		\addtocounter{ndj_funding}{\the\totvalue{im3}}
+		% project in the Integrated Multi-Sector Modeling Science Focus Area, phase
+		% 2, for the Multi Sector Dynamics Program Area within the Biological and
+		% Ecological Research Program.
+		
+		\addtocounter{pvcost}{200000}
+		\addtocounter{total_funding}{\value{pvcost}}
+		
+		\addtocounter{pvgrid}{600090}
+		\addtocounter{total_funding}{\the\totvalue{pvgrid}}
+		\addtocounter{ndj_funding}{400000}  % co-managed with TG, $200k direct funded contract with NREL
+		
+		\addtocounter{oe_ascr_pilot}{700000}
+		\addtocounter{total_funding}{\the\totvalue{oe_ascr_pilot}}
+		\addtocounter{ndj_funding}{125000} % portion directly managed by me
+		%
+		
+		\addtocounter{nsrd_rain_wind}{273000}
+		\addtocounter{total_funding}{\value{nsrd_rain_wind}}
+		\addtocounter{ndj_funding}{\value{nsrd_rain_wind}}
+		
+		\addtocounter{kwh}{1967000}
+		\addtocounter{total_funding}{\value{kwh}}
+		\addtocounter{ndj_funding}{200000}
+		
+		\addtocounter{chem_facilities}{104000}
+		\addtocounter{total_funding}{\value{chem_facilities}}
+		
+		\addtocounter{pv_pred_weather}{109000}
+		\addtocounter{total_funding}{\value{pv_pred_weather}}
+		\addtocounter{ndj_funding}{\value{pv_pred_weather}}
+		
+		\addtocounter{cinci}{250000}
+		\addtocounter{total_funding}{\value{cinci}}
+		
+		\begin{tabularx}{\textwidth}{Xr}
+			
+			\textbf{``Multivariate Extreme Value Analysis for Evaluating the Impacts of Compound Extreme Weather Events (MCEE)''} & 2025-2028 \\
+			Role: \textbf{Task Lead} for Climate Impacts Assessment with PI Lyndsay Shand (Sandia National Laboratories) & \\
+			Sponsor: Sandia National Laboratories -- Laboratory Directed Research \& Development (LDRD) Earth Science Research Foundation Investment Area &  \$\num{\the\totvalue{mcee}} 
+			\\
+			\\
+			\textbf{``REDEEMS: REsilience-Driven Energy Expansion Modeling for Strategic planning''} & 2025-2028 \\
+			Role: \textbf{Threat Analysis Lead} with PI Thushara Gunda (Sandia National Laboratories) & \\
+			Sponsor: Sandia National Laboratories -- LDRD Resilient Energy Systems Mission Campaign &  \$\num{\the\totvalue{redeems}} 
+			\\
+			\\
+			\textbf{``Hazard-Outage Vulnerability (HOV) Insight Tool for Energy Planning: Leverage Historical Insights to Plan for Future Vulnerability''} & 2025 \\
+			Role: \textbf{Senior Personnel} with PI Thushara Gunda (Sandia National Laboratories)& \\
+			Sponsor: U.S. Department of Energy & \$\num{\the\totvalue{hov}}
+			\\
+			\\	
+			\textbf{``Integrating Long-Duration Energy Storage into Planning, Markets, and Operations''} & 2025-2027 \\
+			Role: \textbf{Task Lead} for Weather Statistics and Markov Modeling with PI Ralph Masiello (Quanta Technologies) & \\
+			Sponsor: U.S. Department of Energy Grid Deployment Office & \$\num{\the\totvalue{ralph}} \\
+			Note: Selected for funding, rescinded due to federal policy changes (2025)%  \$\num{2641263} 
+			\\
+			\\
+			\textbf{``Security Solar Technologies through Optimization, Resilience and Modeled Systems'' (STORMS)} & 2024-2026 \\
+			Role: \textbf{Senior Personnel} with PI Laurie Burnham (Sandia National Laboratories) & \\
+			Sponsor: U.S. Department of Energy Solar Energy Technology Office & \$\num{\the\totvalue{storms}} %  \$\num{2641263} 
+			\\
+			\\
+			\textbf{``Cyber Physical Hazard Oriented-Assessment of Natural-Events'' (CyPHOON)} & 2024-2025 \\
+			Role: \textbf{PI} with Institutional PI Andrea Staid (EPRI) & \\ 
+			Sponsor: U.S. Department of Energy Office of Cybersecurity, Energy Security, and Emergency Response (CESER) & \$\num{\the\totvalue{cyphoon}} 
+			\\
+			\\
+			\textbf{``Multi-hazard, Multi-objective, Multi-investment Optimal Transmission Infrastructure Expansion Planning for Natural Disaster Resilience" (3M)} & 2024-2027 \\
+			Role:  \textbf{Task Lead} for Compound Hazard Modeling with PI Kyle Skolfield (Sandia National Laboratories) & \\
+			Sponsor: Sandia National Laboratories -- LDRD Resilient Energy Systems Mission Campaign &  \$\num{\the\totvalue{3m}}  
+			\\
+			\\
+			\textbf{``Enhanced Prediction in Chaotic Systems with Physics-Learned Autonomous Neural Networks'' (EPIC PLANN)} & 2023 -- 2026 \\
+			Role: \textbf{PI} with Institutional PI Louis Scuderi (University of New Mexico) & \\ 
+			Sponsor: Sandia National Laboratories -- LDRD Earth Science Research Foundation Investment Area & \$\num{\the\totvalue{epic_plann}} 
+			\\
+			\\
+			\textbf{``Water Management Project in Integrated Multisector Multiscale Modeling (IM3)''} & 2023 -- 2025 \\
+			Role: \textbf{Institutional PI} with PI Jennie Rice (Pacific Northwest National Laboratory) & \\
+			Sponsor: U.S. Department of Energy Office of Science MultiSector Dynamics Program & \$\num{\the\totvalue{im3}} 
+			\\
+			\\
+			\textbf{Photovoltaic System Cost Benchmark} & 2023 -- 2024 \\
+			Role: \textbf{Senior Personnel} with PI Jennifer Braid (Sandia National Laboratories) & \\ 
+			Sponsor: U.S. Department of Energy Solar Energy Technology Office & \$\num{\the\totvalue{pvcost}}
+			\\
+			\\
+			\textbf{``Natural Disasters: Evaluating Impacts to Grid Resilience''} & 2023 -- 2024 \\
+			Role: \textbf{Co-Investigator} with PI Thushara Gunda (Sandia National Laboratories) \& Institutional PI Surya Dhulipala (National Renewable Energy Laboratory) & \\ 
+			Sponsor: U.S. Department of Energy Solar Energy Technology Office &  \$\num{\the\totvalue{pvgrid}} 
+			\\
+			\\
+			%\\
+			\textbf{``Probabilistic Impact Scenarios for Extreme Weather Event Resilience``} & 2022--2024\\
+			Role: \textbf{Co-Project Lead} with Jean-Paul Watson (Lawrence Livermore National Laboratory), Roger Ghanem (University of Southern California), Cosmin Safta (Sandia), Emil Constantinescu (Argonne National Laboratory), Shinjae Yoo (Brookhaven National Laboratory, BNL), Aditi Krishnapriyan (Lawrence Berkeley National Laboratory), Xihaier Luo (BNL), Wei Xu (BNL) & \\
+			Sponsor: U.S. Department of Energy's Scientific Discovery Through Advanced Computing & \$\num{\the\totvalue{oe_ascr_pilot}}
+			\\
+			\\
+			%\\
+			%\\
+			\textbf{``Study of Straight-line Wind and Precipitation Hazard Return Periods Under Future Return Periods''} & 2022--2023 \\
+			Role: \textbf{PI} & \\
+			Sponsor: U.S. Department of Energy Nuclear Safety Research and Development  Program (2022 EHSS-30 NSRD 100043) & \$\num{\the\totvalue{nsrd_rain_wind}}  
+			\\
+			\\
+			\textbf{``Completing the Feedback Loop: Linking Data, Operation and Maintenance, Manufacturers, and Insurance Markets''} & 2022 -- 2025 \\
+			Role: \textbf{Institutional PI} (Sandia National Laboratories) with PI Adam Shinn (kWh Analytics) and Institutional PI Andy Walker (National Renewable Energy Laboratory) & \\
+			Sponsor: U.S. Department of Energy Solar Energy Technology Office  (DE-EE0009827) & \$\num{\the\totvalue{kwh}} 
+			\\
+			\\
+			\textbf{``Resilience of Global Chemical Facilities to Climate Change'' } & 2022 \\
+			Role: \textbf{Task Lead} for Characterization of Climate Risk with PI Andrew W. Nelson (Sandia National Laboratories) and Institutional PI Lina Sela (University of Texas at Austin) & \\ 
+			Sponsor: Sandia National Laboratories -- Climate Innovation Late Start LDRD & \$\num{\the\totvalue{chem_facilities}}  
+			\\
+			\\
+			\textbf{``Predictive Modeling of Weather Impacts on Utility-scale Photovoltaic Systems'' } & 2022 \\
+			Role: \textbf{PI} & \\ 
+			Sponsor: Sandia National Laboratories -- LDRD Exploratory Express & \$\num{\the\totvalue{pv_pred_weather}} 
+			\\
+			\\
+			\textbf{``FY22 Strategic Initiative: Climate Impacts on National Critical Infrastructure'' (CINCI)} & 2021 -- 2022 \\
+			Role: \textbf{Senior Personnel} with PI Jon Zimmerman (Sandia National Laboratories) & \\ 
+			Sponsor: Sandia National Laboratories & \$\num{\the\totvalue{cinci}} 
+			
+		\end{tabularx}
+		
+		
+		%----------------------------------------------------------------------------------
+		%     PUBLICATIONS
+		%----------------------------------------------------------------------------------
+		
+		% \vspace{-4em}
+		%\newpage
+		%\section*{Peer-reviewed Publications}
+		
+		\section*{Publications}
+		
+		% NOTE: DON'T FORGET TO MANUALLY EDIT THE NUMBER OF FIRST AUTHOR PUBS 3 LINES DOWN!!!!!!
+		% set the number of first-author publications
+		% note: taken from https://tex.stackexchange.com/questions/37094/what-is-the-recommended-way-to-assign-a-value-to-a-variable-and-retrieve-it-for
+		\newcommand{\numFirstAuthor}{4}
+		%
+		$\Rightarrow$ \total{total_pubs} total publications including \total{total_first_author}~as first author (\href{https://scholar.google.com/citations?user=dOzcnYUAAAAJ&hl=en&oi=ao}{\textcolor{blue}{Google Scholar Page}})
+		\\
+		\\
+		$\dagger$ -- indicates current or former mentee
+		
+		\subsection*{Journal Articles}
+		
+		
+		% format
+		% Author list with \textbf{N.D. Jackson} (year) Title,  \textit{Journal Name}, Vol XX, Issue YY, pp ZZ, paper as hyperlink, data as hyperlink 
+		% hyperlink DOI, use capitals for first letters in each word for titles
+		
+		%\colorbox{yellow}{automate counters for the papers...see funding section}
+		
+		% add in a letter before the number
+		\renewcommand{\labelenumi}{J\theenumi.} % J = journal
+		\begin{etaremune}[] 
+			
+			\articleitem{0}{ A.G. Moore$^{\dagger}$,  R.L. Valdez, T. Gunda, and \textbf{N.D. Jackson}. (\textit{in press, 2026)} An Analysis of the Duration and Severity of Power Outages During Weather Events Across U.S. Counties, to appear in \textit{Environmental Research: Energy}
+			}
+			
+			\articleitem{0}{K.L. Bonney, T. Gunda, S.B. Ferencz, and \textbf{N.D. Jackson}. (2026) Emulation of Monthly Water Allocations Using LSTM Models: A Case Study of the Colorado River Basin in Texas, \textit{Environmental Research Communications}, Vol 8, Issue 5, pp 055040
+				\href{https://doi.org/10.1088/2515-7620/ae4cf9}{(\textcolor{blue}{paper})}
+				\href{https://doi.org/10.57931/2441443}{(\textcolor{blue}{data})}
+				\href{https://doi.org/10.5281/zenodo.13870503}{(\textcolor{blue}{code})}
+			}
+			
+			\articleitem{0}{H.H. Bokhari, F. Corsi, A. Miara, B.M. Fekete, S. Gangrade, S. Kao, \textbf{N.D. Jackson}, C.J. V{\"o}r{\"o}smarty. (2025) An Integrated Hydroclimatic Assessment of Future Reservoir and Hydropower Operations in the U.S, \textit{Earth's Future}, Vol 13, Issue 9, pp e2025EF006203 
+				\href{https://doi.org/10.1029/2025EF006203}{(\textcolor{blue}{paper})}
+				\href{https://doi.org/10.5281/zenodo.14272679}{(\textcolor{blue}{code and data})}}
+			\\
+			Note: Paper is part of the Special Issue ``Multi-Sector Dynamics: Advancing Complex Adaptive Human-Earth Systems Science in a World of Interconnected Risks''
+			
+			
+			\articleitem{0}{T. Gunda, A. Moore$^{\dagger}$, \textbf{N.D. Jackson}, S. Dhulipala, and S. Awara. (2025) A resource adequacy assessment of correlated wide-area outages in the power grid,  \textit{Environmental Research: Energy}, Vol 2, Issue 2, pp 025009  \href{https://doi.org/10.1088/2753-3751/add465}{(\textcolor{blue}{paper})}
+				\href{https://doi.org/10.7799/2566792}{(\textcolor{blue}{data})}}
+			\\
+			Note: Paper is part of the ``Focus on Natural Hazards, Disasters, and Extreme Events''
+			
+			\articleitem{0}{P.M. Johnson, \textbf{N.D. Jackson}, H. Baroud, and A. Staid. (2024) Can Socio-Economic Indicators of Vulnerability Help Predict Spatial Variations in the Duration and Severity of Power Outages Due to Tropical Cyclones?  \textit{Environmental Research Letters}, Vol 14, Issue 4, pp 044048 \href{https://doi.org/10.1088/1748-9326/ad3568}{(\textcolor{blue}{paper})}
+				\href{https://doi.org/10.17605/OSF.IO/AK5J6}{(\textcolor{blue}{data and code})}}
+			%\href{https://osf.io/ak5j6/?view_only=0a795a15856741dab2628c73efd52fc5}{(\textcolor{blue}{code})}
+			
+			
+			\articleitem{0}{K.L Bonney, T. Gunda, M. Mendoza, M.L. Hopwood, and \textbf{N.D. Jackson}. (2023). pvOps: a Python Package for Empirical Analysis of Photovoltaic Field Data, \textit{Journal of Open Source Software} 	\href{https://joss.theoj.org/papers/10.21105/joss.05755}{(\textcolor{blue}{paper})}
+				\href{https://github.com/sandialabs/pvOps}{(\textcolor{blue}{software})}}
+			
+			\articleitem{0}{S. Gilletly, \textbf{N.D. Jackson}, and A. Staid. (2023) Evaluating the Impact of Wildfire Smoke on Solar Photovoltaic Production, \textit{Applied Energy} , Vol 348, pp 121303
+				\href{https://doi.org/10.1016/j.apenergy.2023.121303}{(\textcolor{blue}{paper})}
+				\href{https://dx.doi.org/10.25984/1988650}{(\textcolor{blue}{data})}}
+			
+			\articleitem{1}{\textbf{N.D. Jackson} and T. Gunda. (2021) Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance in the United States, \textit{Applied Energy}, Vol 302, pp 117508 \href{https://doi.org/10.1016/j.apenergy.2021.117508}{(\textcolor{blue}{paper})} \href{http://data.openei.org/submissions/4055}{(\textcolor{blue}{data})}} 
+			
+			\articleitem{1}{\textbf{N.D. Jackson}, M. Konar, P. Debaere, and J. Sheffield. (2021) Crop-specific Exposure to Extreme Temperature and Moisture for the Globe for the Last Half Century, \textit{Environmental Research Letters}, Vol 16, Issue 6, pp 064006 \href{https://doi.org/10.1088/1748-9326/abf8e0}{(\textcolor{blue}{paper})} 
+				\href{https://doi.org/10.13012/B2IDB-5457902_V1}{(\textcolor{blue}{data})}}
+			%
+			\articleitem{0}{R. von Gnechten, J. Wang, M. Konar, K. Baylis, P. Anderson, S. Giroux, \textbf{N.D. Jackson}, and T. Evans. (2020) A Gravity Model and Network Analysis of Household Food Sharing in Zambia, \textit{Environmental Research Letters}, Vol 15, Issue 11, pp 115010 \href{https://doi.org/10.1088/1748-9326/abbe44}{(\textcolor{blue}{paper})}}
+			%
+			\articleitem{1}{\textbf{N.D. Jackson}, M. Konar, P. Debaere, and L. Estes. (2019) Probabilistic Global Maps of Crop-Specific Areas from 1961 to 2014, \textit{Environmental Research Letters}, Vol 14, Issue 9, pp 094023  \href{https://iopscience.iop.org/article/10.1088/1748-9326/ab3b93}{(\textcolor{blue}{paper})}
+				\href{https://doi.org/10.13012/B2IDB-7439710_V1}{(\textcolor{blue}{data})}}
+			%
+			\articleitem{0}{M. Niazi, C. Nietch, M. Maghrebi, \textbf{N.D. Jackson}, B.R. Bennett, M. Tryby, and A. Massoudieh. (2017) Storm Water Management Model: Performance Review and Gap Analysis, \textit{Journal of Sustainable Water in the Built Environment}, Vol 3, Issue 2, pp 04017002 \href{https://doi.org/10.1061/JSWBAY.0000817}{(\textcolor{blue}{paper})}} 
+			%
+			\articleitem{1}{\textbf{N.D. Jackson}, M. Konar, and A.Y. Hoekstra. (2015) The Water Footprint of Food Aid, \textit{Sustainability}, Vol 7, Issue 6, pp 6435-6456 \href{http://www.mdpi.com/2071-1050/7/6/6435}{(\textcolor{blue}{paper})}}
+			\\
+			Note: Paper is part of the Special Issue ``Water Footprints and Sustainable Water Allocation"
+			
+			%
+			\articleitem{0}{J.S. Popovics, G.P. Cetrangolo, and \textbf{N.D. Jackson}. (2006) Experimental Investigation of Impact-Echo Method for Concrete Slab Thickness Measurement, \textit{Journal of the Korean Society for Nondestructive Testing}, Vol 26, Issue 6, pp 427-439  \href{https://www.koreascience.or.kr/article/JAKO200606141817475.pdf}{(\textcolor{blue}{paper})}}
+			
+		\end{etaremune}
+		
+		%----------------------------------------------------------------------------------
+		%     CONFERENCE PROCEEDINGS
+		%----------------------------------------------------------------------------------
+		
+		\subsection*{Conference Proceedings}
+		
+		% format
+		% Author list with \textbf{N.D. Jackson} (year) ``Title",  \textit{Conference Name}, city, state,  paper as hyperlink
+		% hyperlink DOI, use capitals for first letters in each word for titles
+		
+		% add in a letter before the number
+		\renewcommand{\labelenumi}{C\theenumi.} % C = conference
+		\begin{etaremune}[] 
+			
+			\confitem{0}{W.G. Chapman$^{\dagger}$, J.D. Smith, C. Teeter, and \textbf{N.D. Jackson}. (\textit{in press}) Graph Reservoir Networks for Prediction of Spatiotemporal Systems, to appear in \textit{Proceedings of the 2026 Neuro Inspired Computational Elements Conference}} % NICE conference}
+		
+		\confitem{1}{\textbf{N.D. Jackson}, A. Sharma$^{\dagger}$, and J.K. Skolfield (2025) Spatio-Temporal Modeling of Weather-related Compound Threats to Power Systems Using Markov Random Fields, \textit{2025 IEEE Resilience Week (RWS)}, National Harbor, Maryland, \href{https://doi.org/10.1109/RWS66711.2025.11304397}{(\textcolor{blue}{paper})}}
+		
+		\confitem{0}{R.M. Alfant$^{\dagger}$, J.K. Skolfield, \textbf{N.D. Jackson}, and T.R. Edwards (2025) Generation and Transmission Expansion Planning for Resilience to Compound Hazards, \textit{2025 IEEE Resilience Week (RWS)}, National Harbor, Maryland \href{https://doi.org/10.1109/RWS66711.2025.11304451}{(\textcolor{blue}{paper})}}
+		
+		\confitem{0}{R.L. Valdez, T. Gunda, S.B. Ferencz, and \textbf{N.D. Jackson} (2025) Integrated Metrics for System Performance, Attributes, and Critical Threats for Resilience Analysis, \textit{2025 IEEE Resilience Week (RWS)}, National Harbor, Maryland \href{https://doi.org/10.1109/RWS66711.2025.11304373}{(\textcolor{blue}{paper})}}
+		
+		\confitem{0}{R.L. Valdez, A.G. Moore$^{\dagger}$, \textbf{N.D. Jackson}, and T. Gunda (2025) Evaluating Correlations between Risk Indices and Power Outages during Extreme Events, \textit{2025 IEEE Resilience Week (RWS)}, National Harbor, Maryland \href{https://doi.org/10.1109/RWS66711.2025.11304380}{(\textcolor{blue}{paper})}}
+		
+		\confitem{0}{A.G. Moore$^{\dagger}$, T. Gunda, and \textbf{N.D. Jackson} (2025) A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems, \textit{2025 IEEE Resilience Week (RWS)}, National Harbor, Maryland \href{https://doi.org/10.1109/RWS66711.2025.11304488}{(\textcolor{blue}{paper})}}
+		
+		\confitem{0}{R. Piansky, D.K. Molzahn, \textbf{N.D. Jackson}, and J.K. Skolfield. (2025) Evaluating Undergrounding Decisions for Wildfire Ignition Risk Mitigation across Multiple Hazards, \textit{2025 IEEE Kiel PowerTech Conference}, Kiel, Germany \href{https://doi.org/10.48550/arXiv.2506.06575}{(\textcolor{blue}{paper})}}
+		
+		\confitem{0}{G. Zhao, X. Luo, S. Yoo, and \textbf{N.D. Jackson}. (2024) GAN-based Extreme Conditional Distribution Estimation for Renewable Energy Systems, \textit{IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)}, Oslo, Norway \href{https://doi.org/10.1109/SmartGridComm60555.2024.10738070}{(\textcolor{blue}{paper})}} 
+		
+		\confitem{0}{R.M. Reck, Y. Li, S. Thompson, \textbf{N.D. Jackson}, and S. Debetwar. (2023) Preparing Women in STEM for Faculty Careers through a Job Search Workshop Series, \textit{ASEE Annual Conference \& Exposition, Conference Proceedings}, Baltimore, Maryland \href{https://peer.asee.org/preparing-women-in-stem-for-faculty-careers-through-a-job-search-workshop-series.pdf}{(\textcolor{blue}{paper})}} 
+		
+		\confitem{0}{S. Gilletly, \textbf{N.D. Jackson}, and A. Staid. (2021) Quantifying Wildfire-Induced Impacts to Photovoltaic Energy Production in the Western United States, \textit{48th IEEE Photovoltaic Specialists (PVSC)}, virtual \href{https://doi.org/10.1109/PVSC43889.2021.9518514}{(\textcolor{blue}{paper})}}
+		%	
+		\confitem{1}{\textbf{N.D. Jackson}, K.I. Tyler, Y. Li, W. Chen, C. Liu and R. Bhargava. (2017) Keeping Current: An Update on the Structure and Evaluation of a Program for Graduate Women Interested in Engineering Academia, \textit{ASEE Annual Conference \& Exposition, Conference Proceedings}, Dayton, Ohio \href{https://peer.asee.org/28598}{(\textcolor{blue}{paper})}}
+		%
+		\confitem{0}{K.I. Tyler, Y. Li, \textbf{N.D. Jackson}, W. Chen, C. Liu and R. Bhargava. (2017) Overcoming Difficulties in Research Statement Preparation for the Academic Job Search: Expansion of a Peer-Focused Professional Development Program, \textit{ASEE Annual Conference \& Exposition, Conference Proceedings}, Dayton, Ohio \href{https://peer.asee.org/28727}{(\textcolor{blue}{paper})}}   
+		%
+		\confitem{1}{\textbf{N. Jackson}, Y. Malave, C.L. Roberts-Wollmann, S. Case, and J. Lesko (2005) Reliability-based Uniform Flexural Resistance Factors for GFRP Reinforced Concrete Members, \textit{Third International Conference for Composites in Construction}, Lyon, France}
+		
+	\end{etaremune}
+	
+	%----------------------------------------------------------------------------------
+	%     SAND REPORTS
+	%----------------------------------------------------------------------------------
+	
+	% reduce spacing
+	%\vspace{-2em}
+	
+	\subsection*{National Laboratory Reports}
+	%\section*{SAND Reports and White Papers}
+	
+	Note: National laboratory documents are subject to internal peer review before publication. Entries without links remain distribution-limited and are available only for official use.
+	
+	% add in a letter before the number
+	\renewcommand{\labelenumi}{R\theenumi.} % S = SAND report
+	\begin{etaremune}[] 
+		
+		\techitem{0}{T. Gunda, R. Valdez, \textbf{N. Jackson}, R. Cooper, A. Sorensen, and E. Sproul. (2024) Historical and Future Extreme Weather Conditions: A Case Study of Southeast China Provinces, Sandia National Laboratories, SAND2024-15880}
+		
+		\techitem{0}{T. Gunda, R. Valdez, \textbf{N. Jackson}, S. Price, and S. Goodnight. (2024) Potential Climate Change Impacts to Crop Production: Case Study of Rice and Winter Wheat in China, Sandia National Laboratories}
+		
+		\techitem{0}{A. Walker, J. Desai, T. Gunda, and \textbf{N. Jackson}. (2023) Operation and Maintenance of PV Systems: Data Science, Analysis, and Standards, National Renewable Energy Laboratory, NREL/TP-5C00-85819 \href{https://www.nrel.gov/docs/fy24osti/85819.pdf}{(\textcolor{blue}{report})}}
+		
+		\techitem{1}{\textbf{N. Jackson}, T. Gunda, N. Gayoso, J. Desai, and A. Walker (2022) Operations, maintenance, and cost considerations for PV+ Storage in the United States, Sandia National Laboratories, SAND2022-16312 \href{https://www.osti.gov/servlets/purl/1899420}{(\textcolor{blue}{report})}}
+		
+		\techitem{0}{A. Nelson, \textbf{N. Jackson}, J. Wingard, S. Paik, and T. Gunda (2022) Resilience of Global Chemical Facilities to Climate Change, Sandia National Laboratories, SAND2022-14347R}
+		
+		\techitem{1}{\textbf{N. Jackson} and H. Mendoza (2022) Predictive Modeling of Weather Impacts on Utility-scale Photovoltaic Systems, Sandia National Laboratories, SAND2022-14215R}
+		
+		\techitem{0}{A. Staid, E.S. Fleming, T. Gunda, and \textbf{N.D. Jackson} (2021) Critical Infrastructure Decision-Making Under Long-Term Climate Hazard Uncertainty: The Need for an Integrated, Multidisciplinary Approach, Sandia National Laboratories, SAND2021-11394 R \href{https://www.osti.gov/servlets/purl/1820518}{(\textcolor{blue}{report})}}
+		
+		% placeholder for data analytics
+		\techitem{0}{T. Gunda, \textbf{N.D. Jackson}, D. Sanchez, K. Klise, K. Ruehl, and S.Kuzio (2021) Advanced Data Analytics in Renewable Energy: Review of Capabilities, Needs, and Opportunities, Sandia National Laboratories, SAND2021-6297 R}
+		%
+		\techitem{0}{T. Gunda, A. Neal, P. Carlson, C. Richardson, J.A. Perez, M. Aamir, B. Anderson, and \textbf{N.D. Jackson} (2020) TAOS: A Tool for Assisting Organization Selections for Security Integrated Assessments', Sandia National Laboratories, SAND2020-10751} %
+		
+	\end{etaremune}
+	
+	\subsection*{White Papers}
+	%\section*{SAND Reports and White Papers}
+	
+	Note: White papers are subject to internal peer review before publication. Entries without links remain distribution-limited and are available only for official use.
+	
+	% add in a letter before the number
+	\renewcommand{\labelenumi}{W\theenumi.} % S = SAND report
+	\begin{etaremune}[] 
+		
+		\whitepaperitem{1}{\textbf{N.D. Jackson}, M. Brown, and N.S. Rao (2025) Reinforcement Learning for Water-Energy Infrastructure Resilience and Evolution, SAND2025-13783O \href{https://ewr.openei.org/submissions/55}{(\textcolor{blue}{paper})}}	
+		
+		\whitepaperitem{1}{\textbf{N.D. Jackson}, S. Conrad, and N.S. Rao (2025) Operational Flexibility for Integrated Energy-Water Resilience, SAND2025-13749O \href{https://ewr.openei.org/submissions/54}{(\textcolor{blue}{paper})}}
+		
+		\whitepaperitem{0}{P. Bhowmik, K. Cafferty, K. Klise, J.K. Skolfield, and \textbf{N.D. Jackson} (2025) Water Energy Planning Strategies to Meet Emerging Load from Data Centers, SAND2025-13692O  \href{https://ewr.openei.org/submissions/42}{(\textcolor{blue}{paper})}}	
+		
+		\whitepaperitem{0}{R.L. Valdez, \textbf{N.D. Jackson}, S. Ferencz, and A. Wachtel (2025) Resilience by Design: Advanced Metrics and Comprehensive Methods for Energy-Water Systems Analysis, SAND2025-13704O  \href{https://ewr.openei.org/submissions/68}{(\textcolor{blue}{paper})}}	
+		
+		\whitepaperitem{0}{T. Gunda, \textbf{N.D. Jackson}, Z. Kilwein$^{\dagger}$, K. Klise, and J.K. Skolfield (2025) Opportunities to Address Gaps in Atmospheric Phenomena for Energy Operations and Planning, SAND2025-13655O}
+		
+		\whitepaperitem{0}{J.K. Skolfield, T. Gunda, and \textbf{N.D. Jackson}. (2025) Flexible and MOdule Superstructure Optimization for Rapid Computational Advancements in Power Systems Expansion Planning, Sandia National Laboratories}
+		
+		\whitepaperitem{0}{T. Lowry, R. Garrett, T. Gunda, \textbf{N. Jackson}, K. Klise, C. Smallwood, K. Stamber, R. Taylor, S. Kuzio, and J. Zimmerman (2023) Climate Impacts on National Critical Infrastructure Strategic Initiative, Sandia National Laboratories}
+		
+	\end{etaremune}
+	
+	
+	%----------------------------------------------------------------------------------
+	%    BOOKS
+	%----------------------------------------------------------------------------------
+	
+	\subsection*{Book Chapters}
+	
+	% add in a letter before the number
+	\renewcommand{\labelenumi}{B\theenumi.} % R = Review
+	\begin{etaremune}[] 
+		
+		
+		% cyphoon book chapter
+		\bookitem{0}{T. Gunda, R. Valdez, Z. Kilwein, J.K. Skolfield, R. Adams, and \textbf{N.D. Jackson} (in press) ``Wiring Resilience for a Weather-Adapted Power Grid.'' \textit{Critical Infrastructure Systems and Extreme Threat Nexus: Preparing Resilience and Security} Springer Nature. \href{https://link.springer.com/book/9783032131690}{(\textcolor{blue}{book})}}
+		
+		
+	\end{etaremune}
+	
+	\subsection*{Manuscripts in Review and Revision}
+	% add in a letter before the number
+	\renewcommand{\labelenumi}{M\theenumi.} % R = Review
+	%\subsection*{Manuscripts in Review}%
+	
+	\begin{etaremune}[]
+		
+		% stuff in review
+		\item W. Han, C. Safta, J. Watson, \textbf{N.D. Jackson}, and R. Ghanem.  (\textit{in review}) ``Power generation extremes with probabilistic learning on manifolds'' % in review at IEEE Transactions on Power Systems
+		
+		\item N. Rao, J. Lala, A. Miara, S. Cohen, H. Bokhari, \textbf{N.D. Jackson}, and F. Corsi. (\textit{in review}) ``Measuring Climate and Water Risk across the Bulk Power System" % in review at Environmental Science & Technology
+		
+		\item A.G. Moore$^{\dagger}$,  R.L. Valdez, T. Gunda, and \textbf{N.D. Jackson}. (\textit{(in review)} ``An Analysis of the Duration and Severity of Power Outages During Weather Events Across U.S. Counties''
+		
+		% stuff in revision
+		
+		\item \textbf{N.D. Jackson}, R. Valdez, J.K. Skolfield, T. Gunda, Z. Kilwein$^{\dagger}$, and A. Staid (\textit{in revision}) ``Planning and Operations for Grid Resilience to Compound Extreme Heat–Cyber Threats: Case Study of California and Arizona''
+		
+		\item A. Sharma$^{\dagger}$, J. Kyle Skolfield, and \textbf{N.D. Jackson}. (\textit{in revision}) ``Spatio temporal relationships between wildfire and atmospheric data"
+		
+		%\item \textbf{N.D. Jackson}, H. Mendoza, and G. Huerta. (\textit{in revision}) ``Study of Straight-line Wind and Precipitation Hazard Return Periods Under Future Conditions"
+		
+		%\item T. Gunda, N. Prittenen, K.L. Stamber, A.R. Falzarano, J. Dise, P. Hora, Y. Heo, and \textbf{N.D. Jackson}. (\textit{in revision}) ``Water Intersections with Climate Security: Three Worldviews to Advance Complex Systems Analyses''
+		
+		%\item \textbf{N.D. Jackson}, P. Johnson, J. Yu, H. Baroud, A. Staid. (\textit{in revision}) ``Power Outage, Weather, and Storm Events in the United States 2014-2022" %with Paul M. Johnson, Hiba Baroud, Jin-Zhu Yu, Andrea Staid, and Jean-Paul Watson %(to be submitted in December 2023)
+		
+		% in prep
+		
+		
+	\end{etaremune}
+	
+	
+	% remove letter before the number
+	\renewcommand{\labelenumi}{\theenumi.} 
+	
+	\section*{Patents}
+	
+	\begin{etaremune}
+		\item G.W. Chapman, J.D. Smith, C. Teeter, and \textbf{N.D. Jackson}. Systems and Method for Forming Graph Reservoir Networks. 19/550,784 (\textit{pending}).
+	\end{etaremune}
+	
+	
+	
+	
+	
+	
+	
+	%----------------------------------------------------------------------------------
+	%     INVITED PRESENTATIONS
+	%----------------------------------------------------------------------------------
+	
+	\section*{Invited Seminars \& Presentations}
+	
+	% format: (talk title), Type, Venue, Date.
+	
+	\begin{etaremune}[]
+		
+		\item Panelist, Integrated Energy Infrastructure Planning under Extreme Weather Uncertainties, IEEE Resilience Week, National Harbor, MD, November 2025.
+		
+		\item Panelist, Women in Data Science and Statistics, University of Illinois at Urbana-Champaign Department of Statistics and the School of Information Sciences, Urbana, IL, October 2025. 
+		
+		\item Panelist, Industry Career Panel, Society for Industrial and Applied Mathematics Annual Meeting (AN24), Spokane, WA, July 2024.
+		
+		\item Machine Learning for the Energy Sector: Predicting Impacts and Understanding System Behavior, MultiSector Dynamics Community of Practice -- AI Working Group, Virtual, June 2024.
+		
+		\item Panelist, Career Pathways for MPE Enthusiasts, Society for Industrial and Applied Mathematics Conference on the Mathematics of Planet Earth (MPE24), Portland, OR, June 2024.
+		
+		\item Extreme Weather and Climate Impacts to Energy Infrastructure, Sandia National Laboratories/Los Alamos National Laboratory Climate Science Summit, Los Alamos, NM, May 2024. 
+		
+		\item Building Resilience for Critical Infrastructure: Case Studies in Solar, Cornell University, April 2024.
+		
+		\item Plenary Speaker, Modeling Extreme Weather Impacts: Case Studies in Utility-scale Solar, Mathematics - Opportunities in Research and Education (MORE), Clemson University, Clemson, South Carolina, October 2023.
+		
+		\item Probabilistic Impact Scenarios for Extreme Weather Event Resilience, SciDAC Principal Investigator Meeting, Rockville, MD, September 2023.
+		
+		\item Panelist, Preparing for the Storm: Managing Operational Risk and Asset Protection in the Face of Extreme Weather, Large Scale Solar USA, Austin, TX, May 2023.
+		
+		\item Straight-line Wind-based Hazard Analysis under Future Return Periods, EFCOG Nuclear \& Facility Safety Annual Workshop, Albuquerque, NM, March 2023.
+		
+		\item Extreme Weather Drivers during Power Outages \& Equity Considerations for Future Grid Expansions Planning in the United States, Vanderbilt University, January 2023.
+		
+		\item Extreme Weather Drivers during Power Outages in the United States, Cornell University, November 2022.
+		
+		\item Projecting Water Scarcity Across Scales: Case Study of the Colorado River Basin, Sandia Loves Science, Virtual, October 2022.
+		
+		\item Panelist, Powering Environmental Justice with Clean Energy, RE+ 2022, Anaheim, CA, September 2022.
+		
+		\item Projecting Water Scarcity Across Scales: Case Study of the Colorado River Basin, Southern Plains Drought Early Warning System Partners Meeting, Virtual, August 2022.
+		
+		\item Panelist, The Water, Climate, and Energy Nexus: Charting the Role of DOE's Technology Offices, Frontiers in Hydrology Workshop, Virtual, June 2022.
+		
+		\item Extreme Weather Risk to PV Performance and Operations, Large Scale Solar, Austin, TX, June 2022.
+		
+		\item PV+Storage Operations and Maintenance Considerations, PV Reliability Workshop, Virtual, Feburary 2022. 
+		
+		\item A Tale of Two Models: Projecting Water Scarcity for the Colorado River Basin, AGU Fall Meeting, Virtual, December 2021.
+		
+		\item Panelist, PV Magazine Roundtables: Optimizing systems and hardware to meet environmental and performance challenges, Virtual, November 2021.
+		
+		\item Estimating Weather Impacts on Utility-Scale Photovoltaic Plant Performance, Bay Area Research Slam 2021, Virtual, October 2021. 
+		
+		\item Weather Impacts On Utility-Scale Photovoltaic Plant Performance, Materials and Structural Systems Division, National Institute of Standards and Technology, Virtual, October 2020.
+		
+		\item Reusing Operations \& Maintenance Records: Moving from Reactive to Proactive Management of Solar Photovoltaic Sites, Sandia National Laboratories Emeritus Meeting Early-Career Technical Showcase, Albuquerque, NM, March 2020.
+		
+		\item Multi-Site Assessment of Extreme Weather Impacts on PV Plant Performance and Reliability, PV Reliability Workshop. Lakewood, CO, February 2020. 
+		
+		\item Climate Shocks, Agriculture and Trade, Civil and Environmental Engineering Department, Massachusetts Institute of Technology, October 2019. 
+		
+		\item Global Gridded Crop Specific Agricultural Areas from 1961-2014, Civil, Materials, and Environmental Engineering Department, University of Illinois at Chicago, February 2019.    
+		%
+		\item Global Gridded Crop Specific Agricultural Areas from 1961-2014, Energy Water Systems Integration Department, Sandia National Laboratories, January 2019.    
+		
+	\end{etaremune}
+	
+	
+	\section*{Invited Workshop Participation}
+	
+	\begin{etaremune}[]
+		\item US Department of Energy/Water Power Technologies Office \& Pacific Northwest National Laboratory Resilience of Energy and Water Systems Workshop, Alexandria, Virginia, 13-14 May 2025
+		\item US Department of Energy/Office of Science/Biological and Environmental Research Workshop for Accelerating AI for (EESM) modeling, College Park, Maryland, 13 December 2024
+		\item US Department of Energy/Office of Science/Biological and Environmental Research Roundtable for Fundamental Energy Research Enabled by Artificial Intelligence, Gaithersburg, Maryland, 7-8 November 2024 
+		\item Integrated Hydro-Terrestrial Modeling (IHTM) 2.0, Reston, Virginia, 31 October 2023 - 02 November 2023 \href{https://doi.org/10.2172/2499550}{(\textcolor{blue}{report})} 
+		\item SIAM Convening on Climate Science, Sustainability, and Clean Energy, Tysons Corner, Virginia, 10-12 October 2022. \href{https://www.siam.org/Portals/0/Programs/climate_convening/Report_SIAMClimateConvening.pdf}{(\textcolor{blue}{report and contributed recommendation})} 
+	\end{etaremune}
+	
+	
+	%----------------------------------------------------------------------------------
+	%     CONTRIBUTED PRESENTATIONS
+	%----------------------------------------------------------------------------------
+	
+	%\newpage
+	\section*{Contributed Presentations}
+	
+	% NOTE: DON'T FORGET TO MANUALLY EDIT THE NUMBER OF ORAL AND POSTER PRESENTATIONS 3 LINES DOWN!!!!!!
+	% set the number of different types of presentations
+	% note: taken from https://tex.stackexchange.com/questions/37094/what-is-the-recommended-way-to-assign-a-value-to-a-variable-and-retrieve-it-for
+	\newcommand{\numOralTalks}{22}
+	\newcommand{\numPosterTalks}{15}
+	%
+	%Research has been shared via \numOralTalks~oral and \numPosterTalks~poster presentations
+	
+	% format: (talk title), Type, Venue, Date.
+	\vspace{-0.4em}
+	$\dagger$ -- presentation by mentee  %\textcolor{red}{flag presentations by co-author, collaborator}
+	
+	\vspace{-0.5em}
+	\subsection*{Oral Presentations}
+	
+	\begin{etaremune}[]
+		
+		% pending MPE26 talk
+		% William's NICE26 talk
+		
+		\item \textbf{N.D. Jackson} and D. Coyle, Spatio-Temporal Modeling of Compound Threats to Power Systems Using Conditional Random Fields, Society for Industrial and Applied Mathematics Conference on Optimization (OP26), Edinburgh, Scotland, 2026. 
+		
+		\item \textbf{N.D. Jackson}, Water and Economic Development: Thinking Across Sectors, 2026 Water Leaders Workshop, Ruidoso, NM, 2026. 
+		
+		\item W.G. Chapman$^{\dagger}$, J.D. Smith, C. Teeter, and \textbf{N.D. Jackson}. Graph Reservoir Networks for Prediction of Spatiotemporal Systems, 2026 Neuro Inspired Computational Elements Conference, Atlanta, Georgia, 2026.
+		
+		\item \textbf{N.D. Jackson}, Extreme Weather Events, Prediction, and Impacts, Sandia National Laboratories and the Energized Watershed, (virtual), January 2026. 
+		
+		\item \textbf{N.D. Jackson}, A. Sharma, J.K. Skolfield. Spatio-Temporal Modeling of Weather-related Compound Threats to Power Systems Using Markov Random Fields, IEEE Resilience Week, National Harbor, MD. 2025. 
+		
+		\item \textbf{N.D. Jackson}, T. Gunda, K.L. Bonney, and S. Ferencz. From Data to Decisions: Machine Learning for Water Allocation Amid Hydrologic Extremes, Workshop on Human Water Use, Decision Making, and Earth Systems Modeling, Boulder, CO, October 2025. 
+		
+		\item W. Chapman$^{\dagger}$ (speaker), J.D. Smith, J. Mott, C. Teeter, and \textbf{N.D. Jackson}. Graph Reservoir Networks for Prediction of Spatiotemporal Systems. Society for Industrial and Applied Mathematics Conference on Applications of Dynamical Systems (DS25), Denver, CO, May 2025. 
+		
+		\item J.D. Smith (speaker), W. Chapman, and \textbf{N.D. Jackson}. Predictor Sensitivity and Variable Importance in Drought Forecasting. Society for Industrial and Applied Mathematics Conference on Applications of Dynamical Systems (DS25), Denver, CO, May 2025. 
+		
+		\item \textbf{N.D. Jackson}, A. Sharma, J.K. Skolfield, T. Gunda. Transitional States During Compound Extreme Events: Examples from Cascading Wildfires and Floods. Society for Industrial and Applied Mathematics Conference on Applications of Dynamical Systems (DS25), Denver, CO, May 2025. 
+		
+		\item A. Sharma$^{\dagger}$ (speaker), \textbf{N.D. Jackson}, J.K. Skolfield, and T. Gunda. Joint Statistical Clustering of Spatio-temporal Weather Data to Predict Wildfires, APS March Meeting, Anaheim, CA, March 2025. 
+		
+		\item \textbf{N.D. Jackson}, W. Chapman, J.D. Smith, C. Teeter, J. Mott, L. Scuderi, Z. Strasberg. Machine Learning and Reservoir Computing for Watershed-Scale Drought Prediction, AGU Fall Meeting, Washington, D.C., December 2024. 
+		
+		\item \textbf{N.D. Jackson}, T. Gunda, K.L. Bonney, S. Ferencz. Machine Learning for Water Allocation Amid Hydrologic Extremes: Case Study of the Colorado River Basin in Texas, AGU Fall Meeting, Washington, D.C., December 2024.
+		
+		\item \textbf{N.D. Jackson}, T. Gunda, K.L. Bonney, S. Ferencz. From Data to Decisions: Machine Learning for Water Allocation Amid Hydrologic Extremes, DOE EESM PI Meeting, Bethesda, MD, August 2024. 
+		
+		\item \textbf{N.D. Jackson}. Bringing DEI into R\&D spaces: examples from Sandia National Laboratories, Society for Industrial and Applied Mathematics Annual Meeting (AN24), Spokane, WA, July 2024. 
+		
+		\item \textbf{N.D. Jackson}, T. Gunda, R. Valdez. Modeling Water Intersections with Climate Security: Reconciling Multi-Sectoral Priorities in an Arid Region, WaterSciCon2024, St. Paul, MN, June 2024.
+		
+		\item \textbf{N.D. Jackson}. Defining Extreme: Case Studies from the Electric Grid., Society for Industrial and Applied Mathematics Conference on the Mathematics of Planet Earth (MPE24), Portland, OR, June 2024. 
+		
+		\item \textbf{N.D. Jackson}, R. Valdez, W. Peplinski, and T. Gunda. Water for Energy: Complex Data Requirements across New Mexico Users, 2024 New Mexico Water Data Workshop, Albuquerque, NM, May 2024. 
+		
+		\item \textbf{N.D. Jackson},  . Extreme Weather and Natural Hazard Impacts to Grid Operations: A Focus on Utility-Scale Solar, American Meteorological Society -- 15th Conference on Weather, Water, Climate, and the New Energy Economy, Baltimore, MD, January 2024. 
+		
+		\item \textbf{N.D. Jackson} Panelist with Rebecca Reck, Stephanie Gillespie, and Yanfen Li``Navigating changes to early career trajectories in academia" (panel), Society of Women Engineers Annual Meeting (we23), Los Angeles, CA, October 2023. 
+		
+		\item \textbf{N.D. Jackson} and H. Mendoza. Explainable Model Reduction to Predict Temperature Impacts, Society for Industrial and Applied Mathematics Conference on Applications of Dynamical Systems (DS23), Portland, OR, May 2023. 
+		
+		\item \textbf{N.D. Jackson}, P. Johnson, J. Yu, H. Baroud, A. Staid, and J-P Watson. Extreme Weather Drivers during Power Outages in the United States, American Meteorological Society -- 14th Conference on Weather, Water, Climate, and the New Energy Economy, Denver, CO, January 2023.
+		
+		\item \textbf{N.D. Jackson}, A. Miara, F. Corsi, D. Vignoles, H.H. Bokhari, N.S. Rao, B.M. Fekete, H.I. Jager, C.J. V\"{o}r\"{o}smarty. Flood risk to power generation in the United States, AGU Fall Meeting, Chicago, IL, December 2022. 
+		
+		\item \textbf{N.D. Jackson}, A. Staid, H. Baroud, P. Johnson, J-P. Watson, and J. Yu. Extreme Weather Drivers During Power Outages in the United States, Society for Risk Analysis Annual Meeting, Tampa, FL, December 2022. 
+		
+		\item M.D. Caballero$^{\dagger}$ (speaker), J. Mott, A. Staid, and \textbf{N.D. Jackson}. Risks of Reductionism: Comparing Climate and Equity Methodologies for Interdisciplinary Energy Justice Research, Society for Risk Analysis Annual Meeting, Tampa, FL, December 2022. 
+		
+		\item \textbf{N.D. Jackson} with J. Desai, A. Walker, and A. Qusaibaty. Understanding Utility-Scale Solar and Storage Operations and Maintenance Cost Drivers. pv magazine webinar. Virtual. December 2022. 
+		
+		\item \textbf{N.D. Jackson}, N. Gayoso, T. Gunda, J. Desai, and A. Walker. Operations and Maintenance Considerations for PV+ Storage and Manufacturers, DuraMat Early Career Scientists Seminar Series, Virtual, April 2022. 
+		
+		\item \textbf{N.D. Jackson}, V.C. Tidwell, N. Voisin, and J. Yoon. Do We Really Trust Projections of Water Scarcity: Case Study of the Colorado River Basin, American Meteorological Society Annual Meeting, Virtual, January 2022.
+		
+		\item \textbf{N.D. Jackson}, A. Staid, J-P Watson, H. Baroud, and J. Yu. Characterization of Extreme Weather Events During Large-Scale Power Outages, Society for Risk Analysis Annual Meeting, Virtual, December 2021.
+		
+		\item \textbf{N.D. Jackson}, T.Gunda, and A. Staid, Weather Impacts On Utility-Scale Photovoltaic Plant Performance, eLightning presentation, AGU Fall Meeting, Virtual, December 2020.
+		
+		\item A. Miara (speaker), J. Macknick, H. Jager, V.C. Tidwell, B.M. Fekete, N. Rao, F. Corsi, C.J. V{\"o}r{\"o}smarty, \textbf{N.D. Jackson}, and S. Cohen, Water Risk for the Bulk Power System: Asset to Grid Impacts, AGU Fall Meeting, Virtual, December 2020.
+		
+		\item \textbf{N.D. Jackson}, Evaluation of Extreme Weather Impacts on Utility-scale Photovoltaic Plant Performance, DuraMat Early Career Scientists Seminar Series, Virtual, October 2020.
+		
+		\item \textbf{N.D. Jackson},  Multi-site Assessment of Extreme Weather Impacts on PV Plant Performance and Reliability, Sandia National Laboratories 2020 Earth Science Symposium, Virtual, May 2020. 
+		
+		\item \textbf{N.D. Jackson}, T. Gunda, Incorporating Compound Weather Events into Utility-scale PV Performance Estimates, PV Performance Modeling Collaborative Workshop, Salt Lake City Utah, May 2020,  NOTE: Cancelled due to COVID-19. 
+		
+		\item \textbf{N.D. Jackson}, M. Konar, P. Debaere, and J. Sheffield, Global Climate Shocks to Agriculture from 1961 to 2014, eLightning presentation, AGU Fall Meeting, San Francisco, CA, December 2019.  
+		
+		\item M. Konar (speaker) and \textbf{N.D. Jackson}, Global Gridded Crop Specific Agricultural Areas from 1961-2014. Fall Meeting of the American Geophysical Union. New Orleans, LA, December 2017.  
+		
+		\item \textbf{N.D. Jackson}, K.I. Tyler, Y. Li, W. Chen, C. Liu and R. Bhargava. Keeping Current: An Update on the Structure and Evaluation of a Program for Graduate Women Interested in Engineering Academia, ASEE Annual Conference \& Exposition, Columbus, Ohio, June 2017.
+		
+		\item K.I. Tyler (speaker), Y. Li, \textbf{N.D. Jackson}, W. Chen, C. Liu and R. Bhargava. Overcoming Difficulties in Research Statement Preparation for the Academic Job Search: Expansion of a Peer-Focused Professional Development Program, ASEE Annual Conference \& Exposition, Columbus, Ohio, June 2017.
+		
+		\item \textbf{N.D. Jackson}, M. Konar, and P. Debaere, Global Crop Allocation and Climate Shocks to Agriculture  from 1950-2015, Midwest Big Data Hub Machine Learning Workshop, Urbana, IL, April 2017.    
+		
+		\item \textbf{N. Jackson}, M. Konar, P. Debaere and J. Sheffield, Global Climate Shocks and Crop Allocation to Agriculture from 1950 - 2015, Civil and Environmental Engineering Department Hydrology Seminar Series, University of Illinois at Urbana-Champaign, January 2017.  
+		
+		\item \textbf{N. Jackson}, M. Konar, P. Debaere and J. Sheffield, Global Climate Shocks to Agriculture from 1950 - 2015, AGU Fall Meeting. San Francisco, CA, December 2016.
+		
+		\item \textbf{N.D. Jackson}, Climate Change and Drought in Marcala, Honduras, Rotary International Vocational Technical Training workshop to Agua y Desarrollo Comunitario, Marcala, Honduras. August 2015. 
+		
+		\item \textbf{N. Jackson}, M. Konar, A.Y. Hoekstra, The Water Footprint of Food Aid, Interdisciplinary Student Summit, Urbana, IL April 2015. 
+		
+		\item \textbf{N. Jackson}, Y. Malave, C.L. Roberts-Wollmann (speaker), S. Case, and J. Lesko. Reliability-based Uniform Flexural Resistance Factors for GFRP Reinforced Concrete Members (presentation), Third International Conference in Composites for Construction, Lyon, France, July 2005. 
+		
+	\end{etaremune}
+	
+	\vspace{-1.5em}
+	\subsection*{Poster Presentations}
+	
+	\begin{etaremune}[]
+		
+		% msd workshop
+		% \item \textbf{N.D. Jackson}, Jean-Paul Watson, Roger Ghanem, Cosmin Safta, Emil Constantinescu, Shinjae Yoo, Aditi Krishnapriyan, Xihaier Luo, and Wei Xu. Probabilistic Impact Scenarios for Extreme Weather Event Resilience, MultiSector Dynamics Workshop, Davis, CA, October 2023.
+		
+		\item \textbf{N.D. Jackson}, J.K. Skolfield, and R.M. Alfant$^{\dagger}$. Translating Compound Hazard Risks into Electric Grid Investment Decisions, AGU25, New Orleans, LA, December 2025. 
+		
+		\item R.M. Alfant$^{\dagger}$, J.K. Skolfield, \textbf{N.D. Jackson}, and T.R. Edwards. Generation and Transmission Expansion Planning for Resilience to Compound Hazards, IEEE Resilience Week, National Harbor, MD, November 2025. 
+		
+		\item R.L. Valdez, T. Gunda, S.B. Ferencz, and \textbf{N.D. Jackson}. Integrated Metrics for System Performance, Attributes, and Critical Threats for Resilience Analysis, IEEE Resilience Week, National Harbor, MD, November 2025. 
+		
+		\item R.L. Valdez, A.G. Moore$^{\dagger}$, \textbf{N.D. Jackson}, and T. Gunda. Evaluating Correlations between Risk Indices and Power Outages during Extreme Events, IEEE Resilience Week, National Harbor, MD, November 2025. 
+		
+		\item A.G. Moore$^{\dagger}$, T. Gunda, and \textbf{N.D. Jackson}. A Hazard-Informed Empirical Assessment of Floods and Snow Impacts to Utility-Scale Photovoltaic Systems, IEEE Resilience Week, National Harbor, MD, November 2025. 
+		
+		\item T. Gunda, \textbf{N.D. Jackson}, and L. Shand. Translation of Climate and Weather Conditions into Energy and Agriculture Sector Risk Assessments. Conference on Data Analysis (CoDA), Santa Fe, NM, February 2025. 
+		
+		\item \textbf{N.D. Jackson}, J.K. Skolfield, and A. Sharma. Transitional States during Compound Extreme Events and Power Outages. Conference on Data Analysis (CoDA), Santa Fe, NM, February 2025. 
+		
+		\item W. Chapman$^{\dagger}$, J.D. Smith, C. Mott,  and \textbf{N.D. Jackson} . Graph Reservoir Networks for Prediction of Spatiotemporal Systems, Conference on Data Analysis (CoDA), Santa Fe, NM, February 2025. 
+		
+		\item \textbf{N.D. Jackson}, T. Gunda, S. Dhulipala, and S. Awara. Fusing Insights from Natural Hazards Assessments for Grid Resilience: A Case Study of Reliable Photovoltaics Production,  AGU Fall Meeting, San Francisco, CA, December 2023.  
+		
+		\item T. Gunda (speaker), \textbf{N.D. Jackson}, K.L. Bonney, S.B. Ferencz. Domain-Informed, Data-Driven Approach to Streamflow Generation and Water Allocations, AGU Fall Meeting, San Francisco, CA, December 2023.  
+		
+		\item \textbf{N.D. Jackson}, E. Constantinescu, R. Ghanem, A. Krishnapriyan, R. Lindrup, X. Luo, C. Safta, J-P Watson, W. Xu, S. Yoo, and G. Zhao. Probabilistic Impact Scenarios for Extreme Weather Event Resilience, MultiSector Dynamics Workshop, Davis, CA, October 2023	
+		
+		\item T. Gunda (speaker) and \textbf{N.D. Jackson}. Extreme Weather Risks to Water-Energy-Food Nexus: A Summary of Latest Insights and  Opportunities, MultiSector Dynamics Workshop, Davis, CA, October 2023	
+		
+		\item S. Gilletly (speaker), \textbf{N.D. Jackson}, H. Baroud, P. Johnson, and A. Staid. Extreme Weather Drivers During Large-Scale Power Outages in the United States, Conference on Data Analysis (CoDA), Santa Fe, NM, March 2023.
+		
+		\item J. Desai (speaker), \textbf{N.D. Jackson}, N. Gayoso, T. Gunda, and A. Walker. Operations and Maintenance Considerations for PV+Storage, RE+ 2022, Anaheim, CA, September 2022.
+		
+		\item H. Mendoza (speaker) and \textbf{N.D. Jackson}. Using Machine Learning for Predictive Modeling of Weather Impacts on Utility-scale Photovoltaic Systems, PV Performance Modeling Collaborative (PVPMC), Salt Lake City, UT, July 2022. 
+		
+		\item \textbf{N.D. Jackson}, V. Tidwell, N. Voisin, and J. Yoon. Projecting Water Scarcity Across Scales: Case Study of the Colorado River Basin, AGU Chapman Conference, Golden, CO, September 2022. 
+		
+		\item N. Gayoso, \textbf{N.D. Jackson} (speaker), T. Gunda, J. Desai, and A. Walker. PV+Storage Operations and Maintenance, 49th IEEE Photovoltaic Specialists (PVSC), Philadelphia, PA, June 2021.
+		
+		\item S. Gilletly (speaker), \textbf{N.D. Jackson} and A. Staid. Quantifying Wildfire-Induced Impacts to Photovoltaic Energy Production in the Western United States, 48th IEEE Photovoltaic Specialists (PVSC), Virtual, June 2021.
+		
+		\item \textbf{N.D. Jackson}, T.Gunda, and A. Staid. Weather Impacts On Utility-Scale Photovoltaic Plant Performance, PV Reliability Workshop, Virtual,  February 2021. 
+		
+		\item \textbf{N.D. Jackson} and T. Gunda.  Reusing Operations \& Maintenance Records: Moving from Reactive to Proactive Management of Solar Photovoltaic Sites. Sandia National Laboratories 13$^{th}$ Annual Postdoctoral Technical Showcase, Albuquerque, NM, December 2019.
+		
+		\item \textbf{N.D. Jackson} and T. Gunda.  Reusing Operations \& Maintenance Records: Moving from Reactive to Proactive Management of Solar Photovoltaic Sites, AGU Fall Meeting, San Francisco, CA, December 2019.  
+		
+		\item M. Konar (speaker), \textbf{N.D. Jackson}, P. Debaere, and J. Sheffield. Trade openness and climate shocks in agriculture, AGU Fall Meeting, San Francisco, CA, December 2019.  
+		
+		\item J. Kolweier (speaker)$^{\dagger}$, T. Bhole (speaker)$^{\dagger}$, and \textbf{N.D. Jackson}. Evaluating FAIRness for Effective Dataset Presentation. University of Illinois at Urbana-Champaign Undergraduate Research Symposium, April 2019. 
+		
+		\item R. von Gnechten (speaker)$^{\dagger}$, M. Konar, \textbf{N.D. Jackson}, K. Baylis, P. Anderson, S. Giroux, T.P. Evans, A network analysis of household food sharing in Zambia, AGU Fall Meeting, San Francisco, CA, December 2018. 
+		
+		\item \textbf{N. Jackson}, M. Konar, A.Y. Hoekstra, The Water Footprint of Food Aid, AGU Fall Meeting, San Francisco, CA, December 2015.
+		
+		\item \textbf{N. Jackson}, M. Konar, A.Y. Hoekstra. The Water Footprint of Food Aid, Illinois Water Day, Urbana, IL, April 2015. 
+		
+		\item \textbf{N. Jackson} and A-P Witmer, The Human-Water Nexus: Effective Engineering Lessons from Fatima, Honduras Water Project, Illinois Water Day, Urbana, IL, April 2015. 
+		
+		
+	\end{etaremune}
+	
+	
+	%----------------------------------------------------------------------------------
+	%     TEACHING
+	%----------------------------------------------------------------------------------
+	
+	%\newpage
+	\section*{Teaching}
+	
+	% NOTE: DON'T FORGET TO MANUALLY EDIT THE NUMBER TEACHING SEMESTERS 3 LINES DOWN!!!!!!
+	% set the number of semesters and instructors
+	% note: taken from https://tex.stackexchange.com/questions/37094/what-is-the-recommended-way-to-assign-a-value-to-a-variable-and-retrieve-it-for
+	\newcommand{\numSemesters}{8}
+	\newcommand{\numSemInstructor}{3}
+	%
+	\numSemesters~semesters teaching experience with \numSemInstructor~as an instructor\\
+	\\
+	%
+	$^{\dagger}$ --  Ranked as outstanding, $^{\ddagger}$ -- Ranked as excellent \\
+	F = Fall, Sp = Spring, Su = Summer
+	
+	% format: bold(title), course name (department), semester
+	%
+	\begin{tabularx}{\textwidth}{lXXl}
+		Role & Course Title & Academic Unit & Term \\
+		\midrule
+		\multicolumn{4}{l}{\textbf{\textit{Vanderbilt University}}}\\
+		\textbf{Guest Lecture} & Energy systems & Civil \& Environmental Engineering & Sp 2023 \\
+		\textbf{Guest Lecture} & Risk, reliability, and resilience engineering & Civil \& Environmental Engineering & Sp 2023 \\
+		\textbf{Guest Lecture} & Data analytics for engineers & Civil \& Environmental Engineering & Sp 2023 \\
+		\\
+		\\
+		\multicolumn{4}{l}{\textbf{\textit{University of Illinois at Urbana-Champaign}}}\\
+		\textbf{Co-Instructor} & iEFX Research & College of Engineering & Su 2018\small{$^{\dagger}$} \\ 
+		\textbf{Co-Instructor} & Writing in the Engineering Fields & College of Engineering & Sp 2018\small{$^{\dagger}$} \\
+		\textbf{Teaching Assistant} & Water Resources Engineering & Civil \& Environmental Engineering & F 2015 \\
+		\textbf{Teaching Assistant} & Mechanics for MatSE & Materials Science \& Engineering & Sp 2014\small{$^{\ddagger}$} \\
+		\textbf{Teaching Assistant} & Thermal-Mech Behavior of Matls & Materials Science \& Engineering & F 2013 \\
+		\textbf{Teaching Assistant} & Thermal-Mech Behavior of Matls & Materials Science \& Engineering & F 2012 \\
+		\\
+		\multicolumn{4}{l}{\textbf{Virginia Tech}}\\
+		\textbf{Instructor} & Mechanical Behavior of Materials Laboratory & Engineering Science and Mechanics & Su 2008 \\ 
+		\textbf{Teaching Assistant} & Engineering Exploration & Engineering Education & F 2007 
+	\end{tabularx}
+	
+	%----------------------------------------------------------------------------------
+	%     MENTORSHIP
+	%----------------------------------------------------------------------------------
+	
+	%\newpage
+	\section*{Mentorship}
+	
+	% set the variables for the trainess
+	\newtotcounter{total_trainees} % total number of trainees across all training programs
+	
+	% NOTE: DON'T FORGET TO MANUALLY EDIT THE NUMBERS 3 LINES DOWN!!!!!!
+	% note: taken from https://tex.stackexchange.com/questions/37094/what-is-the-recommended-way-to-assign-a-value-to-a-variable-and-retrieve-it-for
+	\newcommand{\numTrainingPrograms}{10}
+	\newcommand{\numDirectGrad}{5}
+	\newcommand{\numDirectUG}{8}
+	\newcommand{\numPostdoc}{4}
+	%\newcommand{\numTraineeStudents}{52}
+	%
+	\noindent
+	Provided direct supervision to \numPostdoc~postdocs,  \numDirectGrad~graduate students, and \numDirectUG~undergraduate students as well as mentored \num{\the\totvalue{total_trainees}}~students in  \numTrainingPrograms~training programs
+	\\
+	\\
+	F = Fall, Sp = Spring, Su = Summer
+	
+	\subsection*{Direct Supervision}
+	
+	* --  From a demographic under-represented in STEM fields. Home institutions of Sandia National Laboratories interns noted in parentheses. 
+	
+	% format: Student, Program/Department, Term
+	
+	%\colorbox{yellow}{update postdoc list!}
+	
+	\vspace{-0.5em}
+	%
+	\begin{tabularx}{\textwidth}{lXl}
+		\textbf{Postdocs} \\
+		Rachael M. Alfant\small{$^{*}$} & Sandia National Laboratories & May 2025 -- Present \\
+		Arjun Sharma & Sandia National Laboratories & October 2024 -- September 2025 \\
+		Zachary Kilwein & Sandia National Laboratories & September 2024 -- December 2025\\
+		William Chapman & Sandia National Laboratories & October 2023 -- March 2026 \\
+		\\
+		\textbf{Post-Masters Interns}\\
+		Allen Moore & Sandia National Laboratories & January 2025 -- Present \\
+		\\
+		\textbf{Graduate Students} \\
+		Joshua Mott & Sandia National Laboratories \newline (University of North Carolina) &  Su2024 -- Present \\
+		Allen Moore & Sandia National Laboratories (Georgia Tech) & Sp2024 -- F2024 \\
+		Mariah Caballero\small{$^{*}$} & Sandia National Laboratories \newline (Vanderbilt University) & F2020 -- F2023 \\
+		Natalie Gayoso\small{$^{*}$} & Sandia National Laboratories (University of New Mexico) &  F2021 -- Sp2022 \\
+		Rachel von Gnechten\small{$^{*}$} & University of Illinois at Urbana-Champaign & 2017 -- 2019\\
+		\\
+		%\\
+		\textbf{Undergraduate Students} \\
+		Sarah Paik\small{$^{*}$} & Sandia National Laboratories (Vanderbilt University) & Su2022 -- F2022 \\
+		Joshua Mott & Sandia National Laboratories (University of Florida) &  Su2020 -- Sp2024 \\
+		Tanvi Bhole\small{$^{*}$}  & University of Illinois at Urbana-Champaign Undergraduate Research Apprenticeship Program (UIUC URAP) &  Sp2019 \\
+		Jonathan Kolweier  & UIUC URAP & Sp2019 \\
+		Jacob Povlich  & University of Illinois at Urbana-Champaign Civil \& Environmental Engineering Research Experience for Undergraduates (UIUC CEE REU) & Sp2018 \\
+		Rayan Fadel  & UIUC CEE REU & Sp2018 \\
+		Sajani Gumidyala\small{$^{*}$}   & UIUC CEE REU & Sp2016 \\
+		Namrata Logishetty\small{$^{*}$}  & UIUC CEE REU & Sp2015 \\
+	\end{tabularx}
+	
+	\subsection*{Graduate Committees}
+	
+	% * --  From a demographic under-represented in STEM fields. 
+	
+	% format: Student, Program/Department, Term
+	
+	%\colorbox{yellow}{update postdoc list!}
+	
+	\vspace{-0.5em}
+	%
+	\begin{tabularx}{\textwidth}{lXl}
+		%\textbf{Dissertation Committees} \\
+		Zachary Strasberg & University of New Mexico (Earth \& Planetary Sciences) & September 2024 -- Present 
+	\end{tabularx}
+	
+	%\newpage
+	\subsection*{Training Programs}
+	%
+	Note: number of mentees from a demographic under-represented in STEM fields indicated in parentheses
+	
+	%\vspace{-1.5em}
+	
+	% format: Role, Program, Number of Students, Term
+	
+	\begin{tabularx}{\textwidth}{lXll}
+		Role & Program & Students & Term \\
+		\midrule
+		\textbf{Professional Mentor} & University of Illinois at Urbana-Champaign Mechanical Science \& Engineering Senior Capstone & 4 (1) & F2025 \\
+		\textbf{Professional Mentor} & University of Illinois at Urbana-Champaign Mechanical Science \& Engineering Senior Capstone & 11 (0) & Sp2025 \\
+		\textbf{Professional Mentor} & University of Illinois at Urbana-Champaign Mechanical Science \& Engineering Senior Capstone & 4 (0) & F2024 \\
+		\textbf{Professional Mentor} & University of Illinois at Urbana-Champaign Mechanical Science \& Engineering Senior Capstone & 5 (3) & F2023 \\
+		\textbf{Professional Mentor} & Florida International University College of \newline Engineering \& Computing Senior Design & 5 (4) & F2021 -- Sp2022 \\
+		\textbf{Research Team Leader} & Summer Research Opportunities Program (SROP) \& Incubating a New Community of Leaders Using Software, Inclusion, Innovation, Interdisciplinary and OpeN-Science (INCLUSION) & 12 (8) & Su2019 \\
+		%\textbf{Mentor} & Undergraduate Research Apprenticeship Program & 2 & 2018-2019 \\
+		\textbf{Research Team Leader} & SROP \& INCLUSION & 11 (7) & Su2018 \\
+		\textbf{Research Team Leader} & SROP \& INCLUSION & 10 (6) & Su2017 \\
+		\textbf{Research Team Leader} & SROP  & 8 (8) & Su2016  \\
+		\textbf{Research Team Leader} & SROP  & 6 (6) & Su2009   \\
+	\end{tabularx}
+	
+	% counts for trainees
+	\addtocounter{total_trainees}{4} % UIUC MechSE FA25
+	\addtocounter{total_trainees}{11} % UIUC MechSE SP25
+	\addtocounter{total_trainees}{4} % UIUC MechSE FA24
+	\addtocounter{total_trainees}{5} % UIUC MechSE FA23
+	\addtocounter{total_trainees}{5} % FIU
+	\addtocounter{total_trainees}{12} % SROP INCLUSION
+	\addtocounter{total_trainees}{11} % SROP INCLUSION
+	\addtocounter{total_trainees}{10} % SROP INCLUSION
+	\addtocounter{total_trainees}{8} % SROP 
+	\addtocounter{total_trainees}{6} % SROP 
+	
+	%----------------------------------------------------------------------------------
+	%     SERVICE TO THE PROFESSION
+	%----------------------------------------------------------------------------------
+	
+	%\newpage
+	\section*{Service to the Profession}
+	
+	%\begin{flushleft}
+	%\begin{tabular}{p{0.8\textwidth} p{0.2\textwidth}}
+	%\textbf{Associate Editor}, Earth's Future & 2023 -- Present\\
+	%\textbf{Guest Associate Editor}, Earth's Future Special Collection ``Multi-Sector Dynamics: \newline Advancing Complex and Adaptive Human-Earth Systems Science in a World of \newline Interconnected Risks'' & 2023 -- Present
+	%\end{tabular}
+	%\end{flushleft}
+	
+	\vspace{-2em}
+	%
+	\noindent
+	\begin{flushleft}
+		\begin{tabularx}{\textwidth}{lXl}
+			%\begin{tabular}{>{\raggedright}p{0.25\linewidth} p{0.5\linewidth} p{0.25\linewidth}}
+			\multicolumn{3}{l}{\large{\textbf{Appointed or Elected Leadership}}}\\
+			\textbf{Committee Member} & National Academies Committee on ``Attribution of Extreme Weather and Climate Events and their Impacts`` & 2024 -- 2026 \\
+			\textbf{Associate Editor} & Earth's Future & 2023 -- Present \\
+			\textbf{Guest Associate Editor} & Earth's Future Special Collection ``Multi-Sector Dynamics: Advancing Complex Adaptive Human-Earth Systems Science in a World of Interconnected Risks'' & 2023 -- Present \\
+			\textbf{Advisory Panel Member} & Environmental Research Letters & 2023 -- 2024\\
+			\textbf{Chair} & Natural Hazards Section Student and Early Career Committee, AGU & 2023 -- 2025 \\
+			\textbf{Scientific Steering Group Member} & MultiSector Dynamics Community of Practice  & 2022 -- Present \\
+			\textbf{Steering Committee Member} & Hazards Equity Working Group of the Natural \newline Hazards Section, AGU & 2020 -- 2022 \\
+			\textbf{Board of Directors} & Akelos & 2016 -- 2018 \\
+			\textbf{Membership Chair} & Student Divsion, ASEE  & 2015 -- 2016 \\
+			%
+			\\
+			\multicolumn{3}{l}{\large{\textbf{Committee Membership Involvement}}}\\ 
+			\textbf{Member} & Membership Committee, SIAM & 2023 -- 2024 \\
+			\textbf{Member} & Natural Hazards Section Student and Early Career Committee, AGU & 2019 -- Present \\
+			\textbf{Member} & Earth \& Space Science Informatics Honors Canvassing Committee, AGU  & 2019 -- 2020, 2024 \\
+			%
+			\\
+			%	\\
+			%	\\
+			\multicolumn{3}{l}{\large{\textbf{Conference Organization Involvement}}}\\
+			\textbf{Co-Convener} & Multisector Dynamics: Understanding Extreme Weather, Compound Hazards, and Their Impacts, AGU Fall Meeting & 2025 \\
+			\textbf{Co-Chair} & Multisector Dynamics: Advances in Modeling Adaptive Human Systems, AGU Fall Meeting & 2025 \\
+			\textbf{Co-Organizer} & Contemporary Approaches in Conceptual Climate Modeling, SIAM Dynamical Systems Conference & 2025 \\
+			\textbf{Co-Chair} & Multisector Dynamics: Extreme Weather, Compound Hazards, and Impacts on Society, AGU Fall Meeting & 2023 \\
+			\textbf{Organizing Committee Member} & SIAM-Mathematics of the Planet Earth \newline Conference 2024 & 2023 -- 2024 \\
+			\textbf{Co-Organizer} & MultiSector Dynamics (MSD) Workshop & 2023 \\
+			\textbf{Co-Coordinator} & Outstanding Student Presentation Awards for the Natural Hazards Section, AGU Fall Meeting & 2022 \\
+			\textbf{Co-Convener} & 	Early Career Researcher as an Identity–Unifying Our Understandings and the Implications of \newline Doing So, AGU Fall Meeting & 2022 \\
+			\textbf{Co-Convener} & Geohazards and Society: Striving Towards Improved Natural Hazards Resilience for All, \newline AGU Fall Meeting & 2022 \\
+			\textbf{Co-Convener} & Resilience of Energy Systems, \newline SRA Annual Meeting & 2022 \\
+			\textbf{Co-Organizer} &  Student \& Early Career Conference, \newline AGU Fall Meeting & 2019 -- 2022 \\
+			\textbf{Co-Convener} & PV+Storage, \newline PV Reliability Workshop & 2022 \\
+			\textbf{Judge} & Outstanding Student Paper Award, \newline AGU Fall Meeting & 2021 \\
+			\textbf{Co-Convener} & Student \& Early Career Voices at AGU, \newline AGU Fall Meeting  & 2021  \\
+			\textbf{Co-Convener} & Resilience Modeling of Energy Systems - Parts I/II, \newline SRA Annual Meeting & 2021  \\
+			%
+			\\
+			\multicolumn{3}{l}{\large{\textbf{Reviewing Activities}}}\\
+			\textbf{Selection Committee} & Becoming Everything You Are Awards (formerly Black Engineer of the Year Awards) & 2024 -- Present \\
+			\textbf{Reviewer} & Sandia National Laboratories Laboratory Directed Research \& Development Earth Science Research Foundation & 2024 \\
+			\textbf{Reviewer} & NASA MUREP Inclusion across the Nation of Communities of Learners of Underrepresented Discoverers in Engineering And Science \newline (MUREP INCLUDES) & 2024 \\
+			\textbf{Reviewer} & Water Resources Research & 2024 \\
+			\textbf{Reviewer} & NASA Earth Science Division - Early Career \newline Investigator Program & 2023 \\
+			%	\textbf{Reviewer} & Geophysical Research Letters & 2023 -- Present \\
+			%	\textbf{Reviewer} & Journal of Applied Meteorology and Climatology & 2023 -- Present \\
+			%	\textbf{Reviewer} & EPJ Photovoltaics & 2023 -- Present \\
+			\textbf{Reviewer} & Journal of Open Source Software & 2023 -- Present \\
+			%	\textbf{Reviewer} & Rangeland Ecology \& Management & 2023 -- Present \\
+			\textbf{Conference Reviewer} & Photovoltaic Specialists Conference & 2023 -- Present \\
+			\textbf{Reviewer} & Journal of Hydrology & 2022 -- Present \\
+			\textbf{Reviewer} & Progress in Energy & 2022 -- Present \\
+			\textbf{Reviewer} & Environmental Research Communications & 2022 -- Present \\
+			\textbf{Reviewer} & Artificial Intelligence for the Earth Systems & 2022 -- Present \\
+			\textbf{Panel Reviewer} & U.S. Department of Energy Office of Science & 2022 \\
+			\textbf{Reviewer} & Earth's Future & 2021 -- Present \\
+			\textbf{Conference Reviewer} &  IEEE Resilience Week & 2021 -- Present \\
+			\textbf{Reviewer} & Environmental Research Letters  & 2016 -- Present  \\
+			\textbf{Conference Reviewer} & ASEE Annual Convention & 2015 -- 2022 \\
+			%
+			\\
+			%	\\
+			%	\\
+			\multicolumn{3}{l}{\large{\textbf{Membership in Professional Societies}}}\\
+			\multicolumn{2}{l}{Society for Risk Analysis (SRA)}& 2021 -- Present \\
+			\multicolumn{2}{l}{American Meteorological Society (AMS)} & 2021 -- Present \\
+			\multicolumn{2}{l}{American Society for Civil Engineers (ASCE)} & 2015 -- Present \\
+			\multicolumn{2}{l}{American Geophysical Union (AGU)} & 2014 -- Present \\
+			\multicolumn{2}{l}{Society of Women Engineers (SWE)} & 2014 -- Present\\
+			\multicolumn{2}{l}{American Society for Engineering Education (ASEE)} & 2014 -- Present \\
+			\multicolumn{2}{l}{Society for Industrial and Applied Mathematics (SIAM)} & 2008 -- Present \\
+			\multicolumn{2}{l}{American Concrete Institute (ACI)} & 2004 -- 2008
+			%\end{tabular}		
+		\end{tabularx}
+	\end{flushleft}
+	
+	
+	%----------------------------------------------------------------------------------
+	%     UNIVERSITY, NATIONAL LABORATORY, AND COMMUNITY SERVICE
+	%----------------------------------------------------------------------------------
+	
+	%\newpage
+	% reduce spacing
+	\vspace{-3em}
+	
+	\section*{National Laboratory, University, and Community Service}
+	
+	\vspace{-2em}
+	%
+	\noindent
+	\begin{flushleft}
+		\begin{tabularx}{\textwidth}{lXl}
+			\multicolumn{3}{l}{\large{\textbf{Sandia National Laboratories Service}}}\\
+			% \textbf{Hiring Committee Member} & Future Of Research in Climate, Earth and Energy (FORCEE) Student Internship Program & 2022 \\
+			\textbf{Supplemental Mentor} & Security top Academic Research \& Talent at Historically Black Colleges and Universities Program (START HBCU) &  2024 -- Present \\
+			\textbf{Member} & Analytics for Climate and Earth Sciences (ACES) Data Working Group & 2022 -- Present \\
+			\textbf{Planning Member} &  ACES Community of Practice (CoP) & 2021 -- Present \\
+			\textbf{Core Member} & Electric Grid CoP & 2020 -- 2023 \\
+			%
+			\\
+			\\
+			%		\\
+			\multicolumn{3}{l}{\large{\textbf{University of Illinois at Urbana-Champaign Campus Service}}}\\ 
+			\textbf{Laboratory Assistant} & Girls' Adventure in Mathematics (GAMES), Engineering and Science Environmental Engineering and Sustainability (EES) Camp & 2019 \\
+			\textbf{Interdisciplinary Representative} & Department of Civil and Environmental Engineering Graduate Student Advisory Committee & 2017--2019 \\
+			\textbf{Instructor} & Worldwide Youth in Science \& Engineering Camp Engineering Ethics session & 2017--2018 \\
+			\textbf{Chair} & Engineering Graduate Student Advisory Committee & 2017-2018 \\
+			\textbf{Vice Chair} & Campus Student Election Commission & 2016--2017 \\
+			\textbf{President} &  ASEE Student Chapter & 2016--2017 \\
+			\textbf{Co-Coordinator} & Illinois Female Engineers in Academia Training & 2015--2018 \\
+			\textbf{Alumni Mentor} &  Honduras Water Project & 2015--2018 \\
+			\textbf{Student Member, Secretary} &  Campus Student Election Commission & 2015--2016 \\
+			\textbf{Camp Co-Coordinator}& GAMES EES Camp & 2014--2017 \\
+			\textbf{Publicity Chair} & ASEE Student Chapter & 2014--2015 \\
+			\textbf{Student Member} &  LGBT Resource Center Advisory Committee & 2014-2015 \\
+			\textbf{Student Consultant on Teaching} &  College of Engineering & 2013-2019 \\
+			%
+			\\
+			\multicolumn{3}{l}{\large{\textbf{Virginia Tech Campus Service}}}\\
+			\textbf{Panelist} & Graduate Honor System & 2007--2008 \\
+			& & 2004--2005\\
+			\textbf{Department Representative} & College of Engineering Graduate Student Advisory Committee & 2004--2005 \\
+			%
+			%		\\
+			\\
+			\multicolumn{3}{l}{\large{\textbf{Community}}}\\
+			\textbf{Co-Founder} & Strategic Preparation for Academic Resilience and Know-how & 2021 -- Present \\
+			\textbf{Co-Organizer} &  Scientific Olympiad's Write It Do It Event, \newline Albuquerque, NM & 2020 \\
+			\textbf{Land Use Fellow} &  MIT Climate CoLab & 2017--2018 \\
+			\textbf{Energy-Water Nexus Fellow} & MIT Climate CoLab & 2017 \\
+			\textbf{Waste Management Fellow} & MIT Climate CoLab & 2016 \\
+			\textbf{Member} & Mali Water Project & 2015--2016 \\
+			\textbf{Volunteer Judge} &  FIRST LEGO League of Illinois & 2013--2017 \\
+			\textbf{Mentor} & University of Illinois Laboratory High School & 2013 \\
+			\textbf{Reviewer} & Martin Luther King Jr. Creative Expressions Competition & 2013 \\
+			\textbf{Volunteer} &  Awesome Ladies Preparing for High Achievement Program, Jefferson Middle School, Champaign, IL & 2008 \\
+			\textbf{Volunteer Judge} &  FIRST LEGO League of Virginia & 2004--2005
+			
+		\end{tabularx}
+	\end{flushleft}
+	
+	
+	
+	%----------------------------------------------------------------------------------
+	%     MEDIA
+	%----------------------------------------------------------------------------------
+	
+	\vspace{-3em}
+	%\newpage
+	\section*{Selected Media}
+	
+	%$\dagger$--  Coverage of research, 
+	$\ddagger$ -- Interview with N.\,D.~Jackson \\
+	$\ast$ -- Interview with co-author with coverage of collaborative work
+	
+	\vspace{-0.5em}
+	% format: source: ``(title)", author, date
+	
+	\subsection*{Profiles, Panels, and Invited Commentary}
+	\begin{etaremune}[]
+		
+		\item University of Illinois at Urbana-Champaign: ``Women in Statistics and Data Science Panel highlights career perspectives and practical advice'' by Aaron Thompson, 21 October 2025 (\href{https://stat.illinois.edu/news/2025-10-21/women-statistics-and-data-science-panel-highlights-career-perspectives-and}{\textcolor{blue}{link}}).
+		
+		\item Society for Industrial and Applied Mathematics: ``MPE24 Panel Explores Mathematical Careers in Earth Science and Sustainability'' by Jillian Kunze, 01 October 2024 (\href{https://www.siam.org/publications/siam-news/articles/mpe24-panel-explores-mathematical-careers-in-earth-science-and-sustainability/}{\textcolor{blue}{link}}).
+		
+		\item Sandia Lab News: ``Five Sandia Labs scientists earn 2024 Black Engineer of the Year Awards'', 28 February 2024 (\href{https://newsreleases.sandia.gov/beya_2024/}{\textcolor{blue}{link}}).
+		
+		\item $\ddagger$ Society for Risk Analysis Podcasts -- Let's Talk Risk: ``All Things Extreme Weather Events: Outages, Patterns, Restoration, \& More'' by Ben Rachunok, 22 March 2022 (\href{https://societyriskanalysis.libsyn.com/all-things-extreme-weather-events-outages-patterns-restoration-more}{\textcolor{blue}{link}}).
+		
+		\item Sandia Lab News: ``Sandia Shines in Inaugural Bay Area Postdoctoral Research SLAM'' by Amy Treece, 10 December 2021 (\href{https://www.sandia.gov/labnews/2021/12/10/sandia-shines-in-inaugural-bay-area-postdoctoral-research-slam/}{\textcolor{blue}{link}}).
+		
+	\end{etaremune}
+	
+	
+	\subsection*{Press coverage of research on weather impacts to solar energy}
+	
+	
+	\begin{etaremune}[]
+		
+		\item $\ast$ The Weather Channel Storm Center: ``Solar Panels and Storms: How Do They Hold Up", 06 November 2023.
+		
+		\item Ars Technica: ``The Stormy Relationship Between Solar Power and the Weather" by Doug Johnson, 14 September 2021 (\href{https://arstechnica.com/science/2021/09/the-stormy-relationship-between-solar-power-and-the-weather/}{\textcolor{blue}{link}}).
+		
+		\item  PV Magazine: ``Measuring Impacts on Solar Performance, Whatever the Weather" by Mark Hutchins, 01 September 2021 (\href{https://pv-magazine-usa.com/2021/09/01/measuring-impacts-on-solar-performance-whatever-the-weather/}{\textcolor{blue}{link}}).
+		
+		%\item Meteorological Technology International: ``Snowstorms Found to Have the Biggest Impact on US Solar Farm Production" by Dan Symonds, 01 September 2021 (\href{https://www.meteorologicaltechnologyinternational.com/news/renewable-energy/snowstorms-found-to-have-the-biggest-impact-on-us-solar-farm-production.html}{\textcolor{blue}{link}}).
+		
+		%\item Technology Times: ``Use of Machine Learning to Study Impacts of Severe Weather on US Solar Farms" by Zainab Asif, 01 September 2021. 
+		
+		%\item Lab Manager: ``Researchers Uncover Hidden Factors That Affect Solar Farms during Severe Weather", 01 September 2021. 
+		
+		%\item Focus Technica: ``Measuring Impacts, Whatever the Weather" by Peter Moore, 01 September 2021. 
+		
+		%\item Eurasia Review: ``Sandia Uncovers Hidden Factors That Affect Solar Farms During Severe Weather", 01 September 2021.
+		
+		%\item Tech Post and Science: ``Machine Learning Identifies Hidden Factors That Affect Solar Farms During Severe Weather", 31 August 2021. 
+		
+		%\item Tech Xplore: ``Machine Learning Identifies Hidden Factors That Affect Solar Farms During Severe Weather", 31 August 2021. 
+		
+		%\item Science Daily: ``Hidden Factors That Affect Solar Farms During Severe Weather", 31 August 2021. 
+		
+		%\item Environmental News Network: ``Sandia Uncovers Hidden Factors That Affect Solar Farms During Severe Weather", 31 August 2021.
+		
+		\item Sandia Lab News: ``Sandia Uncovers Hidden Factors That Affect Solar Farms During Severe Weather" by Mollie Rappe, 27 August 2021.
+		
+		\item Additional coverage appeared in \textit{Meteorological Technology International}, \textit{Environmental News Network}, \textit{Tech Xplore}, and other outlets (2021).
+		
+	\end{etaremune}
+	
+	
+	
+\end{document}
