@@ -29,7 +29,7 @@ I am a Principal Member of the Technical Staff at [Sandia National Laboratories]
 - Mentor postdocs, graduate students, and undergraduates in hazard modeling and data-driven risk analysis
 
 ### Research Impact & Recognition:
-- 43 peer reviewed publications across the energy, water, and food sectors
+- Over 40 peer reviewed publications across the energy, water, and food sectors
 - $3.9M in directly managed research funding
 - Co-investigator or task lead on $15.7M+ in multi-institution projects
 - Best Paper Award, 2025 IEEE Resilience Week
