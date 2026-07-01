@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Extreme Weather · Infrastructure Resilience · Machine Learning"
+title: "Extreme Weather · Infrastructure Resilience · Physical Climate Risk"
 excerpt: "Quantifying how extreme weather disrupts the systems we depend on and building the models to predict it."
 author_profile: true
 redirect_from: 
