@@ -41,7 +41,7 @@ I am a Principal Member of the Technical Staff at [Sandia National Laboratories]
 - Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
 
 ### Research Applications:
-*Physical* climate risk* | *Extreme value theory* | *Catastrophe risk analytics* | *Extreme weather impacts* | *Infrastructure resilience* | *Grid and energy resilience* | *Water systems* | *Sub-seasonal prediction* | *Decision-relevant risk modeling*
+*Physical climate risk* | *Extreme value theory* | *Catastrophe risk analytics* | *Extreme weather impacts* | *Infrastructure resilience* | *Grid and energy resilience* | *Water systems* | *Sub-seasonal prediction* | *Decision-relevant risk modeling*
 
 <script>
 async function updateHomepagePublicationCount() {
