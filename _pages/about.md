@@ -26,14 +26,14 @@ I am a Principal Member of the Technical Staff at [Sandia National Laboratories]
 
 ### What I Do:
 - Quantify extreme weather impacts on utility-scale solar, power systems, and water infrastructure
-- Apply extreme value theory, spatiotemporal statistical modeling, reservoir computing, and interpretable machine learning to gridded climate and operational data
+- Apply extreme value theory, spatiotemporal statistical modeling, and interpretable machine learning to gridded climate and operational data
 - Develop reservoir computing methods for sub-seasonal drought forecasting
 - Lead multi-institution projects across government, industry, and academic partners
 - Translate hazard and climate data into planning, operations, resilience, and risk-management decisions
 - Mentor postdocs, graduate students, and undergraduates in hazard modeling and climate risk analysis
 
 ### Research Impact & Recognition:
-- 44 peer-reviewed publications, including 11 first-authored papers, across the energy, water, food, and infrastructure resilience sectors
+- 44 peer-reviewed publications, including 11 first-authored papers, across the energy, water, and food sectors
 - $3.9M in directly managed research funding
 - Patent pending on Graph Reservoir Networks
 - Best Paper Award, 2025 IEEE Resilience Week
