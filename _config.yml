@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Extreme Weather · Infrastructure Resilience · Physical Climate Risk"
+title                    : "Physical Climate Risk · Extreme Weather · Infrastructure Resilience"
 title_separator          : "-"
 name                     : &name "Nicole D. Jackson, Ph.D."
 description              : &description "personal description"
