@@ -84,7 +84,7 @@ For publications without an open-access link, please feel free to contact me if 
 
 <ol id="journal-articles-list">
 
-  <li> A.G. Moore, R.L. Valdez, T. Gunda, and <b>N.D. Jackson</b>. (<em>in press</em>, 2026) An Analysis of the Duration and Severity of Power Outages During Weather Events Across U.S. Counties, <em>Environmental Research: Energy</em> </li>
+  <li> Placeholder article </li>
   
   <li> K.L. Bonney, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b>. (2026) <a href="https://doi.org/10.1088/2515-7620/ae4cf9" style="color: black">Emulation of Monthly Water Allocations Using LSTM Models: A Case Study of the Colorado River Basin in Texas</a>, <em>Environmental Research Communications</em>, Vol 8, Issue 5 pp 055040 <a href="https://doi.org/10.5281/zenodo.13870503"> code </a> and <a href="https://doi.org/10.57931/2441443"> data </a></li>
 
