@@ -116,7 +116,7 @@ For publications without an open-access link, please feel free to contact me if 
 
 <ol id="conference-proceedings-list">
 
-  <li>W.G. Chapman, J.D. Smith, C. Teeter, and <b>N.D. Jackson</b> (2026) Graph Reservoir Networks for Prediction of Spatiotemporal Systems, <em>Proceedings of the 2026 Neuro Inspired Computational Elements Conference</em>, Atlanta, Georgia </li>
+  <li>W.G. Chapman, J.D. Smith, C. Teeter, and <b>N.D. Jackson</b> (2026) <a href="https://doi.org/10.1109/NICE69539.2026.11567497" style="color: black">Graph Reservoir Networks for Prediction of Spatiotemporal Systems</a>, <em>Proceedings of the 2026 Neuro Inspired Computational Elements Conference</em>, Atlanta, Georgia </li>
   
   <li><b>N.D. Jackson</b>, A. Sharma, and J.K. Skolfield (2025) <a href="https://doi.org/10.1109/RWS66711.2025.11304397" style="color: black">Spatio-Temporal Modeling of Compound Threats to Power Systems Using Markov Random Fields</a>, <em>2025 IEEE Resilience Week (RWS)</em>, National Harbor, Maryland</li>
 
