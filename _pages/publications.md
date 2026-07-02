@@ -17,7 +17,7 @@ author_profile: true
 <style>
 /* Journal Articles - J prefix, reverse numbering */
 #journal-articles-list {
-  counter-reset: journal-counter var(--journal-total, 14);
+  counter-reset: journal-counter var(--journal-total, 15);
   list-style: none;
   padding-left: 0;
 }
@@ -84,6 +84,8 @@ For publications without an open-access link, please feel free to contact me if 
 
 <ol id="journal-articles-list">
 
+  <li> A.G. Moore, R.L. Valdez, T. Gunda, and <b>N.D. Jackson</b>. (<em>in press</em>, 2026) An Analysis of the Duration and Severity of Power Outages During Weather Events Across U.S. Counties, <em>Environmental Research: Energy</em> </li>
+  
   <li> K.L. Bonney, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b>. (2026) <a href="https://doi.org/10.1088/2515-7620/ae4cf9" style="color: black">Emulation of Monthly Water Allocations Using LSTM Models: A Case Study of the Colorado River Basin in Texas</a>, <em>Environmental Research Communications</em>, Vol 8, Issue 5 pp 055040 <a href="https://doi.org/10.5281/zenodo.13870503"> code </a> and <a href="https://doi.org/10.57931/2441443"> data </a></li>
 
   <li>H.H. Bokhari, F. Corsi, A. Miara, B.M. Fekete, S. Gangrade, S. Kao, <b>N.D. Jackson</b>, and C.J. V&ouml;r&ouml;smarty. (2025) <a href="https://doi.org/10.1029/2025EF006203" style="color: black">An Integrated Hydroclimatic Assessment of Future Reservoir and Hydropower Operations in the U.S.</a>, <em>Earth's Future</em>, Vol 13, Issue 9 pp e2025EF006203 <a href="https://doi.org/10.5281/zenodo.14272679">code and data</a></li>
