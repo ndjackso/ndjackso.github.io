@@ -1,0 +1,244 @@
+%% PREAMBLE
+
+\PassOptionsToPackage{prologue,dvipsnames}{xcolor}
+
+\documentclass{article}[12pt]
+
+% ATS fix: map ligatures (fi, fl, etc.) to real unicode characters so
+% copy/paste and resume parsers extract clean text
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[cm]{fullpage}
+
+% set the documents geometry
+\usepackage[margin=0.85in, paperwidth=8.5in, paperheight=11in]{geometry}
+
+% reverse enumeration
+\usepackage[]{etaremune}
+
+% additional itemization
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+% set the format for dates
+\usepackage{datetime}
+
+\newdateformat{monthyeardate}{%
+	\THEDAY ~\monthname[\THEMONTH]~\THEYEAR}
+
+% colors
+\usepackage{xcolor}
+\definecolor{sandiaBlue}{HTML}{0F2E54}
+\definecolor{sandiaRed}{HTML}{800700}
+
+% format section titles
+\usepackage[explicit]{titlesec}
+
+\newcommand{\raisedrulefill}[2][0ex]{\leaders\hbox{\textcolor{sandiaBlue}{\rule[#1]{1pt}{#2}}}\hfill}
+
+\titleformat{\section}{\large\bfseries\color{RoyalBlue}}{\thesection. }{0em}{#1\,\raisedrulefill[0.4ex]{2pt}}
+
+% headers and footers
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{xparse}
+
+\let\CLASSsection\section
+
+\RenewDocumentCommand{\section}{som}{%
+	\IfBooleanTF{#1}
+	{% there's a *
+		\CLASSsection*{#3}\markboth{#3}{}%
+	}
+	{% no *
+		\IfNoValueTF{#2}
+		{% no opt arg
+			\CLASSsection{#3}%
+		}
+		{% opt arg
+			\CLASSsection[#2]{#3}%
+		}%
+	}%
+}
+
+% headers and footers for when section runs onto the next page
+\pagestyle{fancy}
+\setlength\voffset{-0.3in}
+\setlength\headheight{0.25in}
+\setlength\headsep{0.05in}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%
+\futurelet\TMPheadrule\def\headrule{{\color{sandiaBlue}\TMPheadrule}}
+\futurelet\TMPfootrule\def\footrule{{\color{sandiaBlue}\TMPfootrule}}
+%
+\lhead{\textsc{Nicole D. Jackson, Ph.D.}}
+\chead{}
+\rhead{\href{mailto:jackson.nicole.d@gmail.com}{jackson.nicole.d@gmail.com}}
+\lfoot{}
+\rfoot{}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+
+% ATS fix: first page has NO header content; name and contact info are
+% placed in the document body instead, since some parsers skip the
+% header/footer regions of the PDF
+\fancypagestyle{firstPage}{
+	\fancyhf{}
+	\setlength\voffset{-0.3in}
+	\setlength\headheight{0.25in}
+	\setlength\headsep{0.05in}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.5pt}
+	\lhead{}
+	\rhead{}
+	\chead{}
+	\lfoot{}
+	\rfoot{}
+	\cfoot{Page \thepage\ of \pageref{LastPage}}
+}
+
+% make a wider line in the table
+\newcolumntype{?}{!{\vrule width 1.5pt}}
+
+% additional packages
+\usepackage[hidelinks]{hyperref}
+
+% use a sans serif font
+\usepackage{cmbright}
+
+% tables
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+
+% coerce document spacing
+\usepackage{setspace}
+\singlespacing
+
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{needspace} % helps with spacing
+
+
+\begin{document}
+	
+	% use the first page header style
+	\thispagestyle{firstPage}
+	
+	% contact info in the BODY (ATS-safe)
+	\begin{center}
+		\textbf{\Large{Nicole D. Jackson, Ph.D.}}\\
+		\href{mailto:jackson.nicole.d@gmail.com}{jackson.nicole.d@gmail.com} $\cdot$ (312) 852.9734 \\
+		\href{https://ndjackso.github.io}{https://ndjackso.github.io} $\cdot$ \href{https://www.linkedin.com/in/nicole-jackson-53a791232}{https://www.linkedin.com/in/nicole-jackson-53a791232}
+	\end{center}
+	
+	\vspace{-1em}
+	\section*{Professional Summary}
+	\vspace{-0.75em}
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item Scientist with 10+ years modeling climate and weather impacts on critical infrastructure (i.e., energy, water, and food) and coupled human-natural systems.
+		\item Principal Member of the Technical Staff at Sandia National Laboratories, translating climate, hazard, operational, and asset-level data into decision-ready risk insights.
+		\item Technical focus: spatio-temporal modeling, probabilistic prediction, tail risk, stochastic scenario generation, uncertainty quantification, and applied AI.
+		\item 44 peer-reviewed publications, 1 pending patent, \$3.9M managed of \$15.7M in secured funding, IEEE Resilience Week 2025 Best Paper, and National Academies committee service.
+	\end{itemize}
+	
+	\vspace{-0.75em}
+	\section*{Professional Experience}
+	\vspace{-0.5em}
+	
+	\textbf{Sandia National Laboratories}, Albuquerque, NM \hfill{} 11/2019--Present \\
+	Principal Member of the Technical Staff \hfill{} 04/2025--Present \\
+	Senior Member of the Technical Staff \hfill{} 07/2021--04/2025 \\
+	Postdoctoral Appointee \hfill{} 11/2019--07/2021\\ [0.25em]
+	
+	\vspace{-0.25em}
+	\noindent\textbf{Climate Risk and Infrastructure Impact Modeling}
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item Built spatio-temporal Markov random field models to estimate outage probabilities following compound wildfire and flood events in California and Texas.
+		\item Applied outage probabilities in a Texas capacity expansion use case to evaluate grid reliability under extreme events.
+		\item Fused outage records, storm reports, and gridded reanalysis across 3{,}000+ U.S. counties to characterize outages.
+		\item Quantified solar generation impacts across 186 sites in 16 states using reanalysis, station observations, and storm-event data.
+		\item Measured solar generation impacts from hurricanes ($-$12.6\%), snow ($-$54.5\%), and storms ($+$1.1\%) to support renewable energy risk assessment.
+		\item Directed development of a wildfire smoke solar loss model (R$^{2}=0.91$) with average smoke-driven derates of 8.3\% across 53 sites.
+		\item Modeled drought-driven water allocation trade-offs using multi-decadal hydrologic data across Texas basins.
+	\end{itemize}
+	
+	\vspace{0.5em}
+	\noindent
+	\textbf{AI, Statistical Modeling, and Scenario Generation}
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item Principal Investigator, EPIC PLANN (\$1.4M): developing graph-based reservoir computing for sub-seasonal, watershed-scale drought prediction across western U.S. basins using the 4-km CONUS404 reanalysis.
+		\item Demonstrated preliminary skillful drought forecast horizons of $\sim$13 weeks in select western U.S. basins.
+		\item Co-invented Graph Reservoir Networks for prediction of spatiotemporal systems (patent 19/550,784 pending).
+		\item Directed development of an LSTM emulator of monthly water allocation behavior (MSE = 0.034) for rapid hydrologic-extreme scenario evaluation.
+		\item Directed generation of 21{,}000 climate-informed streamflow sequences using Bayesian HMMs to evaluate water allocations under extremes.
+		\item Co-directed GAN-based generation of 50{,}000 synthetic extreme scenarios for stress testing power system tail behavior.
+		\item Applied Random Forest and LIME methods in R to identify weather, operational, and metadata variables associated with low solar performance.
+	\end{itemize}
+	
+	\vspace{0.5em}
+	\noindent
+	\textbf{Research Leadership and Translation}
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item Directed 8 multi-hazard modeling projects for national laboratories, universities, and industry partners.
+		\item Led 2--7 person cross-disciplinary teams to deliver milestones, budgets, technical reports, and stakeholder briefings.
+		\item Managed \$3.9M in research funding within a \$15.7M portfolio spanning climate risk, grid resilience, energy-water systems, and applied AI.
+		\item Processed 50{,}000+ O\&M records from 800+ solar sites in 24 states and  integrated weather and storm data.
+	\end{itemize}
+	
+	\vspace{0.5em}
+	\Needspace{8\baselineskip}
+	\noindent
+	\textbf{University of Illinois at Urbana-Champaign}, Graduate Research Assistant \hfill 2014--2019
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item Built probabilistic global maps of crop-specific areas and a framework quantifying crop exposure to temperature and moisture extremes for 17 crops over 50+ years.
+		\item Conducted network analysis of global food trade dynamics to evaluate how climate shocks in production regions propagate through agricultural systems.
+		\item Produced 4 journal papers and 2 public datasets from interdisciplinary research linking climate variability, water resources, agriculture, and trade.
+	\end{itemize}
+	
+	\vspace{-1em}
+	\section*{Technical Skills}
+	\vspace{-0.5em}
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item \textbf{R}: primary for statistical modeling: tidyverse, caret, lime, extRemes, shiny.
+		\item \textbf{Python}: pandas, geopandas, NumPy, SciPy, statsmodels, NetworkX, ReservoirPy, SHAP, git; working familiarity with PyTorch.
+		\item \textbf{AI / Machine Learning}: Random Forests, LSTM, reservoir computing, graph reservoir networks, Bayesian HMMs, Markov random fields, explainable AI.
+		\item \textbf{Statistical methods}: extreme value analysis, tail risk, spatio-temporal modeling, stochastic scenario generation, probabilistic prediction, uncertainty quantification.
+		\item \textbf{Data}: gridded reanalysis and climate model output, station observations, storm-event records, outage data, asset-level performance data, hydrologic records, operational logs.
+		\item \textbf{Domains}: climate risk, critical infrastructure resilience, renewable energy, electric grid reliability, drought and hydrologic prediction, energy-water systems, agricultural climate exposure.
+	\end{itemize}
+	
+	\vspace{-1em}
+	\section*{Selected Recognition}
+	\vspace{-0.5em}
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item \textbf{Best Paper Award}, IEEE Resilience Week (highest reviewer score among all accepted papers) \hfill 2025
+		\item \textbf{Member}, National Academies Committee on ``Attribution of Extreme Weather and Climate Events and their Impacts'' \hfill 2024--2026
+		\item \textbf{Most Promising Engineer in Industry Award}, Black Engineer of the Year Awards \hfill 2024
+		\item \textbf{MGB-SIAM Early Career Fellow} (1 of 10, inaugural class) \hfill{}2022--2024
+	\end{itemize}
+	
+	
+	\vspace{-1em}
+	\section*{Education}
+	\vspace{-0.5em}
+	\begin{itemize}[leftmargin=*]
+		\itemsep0em
+		\item \textbf{Ph.D., Civil Engineering}, University of Illinois at Urbana-Champaign \hfill{} 2020
+		\item \textbf{M.S., Materials Science \& Engineering}, University of Illinois at Urbana-Champaign \hfill{} 2014
+		\item \textbf{M.S., Engineering Mechanics}, Virginia Tech \hfill{} 2008
+		\item \textbf{B.S., Civil Engineering}, University of Illinois at Urbana-Champaign \hfill{} 2005
+	\end{itemize}
+	
+\end{document}
