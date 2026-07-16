@@ -37,7 +37,7 @@ I am a Principal Member of the Technical Staff at [Sandia National Laboratories]
 - $3.9M in directly managed research funding
 - Patent pending on Graph Reservoir Networks
 - Best Paper Award, 2025 IEEE Resilience Week
-- Member of the National Academies committee on [Attribution of Extreme Weather and Climate Events and their Impacts](https://www.nationalacademies.org/our-work/attribution-of-extreme-weather-and-climate-events-and-their-impacts)
+- Member of the National Academies committee on [Attribution of Extreme Weather and Climate Events and their Impacts](https://www.nationalacademies.org/our-work/attribution-of-extreme-weather-and-climate-events-and-their-impacts). Click [here](https://doi.org/10.17226/28590) to access the committee consensus report that was released in July 2026. 
 - Associate Editor, [Earth's Future](https://agupubs.onlinelibrary.wiley.com/journal/23284277) journal
 
 ### Research Applications:
