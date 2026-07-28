@@ -17,7 +17,7 @@ author_profile: true
 <style>
 /* Journal Articles - J prefix, reverse numbering */
 #journal-articles-list {
-  counter-reset: journal-counter var(--journal-total, 15);
+  counter-reset: journal-counter var(--journal-total, 16);
   list-style: none;
   padding-left: 0;
 }
@@ -84,7 +84,9 @@ For publications without an open-access link, please feel free to contact me if 
 
 <ol id="journal-articles-list">
 
-  <li> A.G. Moore, R.L. Valdez, T. Gunda, and <b>N.D. Jackson</b>. (in press, 2026) <a href="https://doi.org/10.1088/2753-3751/ae854b" style="color: black">An Analysis of the Duration and Severity of Power Outages During Weather Events Across U.S. Counties</a>, <em>Environmental Research: Energy</em> <a href="https://doi.org/10.5281/zenodo.21073668"> data</a> </li>
+  <li> N. Rao, J. Lala, A. Miara, S. Cohen, H. Bokhari, <b>N.D. Jackson</b>, and F. Corsi. (<em>in press</em>, 2026) <a href="#" style="color: black">Measuring Climate and Water Risk across the Bulk Power System</a>, to appear in <em>Environmental Science &amp; Technology</em> </li>
+
+  <li> A.G. Moore, R.L. Valdez, T. Gunda, and <b>N.D. Jackson</b>. (2026) <a href="https://doi.org/10.1088/2753-3751/ae854b" style="color: black">An Analysis of the Duration and Severity of Power Outages During Weather Events Across U.S. Counties</a>, <em>Environmental Research: Energy</em> <a href="https://doi.org/10.5281/zenodo.21073668"> data</a> </li>
   
   <li> K.L. Bonney, T. Gunda, S.B. Ferencz, and <b>N.D. Jackson</b>. (2026) <a href="https://doi.org/10.1088/2515-7620/ae4cf9" style="color: black">Emulation of Monthly Water Allocations Using LSTM Models: A Case Study of the Colorado River Basin in Texas</a>, <em>Environmental Research Communications</em>, Vol 8, Issue 5 pp 055040 <a href="https://doi.org/10.5281/zenodo.13870503"> code </a> and <a href="https://doi.org/10.57931/2441443"> data </a></li>
 
